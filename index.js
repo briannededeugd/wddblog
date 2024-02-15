@@ -7,6 +7,7 @@
  * @description    :  This is my blog for the minor Web Design & Development (and beyond...)
  *================================================================================================**/
 
+const helmet = require("helmet");
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -15,6 +16,16 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.disable("etag");
+
+app.use(helmet());
+app.use(
+	helmet.contentSecurityPolicy({
+		directives: {
+			defaultSrc: ["'self'"], // Default rule for all sources
+			imgSrc: ["'self'", "https://wddblog.vercel.app"], // Allows images from the domain
+		},
+	})
+);
 
 /**========================================================================
  *                           TEMPLATING ENGINE
