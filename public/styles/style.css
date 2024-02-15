@@ -8,7 +8,7 @@
 
     /* Padding and margins */
     --button-padding: 1.5vh 2.5vw;
-    --navitem-margin: 0 1.5vw;
+    --navitem-margin: 0;
     --sections-margin: 5vh 0;
 
     /* Borders */
@@ -99,19 +99,21 @@ i {
     display: inline;
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto 0 2.5vw;
 }
 
 .header li {
     display: inline;
-    min-width: 10vw;
+    min-width: 100px;
     border-radius: var(--border-radius);
+    font-weight: 300;
 
     padding: var(--button-padding);
     margin: var(--navitem-margin);
     background-color: none;
     -webkit-transition: background-color .3s; /* For Safari 3.0 to 6.0 */
     transition: background-color .3s; /* For modern browsers */
+    cursor: pointer;
 }
 
 .header li:first-of-type {
