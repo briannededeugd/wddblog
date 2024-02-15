@@ -24,9 +24,20 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 5vh;
+    font-size: 6vh;
+    margin-bottom: .5em;
 }
 
+.name::after {
+    content: "";
+    display: inline-block;
+    background-image: url("../images/fenna.jpg");
+    background-size: cover;
+    height: 4vh;
+    width: 10vw;
+    margin: .5vh 0 0 .5vw;
+    border-radius: var(--border-radius);
+}
 body {
     font-family: 'Work Sans', sans-serif;
     margin: 5vh 5vw;
