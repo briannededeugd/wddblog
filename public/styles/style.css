@@ -13,8 +13,8 @@
 
     /* Borders */
     --border-radius: 25px;
-    --bg-urlone: url("https://source.unsplash.com/cItcSJS1sRA");
-    --bg-urltwo: url("https://source.unsplash.com/mZ1GRKw3aH8");
+    --bg-urlone: url("../images/kilian.jpg");
+    --bg-urltwo: url("../images/fenna.jpg");
 }
 
 h1, h2, h3 {
