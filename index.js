@@ -31,7 +31,7 @@ app.use(
  *                           TEMPLATING ENGINE
  *========================================================================**/
 
-app.set("views", "views");
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 /**========================================================================
@@ -41,7 +41,7 @@ app.set("view engine", "ejs");
 /**----------------------
  *       Homepage
  *------------------------**/
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
 	res.render("index");
 });
 
