@@ -1,0 +1,19 @@
+{
+  "name": "wddblog",
+  "version": "1.0.0",
+  "description": "My blog for the minor Web Design & Development (and beyond)",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "wddblog"
+  },
+  "author": "Brianne de Deugd",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}

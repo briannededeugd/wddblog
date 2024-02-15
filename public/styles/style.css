@@ -1,0 +1,360 @@
+:root {
+    /* Colors */
+    --color-headings: #000;
+    --color-whites: #fff;
+    --color-breadcrumbs: #8f7da8;
+    --color-accents: #d6c7eb;
+    --color-borders: #ebe5f3;
+
+    /* Padding and margins */
+    --button-padding: 1.5vh 2.5vw;
+    --navitem-margin: 0 1.5vw;
+    --sections-margin: 5vh 0;
+
+    /* Borders */
+    --border-radius: 25px;
+    --bg-urlone: url("https://source.unsplash.com/cItcSJS1sRA");
+    --bg-urltwo: url("https://source.unsplash.com/mZ1GRKw3aH8");
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--color-headings);
+}
+
+h1 {
+    font-size: 5vh;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    margin: 5vh 5vw;
+}
+
+em {
+    font-family: 'Playfair Display', serif;
+}
+
+date {
+    font-weight: 200;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 10vh;
+}
+
+p {
+    font-weight: 300;
+    line-height: 1.75em;
+}
+
+i {
+    color: var(--color-whites);
+}
+
+/* ----------- */
+/* BREADCRUMBS */
+/* ----------- */
+
+.breadcrumbs {
+    display: flex;
+    gap: 1em;
+    color: var(--color-breadcrumbs);
+
+    margin: 2em auto 0;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+     color: var(--color-breadcrumbs);
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+     color: var(--color-headings);
+     transition: all .3s ease-in-out;
+}
+
+/* ---------- */
+/* NAVIGATION */
+/* ---------- */
+
+.header {
+    border-bottom: 1px var(--color-borders) solid;
+    padding-bottom: 3.5vh;
+    font-size: .95em;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header img#logo {
+    max-width: 10vw;
+    max-height: auto;
+}
+
+/* SITE .header */
+.header ul {
+    display: inline;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.header li {
+    display: inline;
+    min-width: 10vw;
+    border-radius: var(--border-radius);
+
+    padding: var(--button-padding);
+    margin: var(--navitem-margin);
+    background-color: none;
+    -webkit-transition: background-color .3s; /* For Safari 3.0 to 6.0 */
+    transition: background-color .3s; /* For modern browsers */
+}
+
+.header li:first-of-type {
+    margin-left: 0;
+}
+
+.header li:hover {
+    background-color: var(--color-accents);
+}
+
+.header li a {
+    text-decoration: none;
+    color: var(--color-headings);
+}
+
+/* QUICK LINKS */
+.quick-actions {
+    background-color: var(--color-headings);
+    padding: 1.5vh 0;
+    border-radius: var(--border-radius);
+    
+    max-width: max-content;
+}
+
+.quick-actions a {
+    padding: 1.5vh 1.5vw;
+    -webkit-transition: background-color .3s; /* For Safari 3.0 to 6.0 */
+    transition: background-color .3s; /* For modern browsers */
+}
+
+.quick-actions a:hover {
+    background-color: var(--color-accents);
+}
+
+.quick-actions a:hover i {
+    color: var(--color-headings);
+}
+
+.quick-actions a:first-of-type {
+    border-right: 1px var(--color-borders) solid;
+    border-radius: 25px 0 0 25px;
+}
+
+.quick-actions a:nth-of-type(2) {
+    border-radius: 0 25px 25px 0;
+}
+
+/* ----------- */
+/* INFORMATION */
+/* ----------- */
+.introduction {
+    container-type: inline-size;
+    max-height: 75vh;
+    display: flex;
+    margin: var(--sections-margin);
+    gap: 10vw;
+    overflow: hidden;
+}
+
+.about-me {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-me h2 {
+    margin-bottom: 2.5vh;
+    margin-top: auto;
+}
+
+.littlelinks {
+    display: flex;
+    margin-bottom: 2vh;
+}
+
+.about-me a {
+    text-decoration: none;
+    max-width: max-content;
+    display: inline;
+    color: var(--color-headings);
+    padding: var(--button-padding);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-headings);
+    transition: all .3s;
+}
+
+.about-me a:first-of-type {
+    background-color: var(--color-headings);
+    color: var(--color-whites);
+    margin-right: 1.5vw;
+}
+
+
+.about-me a:hover {
+    background-color: var(--color-accents);
+    border: var(--color-accents);
+    color: var(--color-headings);
+}
+
+/* ------------- */
+/* THE ACCORDION */
+/* ------------- */
+
+.recent-weeklynerds {
+    max-height: 100cqh;
+}
+
+.accordion {
+  list-style-type: none;
+  display: flex;
+  gap: 0.15rem;
+  padding: 0.15rem;
+}
+
+.accordion .item {
+    flex: 1;
+    height: 70vmin;
+    cursor: pointer;
+    overflow: hidden;
+    transition: flex 1s;
+    border-radius: var(--border-radius);
+    background-size: cover; /* Cover the entire .item */
+    background-position: center; /* Center the background image */
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    padding: 0 1em 1em;
+}
+
+.animation.item {
+  flex: 3;
+}
+
+.accordion .item h3 {
+    margin-top: auto;
+}
+
+.fade-in {
+    animation: fadeInAnimation 0.5s forwards; /* Adjust time as needed */
+    visibility: hidden; /* Start hidden and let the animation reveal the text */
+}
+
+@keyframes fadeInAnimation {
+    to {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+/* Ensure text is initially hidden and only shown through the animation */
+.accordion .item h3, .accordion .item p, .accordion .item a {
+    visibility: hidden;
+    opacity: 0; /* Start fully transparent */
+}
+
+/* Updated CSS for showing/hiding text based on your previous request */
+.accordion .item h3, .accordion .item p, .accordion .item a {
+    color: var(--color-whites);
+    transition: all .5s ease-in-out;
+    visibility: hidden;
+    opacity: 0; /* Start fully transparent */
+}
+
+.accordion .item h3 {
+    font-size: 1.5em;
+    padding-top: .5em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.accordion .item a {
+    padding: var(--button-padding);
+    border-radius: var(--border-radius);
+    background-color: var(--color-whites);
+    width: max-content;
+    color: var(--color-headings);
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}
+
+.accordion .item a:hover {
+    background-color: var(--color-accents);
+    border: var(--color-accents);
+    color: var(--color-headings);
+}
+
+.item:first-of-type {
+    background-image: url('https://source.unsplash.com/cItcSJS1sRA');
+}
+
+.item:nth-of-type(2) {
+    background-image: url('https://source.unsplash.com/mZ1GRKw3aH8');
+}
+
+.item:first-of-type.gradient-overlay {
+    background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), var(--bg-urlone);
+}
+
+.item:nth-of-type(2).gradient-overlay {
+    background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), var(--bg-urltwo);
+}
+
+/* ---- */
+/* BLOG */
+/* ---- */
+
+.maincontent {
+    display: flex;
+    gap: 5vw;
+}
+
+.blog {
+    max-width: 700px;
+}
+
+.code {
+    background-color: var(--color-borders);
+    font-family: "Courier Prime", monospace;
+    font-weight: 200;
+    padding: .25em;
+}
+
+.reflection {
+    background-color: var(--color-borders);
+    margin-top: 7vh;
+    padding: .5em 1em;
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: max-content;
+}
+
+
+.reflection ul {
+    padding: inherit;
+    list-style-type: "𖥻 ";
+}
+
+.reflection ul li {
+    margin: .5em auto;
+}
+
+.blog-title {
+    margin-top: .5em;
+    margin-bottom: 0;
+}
