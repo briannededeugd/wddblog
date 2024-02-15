@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include ('../partials/head.ejs'); %>
+	</head>
+
+	<body>
+		<header><%- include ('../partials/header.ejs'); %></header>
+		<main>
+			<div class="breadcrumbs">
+				<a href="/">Home</a>/<a href="/">Weekly Nerds</a></p>
+			</div>
+
+			<section class="maincontent">
+				<article class="blog">
+					<h1 class="blog-title">Fenna de Wilde</h1>
+					<date>February 14th, 2024</date>
+					<h2>Advanced Styling and Layout</h2>
+					<p>
+						Container queries, the parent selector (:has()), and future CSS
+						features like field sizing and masonry layouts promise even more
+						control over responsive design and user interface elements.
+					</p>
+				</article>
+				<article class="reflection">
+					<h2>My use, opinions and ideas</h2>
+					<ul>
+						<li>How likely to use in the future: <em>Very likely</em></li>
+						<li>How likely to use in the future: <em>Very likely</em></li>
+					</ul>
+				</article>
+			</section>
+		</main>
+		<footer><%- include ('../partials/footer.ejs'); %></footer>
+	</body>
+</html>

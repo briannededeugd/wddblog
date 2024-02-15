@@ -300,11 +300,11 @@ i {
 }
 
 .item:first-of-type {
-    background-image: url('https://source.unsplash.com/cItcSJS1sRA');
+    background-image: url('../images/kilian.jpg');
 }
 
 .item:nth-of-type(2) {
-    background-image: url('https://source.unsplash.com/mZ1GRKw3aH8');
+    background-image: url('../images/fenna.jpg');
 }
 
 .item:first-of-type.gradient-overlay {

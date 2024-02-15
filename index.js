@@ -51,8 +51,8 @@ app.get("/kilianvalkhof", (req, res) => {
 	res.render("pages/kilianvalkhof");
 });
 
-app.get("/test", async (req, res) => {
-	res.render("pages/test");
+app.get("/fennadewilde", (req, res) => {
+	res.render("pages/fennadewilde");
 });
 
 /**========================================================================
