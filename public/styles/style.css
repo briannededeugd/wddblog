@@ -17,11 +17,6 @@
     --bg-urltwo: url("../images/fenna.jpg");
 }
 
-* {
-    appearance: initial;
-    -moz-appearance: initial;
-}
-
 h1, h2, h3 {
   font-family: 'Playfair Display', serif;
   font-style: italic;
@@ -33,16 +28,6 @@ h1 {
     margin-bottom: .5em;
 }
 
-.name::after {
-    content: "";
-    display: inline-block;
-    background-image: url("../images/fenna.jpg");
-    background-size: cover;
-    height: 4vh;
-    width: 10vw;
-    margin: .5vh 0 0 .5vw;
-    border-radius: var(--border-radius);
-}
 body {
     font-family: 'Work Sans', sans-serif;
     margin: 5vh 5vw;
@@ -198,6 +183,18 @@ i {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.introduction .about-me .name::after {
+    content: "";
+    display: inline-block;
+    background-image: url("../images/fenna.jpg");
+    background-size: cover;
+    height: 4vh;
+    width: 10vw;
+    margin: .5vh 0 0 .5vw;
+    border-radius: var(--border-radius);
+    z-index: 9999;
 }
 
 .about-me h2 {
