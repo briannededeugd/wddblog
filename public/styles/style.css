@@ -59,6 +59,10 @@ p {
     line-height: 1.75em;
 }
 
+li {
+    font-weight: 300;
+}
+
 i {
     color: var(--color-whites);
 }
@@ -117,7 +121,6 @@ i {
     display: inline;
     min-width: 100px;
     border-radius: var(--border-radius);
-    font-weight: 300;
 
     padding: var(--button-padding);
     margin: var(--navitem-margin);
