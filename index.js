@@ -8,6 +8,9 @@
  *================================================================================================**/
 
 const helmet = require("helmet");
+const marked = require("marked");
+const fs = require("fs");
+
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -47,12 +50,22 @@ app.get("/", (req, res) => {
 	res.render("index");
 });
 
-app.get("/kilianvalkhof", (req, res) => {
-	res.render("pages/kilianvalkhof");
-});
+app.get("/posts/:postName", (req, res) => {
+	const postName = req.params.postName;
+	// Use __dirname to construct the absolute path correctly
+	const filePath = path.join(__dirname, "posts", `${postName}.md`);
 
-app.get("/fennadewilde", (req, res) => {
-	res.render("pages/fennadewilde");
+	fs.readFile(filePath, "utf8", (err, data) => {
+		if (err) {
+			// If the Markdown file is not found, send a 404 response
+			return res.status(404).send("Post not found");
+		}
+
+		// Convert the Markdown to HTML
+		const blogContent = marked.parse(data);
+		// Render the EJS template with the blog content
+		res.render("pages/blogpost", { blogContent });
+	});
 });
 
 /**========================================================================
