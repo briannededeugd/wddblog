@@ -26,7 +26,7 @@
     /* Borders */
     --border-radius: 25px;
     --bg-urlone: url("../images/kilian.jpg");
-    --bg-urltwo: url("../images/fenna.jpeg");
+    --bg-urltwo: url("../images/fenna.jpg");
 
     /* Transitions */
     --transition: all .3s ease-in-out;
@@ -323,7 +323,7 @@ footer button span {
 .introduction .about-me .name::after {
     content: "";
     display: inline-block;
-    background-image: url("../images/fenna.jpeg");
+    background-image: url("../images/fenna.jpg");
     background-size: cover;
     height: 4vh;
     width: 10vw;
@@ -458,7 +458,7 @@ footer button span {
 }
 
 .item:nth-of-type(2) {
-    background-image: url('../images/fenna.jpeg');
+    background-image: url('../images/fenna.jpg');
 }
 
 .item:first-of-type.gradient-overlay {
@@ -602,6 +602,15 @@ footer button span {
     background-color: var(--color-accents);
   }
 
+  /* ----------- */
+  /* WEEKLY NERD */
+  /* ----------- */
+
+  .regularcontent {
+    max-height: 75vh;
+    display: flex;
+    gap: 10vw;
+  }
 
 /* ---- */
 /* BLOG */
