@@ -26,7 +26,7 @@
     /* Borders */
     --border-radius: 25px;
     --bg-urlone: url("../images/kilian.jpg");
-    --bg-urltwo: url("../images/fenna.jpg");
+    --bg-urltwo: url("../images/fenna.jpeg");
 
     /* Transitions */
     --transition: all .3s ease-in-out;
@@ -323,7 +323,7 @@ footer button span {
 .introduction .about-me .name::after {
     content: "";
     display: inline-block;
-    background-image: url("../images/fenna.jpg");
+    background-image: url("../images/fenna.jpeg");
     background-size: cover;
     height: 4vh;
     width: 10vw;
@@ -458,7 +458,7 @@ footer button span {
 }
 
 .item:nth-of-type(2) {
-    background-image: url('../images/fenna.jpg');
+    background-image: url('../images/fenna.jpeg');
 }
 
 .item:first-of-type.gradient-overlay {
