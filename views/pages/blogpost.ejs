@@ -8,30 +8,62 @@
 		<header><%- include ('../partials/header.ejs'); %></header>
 		<main>
 			<div class="breadcrumbs">
-				<a href="/">Home</a>/<a href="/">Weekly Nerd</a><a href='/'>Fenna de Wilde</a></p>
+				<a href="/">Home</a>/ <a href="/">Weekly Nerd</a>/
+				<a href="/posts/<%- lecturerUrl %>"><%- lecturerName %></a>
 			</div>
 
 			<section class="maincontent">
 				<article class="blog">
+					<h1><%- lecturerName %></h1>
+					<p id="metadata">
+						<%- week %> | <%- blogDate %> |
+						<span id="tagcontainer">
+							<% tags.forEach(function(tag) { %>
+
+							<span class="tag">
+								<i class="material-symbols-outlined">sell</i>
+								<%- tag %>
+							</span>
+
+							<% }); %>
+						</span>
+					</p>
 					<%- blogContent %>
 				</article>
 				<article class="reflection">
-                    <h2 class='reflectheading'>My use, opinions and ideas</h2>
-                    <section id="stats">
-                        <ul>
-                        <li>
-                            How likely I am to use this in the future:
-                        </li>
-                    </ul>
-                    </section>
-                    <section id='opinions'>
-                        <h3>Opinions</h3>
-                        <p>According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don't care what humans think is impossible.</p>
-                    </section>
-                    <section id='integration'>
-                        <h3>Integration</h3>
-                        <p>So sorry you have brainrot. Mine is growing new leaves, flowers, et cetera.</p>
-                    </section>
+					<h2 class="reflectheading">My use, opinions and ideas</h2>
+					<section id="stats">
+						<ul>
+							<li>
+								How likely to use in the future:
+								<span class="stat"><%- futureUse %></span>
+							</li>
+							<li>
+								Impact on current projects:
+								<span class="stat"><%- projectImpact %></span>
+							</li>
+							<li>
+								Inspiration level:
+								<span class="stat"><%- inspirationLevel %></span>
+							</li>
+						</ul>
+					</section>
+					<section id="opinions">
+						<h3>Opinions</h3>
+						<p>
+							According to all known laws of aviation, there is no way a bee
+							should be able to fly. Its wings are too small to get its fat
+							little body off the ground. The bee, of course, flies anyway
+							because bees don't care what humans think is impossible.
+						</p>
+					</section>
+					<section id="integration">
+						<h3>Integration</h3>
+						<p>
+							So sorry you have brainrot. Mine is growing new leaves, flowers,
+							et cetera.
+						</p>
+					</section>
 				</article>
 			</section>
 		</main>

@@ -1,7 +1,3 @@
-# Kilian Valkhof
-
-_February 7th, 2024_
-
 Kilian Valkhof develops computerapplications with Elektron. He's best known for Polypane, a browser for developers to test their sites in - this application is free for students. Polypane was written in Javascript, but the thing is, Kilian believes it could have been done in CSS because of _the rule of least power_, which means: "choose the least powerful language suitable for a given purpose". In this case, he's referring to the order HTML -> CSS -> JavaScript, as JavaScript is the most fragile and the most big-sized-file-prone (or, it's easiest to do way too much). Luckily, browsermakers are listening to developers' needs more and more.  
   
 A very important lesson Kilian wanted us to go home with was this: _once you learn something, you don't learn it again_. Code functionalities have the advantage of always remaining functional; but that doesn't mean that better ways to achieve the same things don't pop up in the meantime. Technically, you don't have to learn new methods. But you should, and you should want to!

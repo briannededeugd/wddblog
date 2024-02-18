@@ -56,6 +56,7 @@ app.get("/posts/:postName", (req, res) => {
 	const postName = req.params.postName;
 	// Use __dirname to construct the absolute path correctly
 	const filePath = path.join(__dirname, "posts", `${postName}.md`);
+	const metadataPath = path.join(__dirname, "metadata", `${postName}.json`);
 
 	fs.readFile(filePath, "utf8", (err, data) => {
 		if (err) {
@@ -65,8 +66,30 @@ app.get("/posts/:postName", (req, res) => {
 
 		// Convert the Markdown to HTML
 		const blogContent = marked.parse(data);
-		// Render the EJS template with the blog content
-		res.render("pages/blogpost", { blogContent });
+
+		// Read and parse the JSON metadata
+		fs.readFile(metadataPath, "utf8", (err, metadataJSON) => {
+			if (err) {
+				// If the metadata file is not found, handle the error
+				return res.status(404).send("Metadata not found");
+			}
+
+			// Parse the JSON string into an object
+			const metadata = JSON.parse(metadataJSON);
+
+			// Render the EJS template with the blog content and metadata
+			res.render("pages/blogpost", {
+				blogContent,
+				lecturerName: metadata.name,
+				blogDate: metadata.date,
+				week: metadata.week,
+				tags: metadata.tags,
+				lecturerUrl: metadata.lecturerUrl,
+				futureUse: metadata.howLikelyToUse,
+				projectImpact: metadata.impactOnCurrentProjects,
+				inspirationLevel: metadata.inspirationLevel,
+			});
+		});
 	});
 });
 

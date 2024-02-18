@@ -11,6 +11,13 @@
     --color-blue: #b4d4d3;
     --color-green: #beccb0;
 
+    --lineargradient: linear-gradient(
+        to right,
+        rgba(152, 88, 179, 0.1),
+        var(--color-accents) 4%,
+        rgba(152, 88, 179, 0.1)
+    );
+
     /* Padding and margins */
     --button-padding: 1.5vh 2.5vw;
     --navitem-margin: 0;
@@ -94,12 +101,7 @@ code {
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(
-        to right,
-        rgba(152, 88, 179, 0.1),
-        var(--color-accents) 4%,
-        rgba(152, 88, 179, 0.1)
-    );
+    background-image: var(--lineargradient);
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }
@@ -196,13 +198,10 @@ code {
     transition: background-color .3s; /* For modern browsers */
 }
 
-.quick-actions a:hover {
-    background-color: var(--color-accents);
+.quick-actions a:hover i {
+   color: var(--color-accents);
 }
 
-.quick-actions a:hover i {
-    color: var(--color-headings);
-}
 
 .quick-actions a:first-of-type {
     border-right: 1px var(--color-borders) solid;
@@ -610,16 +609,18 @@ footer button span {
 
 .maincontent {
     display: flex;
-    gap: 5vw;
+    gap: 10vw;
 }
 
 .blog {
-    max-width: 750px;
+    max-width: 800px;
 }
 
 .reflection {
     margin-top: 3vh;
     border-radius: var(--border-radius);
+    border: .5px solid var(--color-headings);
+    font-size: small;
     width: 100%;
     height: max-content;
 }
@@ -629,12 +630,7 @@ footer button span {
     padding-left: .5em;
     border-radius: 30px;
     background: transparent;
-    background-image: linear-gradient(
-        to right,
-        rgba(152, 88, 179, 0.1),
-        var(--color-accents) 4%,
-        rgba(152, 88, 179, 0.1)
-    );
+    background-image: var(--lineargradient);
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }
@@ -646,11 +642,15 @@ footer button span {
 
 .reflection ul {
     padding: inherit;
-    list-style-type: "𖥻 ";
+    list-style-type: "⋒  ";
 }
 
 .reflection ul li {
     margin: .5em auto;
+}
+
+.reflection ul li::marker {
+    color: var(--color-breadcrumbs);
 }
 
 .blog-title {
@@ -658,26 +658,98 @@ footer button span {
     margin-bottom: 0;
 }
 
+#metadata {
+    font-style: italic;
+    padding-bottom: 1em;
+    margin-top: 0;
+    margin-bottom: 2em;
+    border-bottom: 1px solid var(--color-breadcrumbs);
+}
+
 /* SEPARATE SECTIONS */
 .reflection > section {
     border-radius: var(--border-radius);
-    padding: 1em;
+    padding: 1em 2em;
     margin: 0;
-    /* border: .5px solid var(--color-headings);
-    background-color: #f4f2f9; */
+}
+
+.reflection > section h3 {
+    margin-top: 1em;
+}
+
+.stat {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    cursor: pointer;
 }
 
 #stats {
     background-color: #f4f2f9;
     border: .5px solid var(--color-headings);
+    padding: 0.5em 2em;
 }
 
 #opinions {
     border: .5px solid var(--color-accents);
-    background-color: var(--color-borders);
+    background-color: #e7ddf1;
 }
 
 #integration {
     background-color: #f4f2f9;
     border: .5px solid var(--color-headings);
+}
+
+#tagcontainer {
+    display:inline-flex;
+    flex-direction: row;
+}
+
+.tag {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: max-content;
+    margin: 0 5px;
+    padding: 0 1vw;
+    background-color: #e7ddf1;
+    border-radius: 3px;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.tag i {
+    font-size: 1em;
+    font-weight: 100;
+    color: var(--color-headings);
+    margin-right: .5vw;
+}
+
+.tag:hover {
+    border: .5px solid var(--color-headings);
+}
+
+#stats ul li:hover::after {
+    content: "";
+    padding: auto 16px;
+    margin-left: .5vw;
+    display: inline;
+    font-family: "Work Sans", sans-serif;
+    font-size: .75em;
+
+    background: var(--lineargradient);
+    border-radius: var(--border-radius);
+
+}
+
+#stats ul li:first-of-type:hover::after {
+    content: "Very unlikely - Unlikely - Likely - Very Likely";
+}
+
+#stats ul li:nth-of-type(2):hover::after {
+    content: "No impact - Small impact - Large impact";
+}
+
+#stats ul li:nth-of-type(3):hover::after {
+    content: "Uninspired - Inspired - Very inspired";
 }

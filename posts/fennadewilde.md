@@ -1,7 +1,3 @@
-# Fenna de Wilde
-
-_February 14th, 2024_
-
 Fenna de Wilde is a Communication & Multimedia Design alumn and now works as a creative frontend developer at a Norwegian tech-driven agency. She has some very impressive websites under her belt, of which [Moooi](moooi.com) is a prime example. Her most recent pride and topic of the day is _Phantom_, a cryptowallet intended to look friendly, approachable and accessible. Fenna has thought out and designed a website that embodies the playfulness of the logo (a purple 'phantom' ghost), and will lecture us on accessibility in web design using Phantom as an example and good practice.
 
 ## Accessibility in Phantom
