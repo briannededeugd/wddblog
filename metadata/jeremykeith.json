@@ -1,0 +1,14 @@
+{
+    "name": "Jeremy Keith",
+    "lecturerUrl": "jeremykeith",
+    "week": "Week six",
+    "date": "2024-03-13",
+    "tags": [ "CSS", "HTML", "JS" ],
+    "description": "On declarative and imperative design and programming.",
+    "image": "jeremykeith.jpg",
+    "howLikelyToUse": "Likely",
+    "impactOnCurrentProjects": "Small impact",
+    "inspirationLevel": "Inspired",
+    "opinions": "",
+    "integration": ""
+}
