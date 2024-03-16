@@ -4,9 +4,11 @@
     "week": "Week two",
     "date": "2024-02-14",
     "tags": [ "Accessibility", "Design", "HTML" ],
+    "description": "On accessibility in code and creative web design.",
+    "image": "fennadewilde.jpg",
     "howLikelyToUse": "Very likely",
     "impactOnCurrentProjects": "Large impact",
     "inspirationLevel": "Inspired",
-    "opinions": "",
-    "integration": ""
+    "opinions": "The only thing that I feel sort of doubtful about when I think of my future in frontend development is the idea that I might have to abandon my creative and curious side, and trade it in for a life of coding. I mean, the ideal scenario suggests that having both simultaneously should be possible - but when I look at my peers and their passion for the dark interface of VSCode, I cannot help but think that maybe pursuing this career path can only mean sacrificing a part of my passion for it. This presentation offered me a different perspective. If anything, the creativity Fenna nurtures enhances her projects, even if she does not exactly carry the title of head designer. Her determination to apply her expertise, excitement and curiosity to her process adds to the incredible websites she produces. Oh, also, when I was looking for college majors during my final year in high school, it was her video about CMD that convinced me to choose this direction, so getting to see her in action was a very full-circle moment. I enjoyed this talk a lot.",
+    "integration": "As someone with muscle issues myself, I take accessibility very seriously and I feel as though I stand in proximity to users with disabilities, even if they might differ from mine. That is why learning about so many of the built-in accessibility features in the web was kind of like a double-edged sword to me. On the one hand, I was glad to see a representation of the effort that is being put towards the initiative of making the web a place for everyone, but on the other hand I was shocked and mildly offended to hear about the lack of care that many design agencies have for this topic, sometimes to the point of disregarding it altogether and making peace with the fact that there will be an entire demographic of people who will be unable to use their project. This Weekly Nerd has inspired me to not be one of those people, and to learn more about web accessibility with every project I make."
 }

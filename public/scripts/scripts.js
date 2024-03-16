@@ -61,12 +61,3 @@ const init = () => {
 
 window.addEventListener("load", init, false);
 window.addEventListener("click", accordion, false);
-
-/**============================================
- *               SCROLL TO TOP
- *=============================================**/
-document
-	.querySelector(".scrollt-to-top")
-	.addEventListener("click", function () {
-		window.scrollTo(0, 0);
-	});

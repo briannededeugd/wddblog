@@ -49,7 +49,24 @@ app.set("view engine", "ejs");
  *       Homepage
  *------------------------**/
 app.get("/", (req, res) => {
-	res.render("index");
+	const metadataDir = path.join(__dirname, "metadata");
+
+	fs.readdir(metadataDir, (err, files) => {
+		if (err) {
+			return res.status(500).send("Error reading metadata directory");
+		}
+
+		const blogMetadata = []; // Define blogMetadata array here
+
+		files.forEach((file) => {
+			const metadataPath = path.join(metadataDir, file);
+			const metadataJSON = fs.readFileSync(metadataPath, "utf8");
+			const metadata = JSON.parse(metadataJSON);
+			blogMetadata.push(metadata); // Populate blogMetadata array
+		});
+
+		res.render("index", { blogMetadata });
+	});
 });
 
 app.get("/posts/:postName", (req, res) => {
@@ -88,13 +105,32 @@ app.get("/posts/:postName", (req, res) => {
 				futureUse: metadata.howLikelyToUse,
 				projectImpact: metadata.impactOnCurrentProjects,
 				inspirationLevel: metadata.inspirationLevel,
+				integration: metadata.integration,
+				opinions: metadata.opinions,
 			});
 		});
 	});
 });
 
 app.get("/weeklynerd", (req, res) => {
-	res.render("pages/weeklynerd");
+	const metadataDir = path.join(__dirname, "metadata");
+
+	fs.readdir(metadataDir, (err, files) => {
+		if (err) {
+			return res.status(500).send("Error reading metadata directory");
+		}
+
+		const blogMetadata = []; // Define blogMetadata array here
+
+		files.forEach((file) => {
+			const metadataPath = path.join(metadataDir, file);
+			const metadataJSON = fs.readFileSync(metadataPath, "utf8");
+			const metadata = JSON.parse(metadataJSON);
+			blogMetadata.push(metadata); // Populate blogMetadata array
+		});
+
+		res.render("pages/weeklynerd", { blogMetadata });
+	});
 });
 
 /**========================================================================

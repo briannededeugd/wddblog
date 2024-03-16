@@ -66,3 +66,9 @@ Correct semantics helps screen readers understand the structure and meaning, red
 *   Prefers-reduced-motion.
 *   All autoplay videos/carousels must be able to be paused.
 *   Experience using a screen reader yourself.
+
+## Conclusion
+
+Accessibility is technically not _needed_ to keep the web running. One missing aria-label won't kill your website, and even if a blind person is unable to navigate through your headings and navigations, a staggering 96.65% of the world's population would still be able to just fine. But that's not what building a website should be about to you. If you make something beautiful, informative and cool, wouldn't you want everyone to be able to recognise that is _is_, in fact, beautiful, informative and cool?
+
+Adding extra aria-labels, being clear in the way you name your elements, and putting in just a bit more effort could change the way your website is experienced for the better. That is just so worth it.

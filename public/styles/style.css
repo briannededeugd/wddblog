@@ -25,11 +25,24 @@
 
     /* Borders */
     --border-radius: 25px;
-    --bg-urlone: url("../images/kilian.jpg");
-    --bg-urltwo: url("../images/fenna.jpg");
+    --bg-urlone: url("../images/kilianvalkhof.jpg");
+    --bg-urltwo: url("../images/fennadewilde.jpg");
 
     /* Transitions */
     --transition: all .3s ease-in-out;
+}
+
+[data-dark-mode] {
+    --color-headings: #fff;
+        --color-whites: #000;
+        --color-breadcrumbs: #8f7da8;
+        --color-accents: #d6c7eb;
+        --color-borders: #d9cbea;
+
+        --color-orange: #f7b99e;
+        --color-yellow: #fee3ac;
+        --color-blue: #b4d4d3;
+        --color-green: #beccb0;
 }
 
 h1, h2, h3 {
@@ -45,6 +58,10 @@ h1 {
 
 h2:not(".reflectheading") {
     margin-top: 5vh;
+}
+
+.blogname {
+    font-size: clamp(1.5rem, .5vw + 1.5rem, 3rem);
 }
 
 html {
@@ -63,6 +80,16 @@ main {
     margin: 5vh 5vw;
 }
 
+body > main > section > h2,
+body > main > section > p {
+    margin: 0;
+    text-align: center;
+}
+
+body > main > section > p {
+    margin-bottom: 2.5em;
+}
+
 em {
     font-family: 'Playfair Display', serif;
 }
@@ -75,6 +102,7 @@ date {
 }
 
 p {
+    font-size: clamp(1rem, .5vw + .5rem, 1.5rem);
     font-weight: 300;
     line-height: 1.75em;
 }
@@ -104,6 +132,12 @@ code {
     background-image: var(--lineargradient);
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
+}
+
+#integration p,
+#opinions p,
+code {
+    font-size: clamp(.5rem, .5rem + .5vw, .75rem);
 }
 
 /* ----------- */
@@ -164,8 +198,8 @@ code {
     padding: var(--button-padding);
     margin: var(--navitem-margin);
     background: transparent;
-    -webkit-transition: background-color .3s; /* For Safari 3.0 to 6.0 */
-    transition: background-color .3s; /* For modern browsers */
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
     cursor: pointer;
 }
 
@@ -211,6 +245,176 @@ code {
 
 .quick-actions a:nth-of-type(2) {
     border-radius: 0 25px 25px 0;
+}
+
+/* ------------- */
+/* QUOTE SECTION */
+/* ------------- */
+
+.quotesection {
+    width: 110vw;
+    margin-left: -5vw; /* Compensate for the left margin */
+    margin-right: -5vw; /* Compensate for the right margin */
+    background: var(--color-blue);
+    margin-bottom: 10vh;
+    box-sizing: border-box;
+    padding: 10vh 5vw;
+}
+
+blockquote {
+    font-family: 'Playfair Display', serif;
+    display: grid;
+    width: 85%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 0px; 
+    padding: 0 10vw;
+    cursor: pointer;
+}
+
+blockquote > p {
+    font-size: clamp(1rem, .5rem + 1.5vw, 5rem);
+    font-style: italic;
+    font-weight: 400;
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+blockquote > h5 {
+    font-size: clamp(1rem, .5rem + 1vw, 2rem);
+    grid-area: 1 / 2 / 2 / 3;
+    text-align: left;
+    align-self: center;
+}
+
+blockquote > h5 > cite {
+    font-style: normal !important;
+    text-decoration: underline;
+    font-weight: 100;
+}
+
+blockquote > h5 > span > i {
+    color: var(--color-headings);
+
+    background: transparent;
+    padding: 1rem;
+    margin-top: 0;
+    margin-left: 1rem;
+    border-radius: 50%;
+    transition: all .3s ease-in-out;
+    opacity: 0;
+}
+
+blockquote:hover > h5 > span > i {
+    background: var(--color-whites);
+    transform: scale(1.5);
+    opacity: 1;
+}
+
+/* --------- */
+/* BLOG GRID */
+/* --------- */
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 45px;
+    grid-row-gap: 45px;
+}
+
+.blog-item {
+    width: 25vw;
+    height: 50vh;
+    color: var(--color-headings);
+    position: relative;
+    border-radius: 25px;
+}
+
+.blog-item a div {
+    width: 100%;
+    aspect-ratio: 2/1;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.blog-item a div i {
+    height: max-content;
+    width: max-content;
+
+    text-decoration: none;
+    opacity: 0;
+
+    font-size: small;
+    text-align: right;
+    background: transparent;
+    color: var(--color-headings);
+    padding: 1rem;
+    margin-top: 0;
+    margin-left: auto;
+    border-radius: 50%;
+    transition: all .3s ease-in-out;
+}
+
+.blog-item a:hover div i {
+    background: var(--color-borders);
+    transform: scale(2);
+    opacity: 1;
+}
+
+.blog-item a h5 {
+    margin-top: auto;
+    margin-bottom: .75rem;
+    color: var(--color-headings);
+    /* font-family: 'Playfair Display', serif; */
+    font-style: italic;
+    font-weight: 300;
+}
+
+.blog-item a h4 {
+    position: relative;
+    
+    width: 100%;
+    color: var(--color-breadcrumbs);
+    font-family: 'Playfair Display', serif;
+    font-size: small;
+    font-weight: 100;
+    font-style: italic;
+
+    border-top: var(--color-headings) solid .5px;
+    padding-top: .5rem;
+    margin: 0;
+    margin-top: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.blog-item a h4 span:not(:first-of-type) {
+    padding-left: .5rem;
+}
+
+.blog-item a h4 span:not(:last-of-type) {
+    padding-right: .5rem;
+}
+
+.blog-item a h3 {
+    margin: 0;
+    color: var(--color-breadcrumbs);
+    text-transform: uppercase;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.blog-item a p {
+    margin: 0;
+    margin-bottom: 2rem;
+    color: var(--color-headings);
 }
 
 /* ------------ */
@@ -323,7 +527,7 @@ footer button span {
 .introduction .about-me .name::after {
     content: "";
     display: inline-block;
-    background-image: url("../images/fenna.jpg");
+    background-image: url("../images/fennadewilde.jpg");
     background-size: cover;
     height: 4vh;
     width: 10vw;
@@ -422,7 +626,7 @@ footer button span {
     opacity: 0; /* Start fully transparent */
 }
 
-/* Updated CSS for showing/hiding text based on your previous request */
+/* Updated CSS for showing/hiding text */
 .accordion .item h3, .accordion .item p, .accordion .item a {
     color: var(--color-whites);
     transition: all .5s ease-in-out;
@@ -454,11 +658,11 @@ footer button span {
 }
 
 .item:first-of-type {
-    background-image: url('../images/kilian.jpg');
+    background-image: url('../images/kilianvalkhof.jpg');
 }
 
 .item:nth-of-type(2) {
-    background-image: url('../images/fenna.jpg');
+    background-image: url('../images/fennadewilde.jpg');
 }
 
 .item:first-of-type.gradient-overlay {
@@ -475,12 +679,6 @@ footer button span {
 
 .goals {
     margin: 7.5em 0;
-}
-
-.goals > h2,
-.goals > p {
-    margin: 0;
-    text-align: center;
 }
 
 .goals > ul > a {
@@ -530,7 +728,6 @@ footer button span {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin: 2.5em 0 0 0;
     position: relative;
 }
 
@@ -540,13 +737,13 @@ footer button span {
 
 .notch {
     position: absolute;
-  width: 60px;
-  height: 60px;
-  bottom: 0vh;
-  right: 0;
-  background-color: #fbfafd;
-  border-top-left-radius: 50%;
-  z-index: 8000;
+    width: 60px;
+    height: 60px;
+    bottom: 0vh;
+    right: 0;
+    background-color: #fbfafd;
+    border-top-left-radius: 50%;
+    z-index: 8000;
 }
 
 .goals ul a li {
@@ -583,18 +780,18 @@ footer button span {
 
 .round-button {
     width: 50px;
-  height: 50px;
-  background-color: var(--color-blue);
-  border-radius: 50%;
-  position: absolute;
-  bottom: 0vh;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  z-index: 9999;
-  transition: var(--transition);
+    height: 50px;
+    background-color: var(--color-blue);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0vh;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 9999;
+    transition: var(--transition);
   }
 
   .goals ul a:hover .round-button,
@@ -735,7 +932,7 @@ footer button span {
 }
 
 .tag:hover {
-    border: .5px solid var(--color-headings);
+    box-shadow: 0 0 0 .5px var(--color-headings);
 }
 
 #stats ul li:hover::after {

@@ -101,8 +101,56 @@
 					</a>
 				</ul>
 			</section>
+
+			<section class="quotesection">
+				<blockquote cite="/jeremykeith">
+					<p>
+						Words can be like X-rays, if you use them properly—they’ll go
+						through anything. You read and you’re pierced.
+					</p>
+					<h5>
+						<cite>—Brave New World</cite>
+						<span>
+							<i class="material-symbols-outlined">arrow_outward</i>
+						</span>
+					</h5>
+				</blockquote>
+			</section>
+
+			<section class="blogs">
+				<h2>Blogs</h2>
+				<p>
+					An overview of the blogs written about the Weekly Nerds I've attended
+					during the minor.
+				</p>
+				<section class="blog-grid">
+					<% blogMetadata.forEach(metadata => { %>
+					<article class="blog-item">
+						<a href="/posts/<%- metadata.lecturerUrl %>" class="readblog">
+							<div
+								style="
+									background-image: url('../images/<%- metadata.image %>');
+								">
+								<i class="material-symbols-outlined">arrow_outward</i>
+							</div>
+							<h5>On <%- metadata.date %></h5>
+							<h3 class="blogname"><%- metadata.name %></h3>
+							<p><%- metadata.description %></p>
+							<h4 id="tagcontainer">
+								<% metadata.tags.forEach(function(tag) { %>
+
+								<span> <%- tag %> </span>
+
+								<% }); %>
+							</h4>
+						</a>
+					</article>
+					<% }); -%>
+				</section>
+			</section>
 		</main>
 		<footer><%- include ('partials/footer.ejs'); %></footer>
 		<script src="/scripts/scripts.js"></script>
+		<script src="/scripts/scrolltotop.js"></script>
 	</body>
 </html>
