@@ -53,9 +53,11 @@
 								">
 								<i class="material-symbols-outlined">arrow_outward</i>
 							</div>
-							<h5>On <%- metadata.date %></h5>
-							<h3><%- metadata.name %></h3>
-							<p><%- metadata.description %></p>
+							<div class="card-info">
+								<h5>On <%- metadata.date %></h5>
+								<h3><%- metadata.name %></h3>
+								<p><%- metadata.description %></p>
+							</div>
 							<h4 id="tagcontainer">
 								<% metadata.tags.forEach(function(tag) { %>
 

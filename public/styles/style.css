@@ -116,6 +116,15 @@ a {
     color: var(--color-breadcrumbs);
 }
 
+.footer a {
+    color: var(--color-whites);
+
+    &:hover {
+        color: var(--color-breadcrumbs);
+        text-decoration: none;
+    }
+}
+
 a:hover {
     text-decoration: underline;
 }
@@ -273,6 +282,23 @@ blockquote {
     cursor: pointer;
 }
 
+.blog > blockquote {
+    display: block;
+    padding-left: 5vw;
+    text-align: center;
+    max-width: 500px;
+    transition: all .3s ease-in-out;
+    cursor: default;
+
+    &:hover {
+        color: var(--color-breadcrumbs);
+    }
+
+    p {
+        cursor: default;
+    }
+}
+
 blockquote > p {
     font-size: clamp(1rem, .5rem + 1.5vw, 5rem);
     font-style: italic;
@@ -341,7 +367,7 @@ blockquote:hover > h5 > span > i {
     border-radius: 25px;
 }
 
-.blog-item a div {
+.blog-item a div:first-of-type {
     width: 100%;
     aspect-ratio: 2/1;
     background-position: center;
@@ -353,7 +379,7 @@ blockquote:hover > h5 > span > i {
     flex-direction: row;
 }
 
-.blog-item a div i {
+.blog-item a div:first-of-type i {
     height: max-content;
     width: max-content;
 
@@ -371,10 +397,14 @@ blockquote:hover > h5 > span > i {
     transition: all .3s ease-in-out;
 }
 
-.blog-item a:hover div i {
+.blog-item a:hover div:first-of-type i {
     background: var(--color-borders);
     transform: scale(2);
     opacity: 1;
+}
+
+.blog-item a div:nth-of-type(2) {
+    min-height: 40%;
 }
 
 .blog-item a h5 {
@@ -423,7 +453,7 @@ blockquote:hover > h5 > span > i {
 
 .blog-item a p {
     margin: 0;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     color: var(--color-headings);
 }
 
