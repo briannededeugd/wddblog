@@ -9,6 +9,6 @@
     "howLikelyToUse": "Likely",
     "impactOnCurrentProjects": "Small impact",
     "inspirationLevel": "Inspired",
-    "opinions": "",
-    "integration": ""
+    "opinions": "Prior to Jeremy Keith's talk, I hadn't heard someone take on such a theoretical approach to programming. Making the connection between music and coding in order to illustrate his point was a great choice of Jeremy's, as it hooked me in immediately and helped me to understand the differences between, as well as the advantages and disadvantes of imperative and declarative programming. This talk also offered an interesting perspective on the future of coding and therefore of web development, clarifying to me how the path has been laid so far and how it might change in the future, so I could most definitely recognise the importance and relevance of this subject.",
+    "integration": "As this talk was mostly theoretical to help us understand programming and why we do what we do, practically, I don't have any examples of how I'd implement the lessons learned, exactly. I can however say that this has deepened my understanding of the web and my interest in the way it works!"
 }

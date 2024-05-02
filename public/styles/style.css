@@ -60,10 +60,6 @@ h2:not(".reflectheading") {
     margin-top: 5vh;
 }
 
-.blogname {
-    font-size: clamp(1.5rem, .5vw + 1.5rem, 3rem);
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -124,21 +120,32 @@ a:hover {
     text-decoration: underline;
 }
 
-code {
-    margin: 0 -0.4em;
-    padding: 0.1em 0.4em;
+strong {
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+    /* margin: 0 -0.4em; */
+    margin: 0;
+    padding: 0 .5em;
     border-radius: 0.8em 0.3em;
     background: transparent;
     background-image: var(--lineargradient);
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
+    font-size: clamp(.75rem, .75rem + .5vw, .85rem);
 }
 
 #integration p,
-#opinions p,
-code {
+#opinions p {
     font-size: clamp(.5rem, .5rem + .5vw, .75rem);
 }
+
+code {
+    display: block;
+    background-color: #000;
+    color: white;
+}
+
 
 /* ----------- */
 /* BREADCRUMBS */
@@ -323,6 +330,10 @@ blockquote:hover > h5 > span > i {
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
+}
+
+.blog-grid h3 {
+    font-size: clamp(1.5rem, .5vw + 1rem, 2rem);
 }
 
 .blog-item {
@@ -960,4 +971,55 @@ footer button span {
 
 #stats ul li:nth-of-type(3):hover::after {
     content: "Uninspired - Inspired - Very inspired";
+}
+
+
+
+
+
+
+
+
+/* -------------- */
+/* RESPONSIVENESS */
+/* -------------- */
+
+@media (max-width: 900px) {
+    .introduction {
+        flex-direction: column;
+        max-height: fit-content;
+        margin-top: 0;
+    }
+
+    .introduction h1 {
+        margin-top: 0;
+    }
+
+    span.name::after {
+        visibility: hidden;
+        max-width: 0.1px;
+    }
+
+    .introduction .recent-weeklynerds {
+        display: none;
+    }
+
+    .goals ul {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .goals ul a li {
+        max-height: max-content;
+        min-height: max-content;
+    }
+
+    .notch {
+        display: none;
+    }
+
+    .round-button {
+        display: none;
+    }
 }
