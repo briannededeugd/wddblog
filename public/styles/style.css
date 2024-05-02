@@ -140,13 +140,6 @@ strong {
     font-size: clamp(.5rem, .5rem + .5vw, .75rem);
 }
 
-code {
-    display: block;
-    background-color: #000;
-    color: white;
-}
-
-
 /* ----------- */
 /* BREADCRUMBS */
 /* ----------- */
@@ -321,6 +314,10 @@ blockquote:hover > h5 > span > i {
 /* --------- */
 /* BLOG GRID */
 /* --------- */
+
+.blog h2 {
+    margin-top: 1.5em;
+}
 
 .blog-grid {
     display: grid;

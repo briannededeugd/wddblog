@@ -29,6 +29,7 @@ app.use(
 		directives: {
 			defaultSrc: ["'self'"], // Default rule for all sources
 			imgSrc: ["'self'", "https://wddblog.vercel.app"], // Allows images from the domain
+			scriptSrc: ["'self'", "https://cdnjs.cloudflare.com", "'unsafe-inline'"],
 		},
 	})
 );

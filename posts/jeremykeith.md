@@ -1,4 +1,4 @@
-_Sidenote: When JavaScript is mentioned in this blog, we're referring to client-side JavaScript in a web-browser_
+_Sidenote: When JavaScript is mentioned in this blog, we're referring to client-side JavaScript in a web-browser._
 
 Jeremy Keith tells us that in the world of music, composition can take on various forms, each reflecting a distinct approach to creativity. There's the classical approach, in which musicians write down which notes to play, how to play them and for how long to do so. And there's the jazz approach, where there's no sheet music but merely a sketch, a single interval, and one key defined to record with.
 
@@ -23,23 +23,19 @@ Adopting a declarative mindset challenges traditional notions of control and pre
 CSS further reinforces this shift, especially with units like rem and vw. By relinquishing pixel-perfect control in favor of responsive, user-centric design principles, developers engage in a dialogue with the browser rather than dictating every aspect. rem for example is dependent on the user-set font-size.
 
 ```css
-
 .example {
     padding-inline-start: 1rem;
     font-size: calc(.5rem + 0.666vw);
 }
-
 ```
 
 But using **vw** in this example is dangering, because it's always going to be the same r egardless of font-size. That's why Jeremy advises us to use it in rombination with **calc** and **rem**, like below:
 
 ```css
-
 .example {
     padding-inline-start: 1rem;
     font-size: clamp(1rem, 0.5rem + 0.666vw, 1.5rem);
 }
-
 ```
 
 In this case, the use of **clamp** is taking back even more control. You'd probably use it on elements like the entire body. Additionally, this single line ensures that the font-size will always be handled, even if you don't know what it is.
