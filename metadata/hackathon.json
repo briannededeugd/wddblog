@@ -1,0 +1,14 @@
+{
+    "name": "Hackathon",
+    "lecturerUrl": "hackathon",
+    "week": "Week seven",
+    "date": "2024-03-25",
+    "tags": [ "Design", "Data", "JS" ],
+    "description": "A week of applying lessons to a real project for a real client.",
+    "image": "hackathon.jpg",
+    "howLikelyToUse": "Very likely",
+    "impactOnCurrentProjects": "Large impact",
+    "inspirationLevel": "Inspired",
+    "opinions": "",
+    "integration": ""
+}
