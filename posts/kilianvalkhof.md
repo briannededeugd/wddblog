@@ -5,7 +5,11 @@ A very important lesson Kilian wanted us to go home with was this: _once you lea
 ## Custom Toggles Without the Hassle
 
 Toggles are a staple in user interfaces, allowing users to switch between two states. Modern browsers offer a built-in checkbox that handles most of the heavy lifting, making it unnecessary to build functionality from scratch. Wrapping a checkbox inside a label element allows users to click anywhere on the label to toggle the checkbox. However, styling checkboxes can be challenging due to their nature as "replaced content" — content whose appearance is outside the scope of CSS. To overcome this, use the **appearance: none** property to customize checkboxes. This removes the default styling, allowing you to add your own with pseudo-elements like **::after** for custom thumb and track appearances. Remember to maintain accessibility by avoiding disabling focus styles (**outline-none**) and instead opt for **focus-visible** to aid keyboard and non-mouse users.  
-Example for Safari: **input type="checkbox" switch /> ** 
+
+```html
+<!-- Example for Safari -->
+<input type="checkbox" switch />
+```
 
 ## Enhanced Input with Datalist and Color Picker
 

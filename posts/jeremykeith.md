@@ -55,7 +55,9 @@ In the world of design, there's something we often feel but don't always talk ab
 
 Think of analytical thinking like looking at something under a microscope. It's all about zooming in and understanding the details. On the other hand, systems thinking is more like stepping back to see how everything fits together as a whole. But even though design systems sound like they're all about seeing the big picture, they often focus more on the details—like specific bits of code or modules.
 
-However, there's more to it than just that. Take colors, for example. Some people might say, "Use these exact colors," while others might give guidelines, like "Make sure the border is a bit lighter than the background." And it also depends on where you're working—whether it's on print, apps, or the web. Each has its own rules, but the web is especially complicated because of its ever-changing nature. Jeremy says, "the more you tighten your grip, the more the world wide web slips through your fingers."
+However, there's more to it than just that. Take colors, for example. Some people might say, "Use these exact colors," while others might give guidelines, like "Make sure the border is a bit lighter than the background." And it also depends on where you're working—whether it's on print, apps, or the web. Each has its own rules, but the web is especially complicated because of its ever-changing nature. Jeremy says, 
+
+> The more you tighten your grip, the more the world wide web slips through your fingers.
 
 ## Conclusion
 
