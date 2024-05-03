@@ -123,6 +123,51 @@
 					An overview of the blogs written about the Weekly Nerds I've attended
 					during the minor.
 				</p>
+
+				<section class="edit-view">
+					<section class="blog-filters">
+						<h3>
+							<i class="material-symbols-outlined">filter_alt</i>
+						</h3>
+						<div class="tags">
+							<button id="tagbutton">
+								Tags
+								<i class="material-symbols-outlined">expand_more</i>
+							</button>
+						</div>
+
+						<div class="likelytouse">
+							<button id="likelytousebutton">
+								Likeliness to use
+								<i class="material-symbols-outlined">expand_more</i>
+							</button>
+						</div>
+
+						<div class="impact">
+							<button id="impactbutton">
+								Impact on projects
+								<i class="material-symbols-outlined">expand_more</i>
+							</button>
+						</div>
+
+						<div class="inspiration">
+							<button id="inspirationbutton">
+								Inspiration level
+								<i class="material-symbols-outlined">expand_more</i>
+							</button>
+						</div>
+					</section>
+					<section class="sort">
+						<h3>
+							<i class="material-symbols-outlined">sort</i>
+						</h3>
+						<button id="sort">
+							Sort
+							<i class="material-symbols-outlined">expand_more</i>
+						</button>
+					</section>
+				</section>
+
 				<section class="blog-grid">
 					<% blogMetadata.forEach(metadata => { %>
 					<article class="blog-item">
@@ -149,6 +194,8 @@
 					</article>
 					<% }); -%>
 				</section>
+
+				<a href="/weeklynerd"> View all blogs </a>
 			</section>
 		</main>
 		<footer><%- include ('partials/footer.ejs'); %></footer>

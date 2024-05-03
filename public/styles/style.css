@@ -5,6 +5,7 @@
     --color-breadcrumbs: #8f7da8;
     --color-accents: #d6c7eb;
     --color-borders: #d9cbea;
+    --color-lightest: #f2eff8;
 
     --color-orange: #f7b99e;
     --color-yellow: #fee3ac;
@@ -66,7 +67,7 @@ html {
 
 body {
     font-family: 'Work Sans', sans-serif;
-    background: linear-gradient(#f2eff8, #fff);
+    background: linear-gradient(var(--color-lightest), #fff);
     overflow-x: hidden;
     margin: 0;
     scroll-behavior: smooth;
@@ -342,6 +343,34 @@ blockquote:hover > h5 > span > i {
 /* BLOG GRID */
 /* --------- */
 
+.blogs {
+    display: flex;
+    flex-direction: column;
+
+    > a {
+        align-self: flex-end;
+        margin-right: 5vw;
+
+        text-decoration: none;
+        max-width: max-content;
+        display: inline;
+        color: var(--color-headings);
+        padding: var(--button-padding);
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-headings);
+        transition: all .3s;
+
+        background-color: var(--color-headings);
+        color: var(--color-whites);
+
+        &:hover {
+            background-color: var(--color-accents);
+            border: 1px solid var(--color-accents);
+            color: var(--color-headings);
+        }
+    }
+}
+
 .blog h2 {
     margin-top: 1.5em;
 }
@@ -458,6 +487,74 @@ blockquote:hover > h5 > span > i {
     color: var(--color-headings);
 }
 
+
+/* ------------------- */
+/* FILTER BLOGS SYSTEM */
+/* ------------------- */
+
+.edit-view {
+    display: flex;
+    align-items: center;
+    margin: 0 5vw 5vh;
+
+    h3 {
+        i {
+            color: var(--color-headings);
+
+            &:hover {
+                cursor: default;
+            }
+        }
+
+        &:hover {
+            cursor: default;
+        }
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-family: "Work Sans", sans-serif;
+        font-weight: 300;
+
+        padding: .5em 1em;
+        padding-right: .5em;
+        background-color: var(--color-lightest);
+        border: none;
+        border-radius: 16px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+
+        i {
+            color: var(--color-headings);
+            font-weight: 100;
+            padding: 0;
+            margin: 0;
+        }
+
+        &:hover {
+            background-color: var(--color-accents);
+        }
+    }
+
+    .blog-filters {
+        display: flex;
+        align-items: center;
+        margin-right: auto;
+        gap: 10px;
+    }
+
+    .sort {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        gap: 10px;
+    }
+}
+
 /* ------------ */
 /* FOOTER STYLE */
 /* ------------ */
@@ -544,6 +641,7 @@ footer button span {
 
 .material-symbols-outlined {
     font-size: 75px;
+    font-weight: 200;
 }
 
 /* ----------- */
@@ -782,7 +880,7 @@ footer button span {
     height: 60px;
     bottom: 0vh;
     right: 0;
-    background-color: #fbfafd;
+    background-color: #f7f4fa;
     border-top-left-radius: 50%;
     z-index: 8000;
 }

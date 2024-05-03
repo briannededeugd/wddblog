@@ -61,3 +61,7 @@ const init = () => {
 
 window.addEventListener("load", init, false);
 window.addEventListener("click", accordion, false);
+
+/**========================================================================
+ *                           FILTER
+ *========================================================================**/

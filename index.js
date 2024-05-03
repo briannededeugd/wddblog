@@ -66,13 +66,18 @@ app.get("/", (req, res) => {
 			blogMetadata.push(metadata); // Populate blogMetadata array
 		});
 
+		// Sort blogMetadata array by date in descending order (most recent first)
+		blogMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
+
 		res.render("index", { blogMetadata });
 	});
 });
 
+/**----------------------
+ *    Blogs
+ *------------------------**/
 app.get("/posts/:postName", (req, res) => {
 	const postName = req.params.postName;
-	// Use __dirname to construct the absolute path correctly
 	const filePath = path.join(__dirname, "posts", `${postName}.md`);
 	const metadataPath = path.join(__dirname, "metadata", `${postName}.json`);
 
@@ -113,6 +118,9 @@ app.get("/posts/:postName", (req, res) => {
 	});
 });
 
+/**----------------------
+ *    Weekly Nerd Page
+ *------------------------**/
 app.get("/weeklynerd", (req, res) => {
 	const metadataDir = path.join(__dirname, "metadata");
 
