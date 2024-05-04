@@ -14,7 +14,7 @@ Despite their distinct focuses, these units prioritize a seamless collaboration,
 
 ## The wrapper element
 
-Nils shares insights into modern web development practices, emphasizing the evolution of techniques like the wrapper element. Traditionally, this element served as a container for website content, defining parameters such as max-width and padding.
+Nils shares insights into modern web development practices and the evolution of techniques like the wrapper element. Traditionally, this element served as a container for website content, defining parameters such as max-width and padding.
 
 He delineates the transition from the old way of CSS to more contemporary approaches, like in the snippet below that demonstrates this evolution:
 
@@ -42,15 +42,17 @@ In just a few years' time, web developers have gone from setting explicit dimens
 
 ## Bridging the gap between design and development
 
-Reflecting on the evolution of design tools, Nils underscores the shift from static platforms like Photoshop to dynamic environments like Figma. Programs like these have made a real effort to enhance the seamless integration of design and development workflows, which we can see in the way they use common namings. For example, take a look at Figma: they utilize the very same properties like those in defining the drop-shadow. Designers can set a drop-shadow's **X-axis, Y-axis, blur, spread and color** (which also comes with the **opacity**).
+Reflecting on the evolution of design tools, Nils tells us about the shift from static platforms like Photoshop to dynamic environments like Figma. Programs like these have made a real effort to enhance the integration of design and development workflows, which we can see in the way they use common namings. For example, take a look at Figma: they utilize the very same properties like CSS in defining the drop-shadow. Designers can set a drop-shadow's **X-axis, Y-axis, blur, spread and color** (which also comes with the **opacity**).
 
-With this nod to Figma's unit system, predominantly featuring pixels, percentages, and rems, Nils points us to the importance of consistency across design and development realms. This convergence helps with smoother collaboration and ensures coherence throughout the project lifecycle from idea generation to actual development.
+With this nod to Figma's unit system, predominantly featuring pixels, percentages, and rems, Nils points us to the importance of consistency across design and development workspaces. This helps with smoother collaboration and ensures coherence throughout the project lifecycle from idea generation to actual development.
 
-As John Allsop said in _A Dao of Web Design (2000)_: "The control which designers know in the print medium, and often desire in the web medium, is simply a function of the limitation of the printed page. We should embrace the fact that the web doesn't have the same constraints, and design for this flexibility."
+As John Allsop said in _A Dao of Web Design (2000)_,
+
+> The control which designers know in the print medium, and often desire in the web medium, is simply a function of the limitation of the printed page. We should embrace the fact that the web doesn't have the same constraints, and design for this flexibility.
 
 ## A deep-dive into Figma-units and its correspondence with CSS
 
-If we look at Figma units, it mostly seems to utilize pixels, percentages and rem (or, ). Figma also offers designers the optionality of customizing the line-height of a text-element, but like in CSS, this doesn't have units.
+If we look at Figma units, it mostly seems to utilize pixels, percentages and rem (or, root em). Figma also offers designers the optionality of customizing the line-height of a text-element, but like in CSS, this doesn't have units.
 
 If we then switch our gazes to the world of CSS, it's clear that its options are more expansive. We use pixels (px), percentages (%), rem (root em), ch (character width), ex (x-height), and em (font size of the element). Of these, the last four are relative units, dynamically adjusting based on the context.
 
@@ -66,6 +68,6 @@ Nils advocates for the strategic utilization of whitespace, citing examples from
 
 ## Conclusion
 
-In the dynamic realm of technology and creativity, people like Nils Binder epitomize the fusion of code and design, bridging different domains to create cohesive digital experiences. Through his journey at 9elements, Nils underscores the importance of collaboration, innovation, and adaptability in navigating web development, which is always changing.
+When it comes to technology and creativity, people like Nils Binder show us exactly how the fusion of code and design has developed and will continue to, bridging different domains to create cohesive digital experiences. Through his journey at 9elements, Nils underscores the importance of collaboration, innovation, and adaptability in navigating web development, which is always changing.
 
 Nils' talk can serve as an inspiration, to remind us of the possibilities that emerge when creativity and technology come together.
