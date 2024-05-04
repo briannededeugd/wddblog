@@ -28,22 +28,257 @@
 					</p>
 				</section>
 				<section class="featured">
-					<h2>Hey, hello</h2>
-					<p>
-						This is a body text. This is a body text. This is a body text. This
-						is a body text. This is a body text. This is a body text. This is a
-						body text.
-					</p>
+					<section class="creativegrid">
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</section>
+
+					<div class="dice-container">
+						<div class="dice">
+							<div class="front">
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+							<div class="back">
+								<span></span>
+							</div>
+							<div class="right">
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+							<div class="left">
+								<span></span>
+								<span></span>
+							</div>
+							<div class="top">
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+							<div class="bottom">
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+						</div>
+					</div>
 				</section>
 			</section>
 
 			<section class="blogs">
-				<h2>Blogs</h2>
-				<p>
-					An overview of the blogs written about the Weekly Nerds I've attended
-					during the minor.
-				</p>
-				<section class="blog-grid">
+				<h2>All blogs</h2>
+				<p>Packed, summarized and sorted in one place for your convenience.</p>
+
+				<section class="controls">
+					<section class="edit-view">
+						<section class="blog-filters">
+							<h3>
+								<i class="material-symbols-outlined">filter_alt</i>
+							</h3>
+							<div class="tags">
+								<label>
+									<input type="checkbox" name="filtercategory" id="tagbutton" />
+									Tags
+									<i class="material-symbols-outlined">expand_more</i>
+								</label>
+
+								<div class="filter" id="tagsfilter">
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Accessibility
+										<input
+											type="checkbox"
+											name="tags"
+											data-tag="Accessibility" />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Code samples
+										<input
+											type="checkbox"
+											name="tags"
+											data-tag="Code samples" />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										CSS
+										<input type="checkbox" name="tags" data-tag="CSS" />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Data
+										<input type="checkbox" name="tags" data-tag="Data" />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Design
+										<input type="checkbox" name="tags" data-tag="Design" />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										HTML
+										<input type="checkbox" name="tags" data-tag="HTML" />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										JS
+										<input type="checkbox" name="tags" data-tag="JS" />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Technology
+										<input type="checkbox" name="tags" data-tag="Technology" />
+									</label>
+								</div>
+							</div>
+
+							<div class="likelytouse">
+								<label>
+									<input
+										type="checkbox"
+										name="filtercategory"
+										id="likelytousebutton" />
+									Likeliness to use
+									<i class="material-symbols-outlined">expand_more</i>
+								</label>
+
+								<div class="filter" id="likelytousefilter">
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Very unlikely
+										<input
+											type="checkbox"
+											name="likelytouse"
+											data-tag="Very unlikely" />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Unlikely
+										<input
+											type="checkbox"
+											name="likelytouse"
+											data-tag="Unlikely" />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Likely
+										<input
+											type="checkbox"
+											name="likelytouse"
+											data-tag="Likely" />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Very likely
+										<input
+											type="checkbox"
+											name="likelytouse"
+											data-tag="Very likely" />
+									</label>
+								</div>
+							</div>
+
+							<div class="impact">
+								<label>
+									<input
+										type="checkbox"
+										name="filtercategory"
+										id="impactbutton" />
+									Impact on projects
+									<i class="material-symbols-outlined">expand_more</i>
+								</label>
+
+								<div class="filter" id="impactfilter">
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										No impact
+										<input type="checkbox" name="impact" data-tag="No impact" />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Small impact
+										<input
+											type="checkbox"
+											name="impact"
+											data-tag="Small impact" />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Large impact
+										<input
+											type="checkbox"
+											name="impact"
+											data-tag="Large impact" />
+									</label>
+								</div>
+							</div>
+
+							<div class="inspiration">
+								<label>
+									<input
+										type="checkbox"
+										name="filtercategory"
+										id="inspirationbutton" />
+									Inspiration level
+									<i class="material-symbols-outlined">expand_more</i>
+								</label>
+
+								<div class="filter" id="inspirationfilter">
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Uninspired
+										<input
+											type="checkbox"
+											name="inspiration"
+											data-tag="Uninspired" />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Inspired
+										<input
+											type="checkbox"
+											name="inspiration"
+											data-tag="Inspired" />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Very inspired
+										<input
+											type="checkbox"
+											name="inspiration"
+											data-tag="Very inspired" />
+									</label>
+								</div>
+							</div>
+
+							<button id="applyfilters">Apply Filters</button>
+						</section>
+						<section class="sort">
+							<h3>
+								<i class="material-symbols-outlined">sort</i>
+							</h3>
+							<label>
+								<input type="checkbox" name="filtercategory" id="sort" />
+								Sort
+								<i class="material-symbols-outlined">expand_more</i>
+							</label>
+						</section>
+					</section>
+
+					<section class="selectedfilters"></section>
+				</section>
+
+				<section class="blog-grid" id="blogGrid">
 					<% blogMetadata.forEach(metadata => { %>
 					<article class="blog-item">
 						<a href="/posts/<%- metadata.lecturerUrl %>" class="readblog">
@@ -73,5 +308,6 @@
 		</main>
 		<footer><%- include ('../partials/footer.ejs'); %></footer>
 		<script src="/scripts/scrolltotop.js"></script>
+		<script src="/scripts/scripts.js" type="text/javascript"></script>
 	</body>
 </html>

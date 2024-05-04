@@ -78,12 +78,13 @@ let blogMetadata = [];
 // Server-side routing
 app.get("/", (req, res) => {
 	const metadataDir = path.join(__dirname, "metadata");
-	blogMetadata = [];
 
 	fs.readdir(metadataDir, (err, files) => {
 		if (err) {
 			return res.status(500).send("Error reading metadata directory");
 		}
+
+		const blogMetadata = [];
 
 		files.forEach((file) => {
 			const metadataPath = path.join(metadataDir, file);
@@ -92,54 +93,14 @@ app.get("/", (req, res) => {
 			blogMetadata.push(metadata);
 		});
 
-		// Filter blog posts based on query parameters
-		const filteredMetadata = blogMetadata.filter((metadata) => {
-			let include = true;
-			if (req.query.tags && metadata.tags) {
-				const selectedTags = req.query.tags.split(",");
-				include = selectedTags.every((tag) => metadata.tags.includes(tag));
-			}
-			if (req.query.likelytouse && metadata.howLikelyToUse) {
-				const selectedLikelyToUse = req.query.likelytouse.split(",");
-				include =
-					include && selectedLikelyToUse.includes(metadata.howLikelyToUse);
-			}
-			if (req.query.impact && metadata.impactOnCurrentProjects) {
-				const selectedImpact = req.query.impact.split(",");
-				include =
-					include && selectedImpact.includes(metadata.impactOnCurrentProjects);
-			}
-			if (req.query.inspiration && metadata.inspirationLevel) {
-				const selectedInspiration = req.query.inspiration.split(",");
-				include =
-					include && selectedInspiration.includes(metadata.inspirationLevel);
-			}
-			return include;
-		});
+		// Sort blogMetadata array based on the "date" field
+		blogMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-		// Sort filteredMetadata array by date in descending order (most recent first)
-		filteredMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
+		// Slice the array to get the first three elements
+		const recentBlogs = blogMetadata.slice(0, 3);
 
-		res.render("index", { blogMetadata: filteredMetadata });
+		res.render("index", { blogMetadata: recentBlogs });
 	});
-});
-
-// Server-side routing to handle AJAX request for filtering
-app.post("/filter", (req, res) => {
-	const { tags, likelytouse, impact, inspiration } = req.body;
-
-	// Implement your filtering logic here based on the received filter parameters
-	// For example, you can read metadata files, filter them based on the received parameters, and send the filtered data as a response
-	const filteredMetadata = blogMetadata.filter((metadata) => {
-		return (
-			(!tags.length || tags.some((tag) => metadata.tags.includes(tag))) &&
-			(!likelytouse.length || likelytouse.includes(metadata.howLikelyToUse)) &&
-			(!impact.length || impact.includes(metadata.impactOnCurrentProjects)) &&
-			(!inspiration.length || inspiration.includes(metadata.inspirationLevel))
-		);
-	});
-
-	res.json(filteredMetadata);
 });
 
 /**----------------------
@@ -191,24 +152,88 @@ app.get("/posts/:postName", (req, res) => {
  *    Weekly Nerd Page
  *------------------------**/
 app.get("/weeklynerd", (req, res) => {
+	// const metadataDir = path.join(__dirname, "metadata");
+
+	// fs.readdir(metadataDir, (err, files) => {
+	// 	if (err) {
+	// 		return res.status(500).send("Error reading metadata directory");
+	// 	}
+
+	// 	const blogMetadata = []; // Define blogMetadata array here
+
+	// 	files.forEach((file) => {
+	// 		const metadataPath = path.join(metadataDir, file);
+	// 		const metadataJSON = fs.readFileSync(metadataPath, "utf8");
+	// 		const metadata = JSON.parse(metadataJSON);
+	// 		blogMetadata.push(metadata); // Populate blogMetadata array
+	// 	});
+
+	// 	res.render("pages/weeklynerd", { blogMetadata });
+	// });
+
 	const metadataDir = path.join(__dirname, "metadata");
+	blogMetadata = [];
 
 	fs.readdir(metadataDir, (err, files) => {
 		if (err) {
 			return res.status(500).send("Error reading metadata directory");
 		}
 
-		const blogMetadata = []; // Define blogMetadata array here
-
 		files.forEach((file) => {
 			const metadataPath = path.join(metadataDir, file);
 			const metadataJSON = fs.readFileSync(metadataPath, "utf8");
 			const metadata = JSON.parse(metadataJSON);
-			blogMetadata.push(metadata); // Populate blogMetadata array
+			blogMetadata.push(metadata);
 		});
 
-		res.render("pages/weeklynerd", { blogMetadata });
+		// Filter blog posts based on query parameters
+		const filteredMetadata = blogMetadata.filter((metadata) => {
+			let include = true;
+			if (req.query.tags && metadata.tags) {
+				const selectedTags = req.query.tags.split(",");
+				include = selectedTags.every((tag) => metadata.tags.includes(tag));
+			}
+			if (req.query.likelytouse && metadata.howLikelyToUse) {
+				const selectedLikelyToUse = req.query.likelytouse.split(",");
+				include =
+					include && selectedLikelyToUse.includes(metadata.howLikelyToUse);
+			}
+			if (req.query.impact && metadata.impactOnCurrentProjects) {
+				const selectedImpact = req.query.impact.split(",");
+				include =
+					include && selectedImpact.includes(metadata.impactOnCurrentProjects);
+			}
+			if (req.query.inspiration && metadata.inspirationLevel) {
+				const selectedInspiration = req.query.inspiration.split(",");
+				include =
+					include && selectedInspiration.includes(metadata.inspirationLevel);
+			}
+			return include;
+		});
+
+		// Sort filteredMetadata array by date in descending order (most recent first)
+		filteredMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+		res.render("pages/weeklynerd", { blogMetadata: filteredMetadata });
 	});
+});
+
+// Server-side routing to handle AJAX request for filtering
+app.post("/filter", (req, res) => {
+	const { tags, likelytouse, impact, inspiration } = req.body;
+
+	// Implement your filtering logic here based on the received filter parameters
+	// For example, you can read metadata files, filter them based on the received parameters, and send the filtered data as a response
+	const filteredMetadata = blogMetadata.filter((metadata) => {
+		return (
+			(!tags.length || tags.some((tag) => metadata.tags.includes(tag))) &&
+			(!likelytouse.length || likelytouse.includes(metadata.howLikelyToUse)) &&
+			(!impact.length || impact.includes(metadata.impactOnCurrentProjects)) &&
+			(!inspiration.length || inspiration.includes(metadata.inspirationLevel))
+		);
+	});
+
+	res.json(filteredMetadata);
 });
 
 /**========================================================================
