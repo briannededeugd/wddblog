@@ -1366,7 +1366,7 @@ footer button span {
 }
 
 #stats ul li:first-of-type:hover::after {
-    content: "Very unlikely - Unlikely - Likely - Very Likely";
+    content: "Unlikely - Likely - Very Likely";
 }
 
 #stats ul li:nth-of-type(2):hover::after {
