@@ -103,7 +103,7 @@ p {
     font-size: clamp(1rem, .5vw + .5rem, 1.5rem);
     font-weight: 300;
     line-height: 1.75em;
-    cursor: default;
+    /* cursor: default; */
 }
 
 li {
@@ -451,7 +451,9 @@ blockquote:hover > h5 > span > i {
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    grid-column-gap: 40px;
+    grid-row-gap: 100px;
+    /* gap: 40px; */
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 75px;
@@ -1356,7 +1358,7 @@ footer button span {
 }
 
 #stats ul li:nth-of-type(2):hover::after {
-    content: "No impact - Small impact - Large impact";
+    content: "Small impact - Large impact";
 }
 
 #stats ul li:nth-of-type(3):hover::after {
