@@ -203,18 +203,6 @@ strong {
             grid-area: 2 / 3 / 6 / 6;
         }
     }
-
-    &:hover {
-        grid-column-gap: 5px;
-        grid-row-gap: 5px;
-
-        div {
-            opacity: .5;
-            &::after {
-                opacity: 1;
-            }
-        }
-    }
 }
 
 .regularcontent:has(.creativegrid) {
@@ -1411,6 +1399,18 @@ footer button span {
     position: relative;
 
     &:hover {
+        .creativegrid {
+            grid-column-gap: 5px;
+            grid-row-gap: 5px;
+
+            div {
+                opacity: .5;
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+
         .dice-container {
             top: 50%;
             transform: translate(-50%, -50%) scale(1.7);
@@ -1445,6 +1445,7 @@ footer button span {
    animation-iteration-count: infinite;
    animation-duration: 3s;
    animation-timing-function: ease-in-out;
+   cursor: pointer;
    
    > div {
       height: 60px;
