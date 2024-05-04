@@ -357,6 +357,18 @@ blockquote {
     cursor: pointer;
 }
 
+.blog {
+    > h1 {
+        margin-bottom: 0;
+    }
+
+    > p {
+        &:first-of-type {
+            margin-bottom: 2em;
+        }
+    }
+}
+
 .blog > blockquote {
     display: block;
     padding-left: 5vw;

@@ -138,6 +138,7 @@ app.get("/posts/:postName", (req, res) => {
 				week: metadata.week,
 				tags: metadata.tags,
 				lecturerUrl: metadata.lecturerUrl,
+				description: metadata.description,
 				futureUse: metadata.howLikelyToUse,
 				projectImpact: metadata.impactOnCurrentProjects,
 				inspirationLevel: metadata.inspirationLevel,
@@ -152,7 +153,7 @@ app.get("/randomBlog", (req, res) => {
 	let postName;
 	const allPosts = [
 		"fennadewilde",
-		"hackathon",
+		// "hackathon",
 		"jeremykeith",
 		"kilianvalkhof",
 		"nilsbinder",
@@ -195,6 +196,7 @@ app.get("/randomBlog", (req, res) => {
 				week: metadata.week,
 				tags: metadata.tags,
 				lecturerUrl: metadata.lecturerUrl,
+				description: metadata.description,
 				futureUse: metadata.howLikelyToUse,
 				projectImpact: metadata.impactOnCurrentProjects,
 				inspirationLevel: metadata.inspirationLevel,
@@ -286,7 +288,6 @@ app.post("/applyFiltersAndSort", (req, res) => {
 
 	res.json(filteredMetadata);
 });
-
 
 /**========================================================================
  *                           404 Error Handler
