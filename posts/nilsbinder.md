@@ -29,7 +29,7 @@ He delineates the transition from the old way of CSS to more contemporary approa
 /* NEW WAY */
 .wrapper {
 	width: min(100% - 3rem, 75rem);
-	margin-inline: auto; // sets both left and right to auto
+	margin-inline: auto; /* sets both left and right to auto */
 }
 
 /* NEWER WAY */
