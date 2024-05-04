@@ -78,6 +78,7 @@ function oneAtATime() {
 		likelytouseButton,
 		impactButton,
 		inspirationButton,
+		sortButton,
 	];
 
 	checkboxes.forEach((checkbox) => {
@@ -111,19 +112,12 @@ oneAtATime();
  *                           FILTER FUNCTIONALITY
  *========================================================================**/
 
-document.getElementById("applyfilters").addEventListener("click", function () {
-	const selectedTags = Array.from(
-		document.querySelectorAll("input[name='tags']:checked")
-	).map((tag) => tag.dataset.tag);
-	const selectedLikelyToUse = Array.from(
-		document.querySelectorAll("input[name='likelytouse']:checked")
-	).map((use) => use.dataset.tag);
-	const selectedImpact = Array.from(
-		document.querySelectorAll("input[name='impact']:checked")
-	).map((impact) => impact.dataset.tag);
-	const selectedInspiration = Array.from(
-		document.querySelectorAll("input[name='inspiration']:checked")
-	).map((inspiration) => inspiration.dataset.tag);
+function renderSelectedFilters() {
+	// Gather selected filter options
+	const selectedTags = getSelectedOptions("tags");
+	const selectedLikelyToUse = getSelectedOptions("likelytouse");
+	const selectedImpact = getSelectedOptions("impact");
+	const selectedInspiration = getSelectedOptions("inspiration");
 
 	const filters = {
 		tags: selectedTags,
@@ -132,37 +126,27 @@ document.getElementById("applyfilters").addEventListener("click", function () {
 		inspiration: selectedInspiration,
 	};
 
-	// Send an AJAX request to the server with filter parameters
-	fetch("/filter", {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify(filters),
-	})
-		.then((response) => response.json())
-		.then((data) => {
-			// Update the content on the page with the filtered data
-			renderFilteredData(data);
-			// Add selected filters to the selectedfilters section
-			renderSelectedFilters(filters);
-		})
-		.catch((error) => {
-			console.error("Error applying filters:", error);
-		});
-});
-
-function renderSelectedFilters(filters) {
 	const selectedFiltersSection = document.querySelector(".selectedfilters");
 	selectedFiltersSection.innerHTML = ""; // Clear existing content
 
+	// Check if any filters are selected
+	let anyFilterSelected = false;
+
+	// Iterate over each category of filters
 	for (const category in filters) {
 		const categoryFilters = filters[category];
 		if (categoryFilters.length > 0) {
-			const selectedIndicator = document.createElement("h3");
-			selectedIndicator.textContent = "Selected filters: ";
-			selectedFiltersSection.appendChild(selectedIndicator);
+			// Set flag to indicate that at least one filter is selected
+			anyFilterSelected = true;
 
+			// Create the heading "Selected Filters:" only if it's not already created
+			if (!selectedFiltersSection.querySelector("h3")) {
+				const selectedIndicator = document.createElement("h3");
+				selectedIndicator.textContent = "Selected filters: ";
+				selectedFiltersSection.appendChild(selectedIndicator);
+			}
+
+			// Create filter buttons for each selected filter
 			categoryFilters.forEach((filter) => {
 				const filterButton = document.createElement("button");
 				filterButton.textContent = filter;
@@ -182,6 +166,14 @@ function renderSelectedFilters(filters) {
 			});
 		}
 	}
+
+	// If no filters are selected, remove the heading "Selected Filters:"
+	if (!anyFilterSelected) {
+		const selectedIndicator = selectedFiltersSection.querySelector("h3");
+		if (selectedIndicator) {
+			selectedIndicator.remove();
+		}
+	}
 }
 
 function removeFilter(category, filter) {
@@ -193,9 +185,7 @@ function removeFilter(category, filter) {
 		checkbox.checked = false;
 	}
 
-	// Trigger the apply filters event to reapply filters without the removed one
-	const applyFiltersButton = document.getElementById("applyfilters");
-	applyFiltersButton.click();
+	applyFiltersAndSort();
 }
 
 function renderFilteredData(data) {
@@ -252,4 +242,59 @@ function renderFilteredData(data) {
 
 		blogGrid.appendChild(article);
 	});
+}
+
+// Add event listeners for radio buttons (sorting) and checkboxes (filtering)
+document
+	.querySelectorAll(
+		"input[name='inspiration'], input[name='tags'], input[name='likelytouse'], input[name='impact'], input[name='sort']"
+	)
+	.forEach((input) => {
+		input.addEventListener("change", applyFiltersAndSort);
+	});
+
+function applyFiltersAndSort() {
+	// Gather selected filter options
+	const selectedTags = getSelectedOptions("tags");
+	const selectedLikelyToUse = getSelectedOptions("likelytouse");
+	const selectedImpact = getSelectedOptions("impact");
+	const selectedInspiration = getSelectedOptions("inspiration");
+	const sortType = getSelectedSortType();
+
+	// Send an AJAX request to apply filters and sort
+	fetch("/applyFiltersAndSort", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			tags: selectedTags,
+			likelytouse: selectedLikelyToUse,
+			impact: selectedImpact,
+			inspiration: selectedInspiration,
+			sortType: sortType,
+		}),
+	})
+		.then((response) => response.json())
+		.then((data) => {
+			// Update the content on the page with the filtered and sorted data
+			renderFilteredData(data);
+			renderSelectedFilters();
+		})
+		.catch((error) => {
+			console.error("Error applying filters and sort:", error);
+		});
+}
+
+function getSelectedOptions(name) {
+	return Array.from(
+		document.querySelectorAll(`input[name='${name}']:checked`)
+	).map((input) => input.dataset.tag);
+}
+
+function getSelectedSortType() {
+	const selectedSortRadio = document.querySelector(
+		"input[name='sort']:checked"
+	);
+	return selectedSortRadio ? selectedSortRadio.dataset.tag : "Newest first";
 }

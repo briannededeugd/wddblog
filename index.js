@@ -148,29 +148,66 @@ app.get("/posts/:postName", (req, res) => {
 	});
 });
 
+app.get("/randomBlog", (req, res) => {
+	let postName;
+	const allPosts = [
+		"fennadewilde",
+		"hackathon",
+		"jeremykeith",
+		"kilianvalkhof",
+		"nilsbinder",
+		"rosaschuurman",
+	];
+
+	function randomPost(allPosts) {
+		postName = allPosts[Math.floor(Math.random() * allPosts.length)];
+	}
+
+	randomPost(allPosts);
+
+	const filePath = path.join(__dirname, "posts", `${postName}.md`);
+	const metadataPath = path.join(__dirname, "metadata", `${postName}.json`);
+
+	fs.readFile(filePath, "utf8", (err, data) => {
+		if (err) {
+			// If the Markdown file is not found, send a 404 response
+			return res.status(404).send("Post not found");
+		}
+
+		// Convert the Markdown to HTML
+		const blogContent = marked.parse(data);
+
+		// Read and parse the JSON metadata
+		fs.readFile(metadataPath, "utf8", (err, metadataJSON) => {
+			if (err) {
+				// If the metadata file is not found, handle the error
+				return res.status(404).send("Metadata not found");
+			}
+
+			// Parse the JSON string into an object
+			const metadata = JSON.parse(metadataJSON);
+
+			// Render the EJS template with the blog content and metadata
+			res.render("pages/blogpost", {
+				blogContent,
+				lecturerName: metadata.name,
+				blogDate: metadata.date,
+				week: metadata.week,
+				tags: metadata.tags,
+				lecturerUrl: metadata.lecturerUrl,
+				futureUse: metadata.howLikelyToUse,
+				projectImpact: metadata.impactOnCurrentProjects,
+				inspirationLevel: metadata.inspirationLevel,
+				integration: metadata.integration,
+				opinions: metadata.opinions,
+			});
+		});
+	});
+});
 /**----------------------
  *    Weekly Nerd Page
  *------------------------**/
 app.get("/weeklynerd", (req, res) => {
-	// const metadataDir = path.join(__dirname, "metadata");
-
-	// fs.readdir(metadataDir, (err, files) => {
-	// 	if (err) {
-	// 		return res.status(500).send("Error reading metadata directory");
-	// 	}
-
-	// 	const blogMetadata = []; // Define blogMetadata array here
-
-	// 	files.forEach((file) => {
-	// 		const metadataPath = path.join(metadataDir, file);
-	// 		const metadataJSON = fs.readFileSync(metadataPath, "utf8");
-	// 		const metadata = JSON.parse(metadataJSON);
-	// 		blogMetadata.push(metadata); // Populate blogMetadata array
-	// 	});
-
-	// 	res.render("pages/weeklynerd", { blogMetadata });
-	// });
-
 	const metadataDir = path.join(__dirname, "metadata");
 	blogMetadata = [];
 
@@ -218,13 +255,11 @@ app.get("/weeklynerd", (req, res) => {
 	});
 });
 
-// Server-side routing to handle AJAX request for filtering
-app.post("/filter", (req, res) => {
-	const { tags, likelytouse, impact, inspiration } = req.body;
+app.post("/applyFiltersAndSort", (req, res) => {
+	const { tags, likelytouse, impact, inspiration, sortType } = req.body;
 
-	// Implement your filtering logic here based on the received filter parameters
-	// For example, you can read metadata files, filter them based on the received parameters, and send the filtered data as a response
-	const filteredMetadata = blogMetadata.filter((metadata) => {
+	// Apply filters
+	let filteredMetadata = blogMetadata.filter((metadata) => {
 		return (
 			(!tags.length || tags.some((tag) => metadata.tags.includes(tag))) &&
 			(!likelytouse.length || likelytouse.includes(metadata.howLikelyToUse)) &&
@@ -233,8 +268,25 @@ app.post("/filter", (req, res) => {
 		);
 	});
 
+	// Apply sorting to filtered metadata
+	switch (sortType) {
+		case "Newest first":
+			filteredMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
+			break;
+		case "Oldest first":
+			filteredMetadata.sort((a, b) => new Date(a.date) - new Date(b.date));
+			break;
+		case "A-Z":
+			filteredMetadata.sort((a, b) => a.name.localeCompare(b.name));
+			break;
+		default:
+			// Default to sorting by newest first
+			filteredMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
+	}
+
 	res.json(filteredMetadata);
 });
+
 
 /**========================================================================
  *                           404 Error Handler

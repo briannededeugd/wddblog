@@ -28,50 +28,60 @@
 					</p>
 				</section>
 				<section class="featured">
-					<section class="creativegrid">
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-					</section>
+					<a href="randomBlog">
+						<section class="creativegrid">
+							<div></div>
+							<div>
+								<p><em>Don't know what to read?</em></p>
+							</div>
+							<div>
+								<p>
+									<em>Hover over this grid and click on the</em>
+									<strong>dice</strong>
+									<em>that appears to go to a random blog!</em>
+								</p>
+							</div>
+							<div></div>
+						</section>
 
-					<div class="dice-container">
-						<div class="dice">
-							<div class="front">
-								<span></span>
-								<span></span>
-								<span></span>
-								<span></span>
-								<span></span>
-								<span></span>
-							</div>
-							<div class="back">
-								<span></span>
-							</div>
-							<div class="right">
-								<span></span>
-								<span></span>
-								<span></span>
-								<span></span>
-								<span></span>
-							</div>
-							<div class="left">
-								<span></span>
-								<span></span>
-							</div>
-							<div class="top">
-								<span></span>
-								<span></span>
-								<span></span>
-							</div>
-							<div class="bottom">
-								<span></span>
-								<span></span>
-								<span></span>
-								<span></span>
+						<div class="dice-container">
+							<div class="dice">
+								<div class="front">
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+								<div class="back">
+									<span></span>
+								</div>
+								<div class="right">
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+								<div class="left">
+									<span></span>
+									<span></span>
+								</div>
+								<div class="top">
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+								<div class="bottom">
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
 							</div>
 						</div>
-					</div>
+					</a>
 				</section>
 			</section>
 
@@ -267,11 +277,36 @@
 							<h3>
 								<i class="material-symbols-outlined">sort</i>
 							</h3>
-							<label>
-								<input type="checkbox" name="filtercategory" id="sort" />
-								Sort
-								<i class="material-symbols-outlined">expand_more</i>
-							</label>
+
+							<div>
+								<label>
+									<input type="checkbox" name="filtercategory" id="sort" />
+									Sort
+									<i class="material-symbols-outlined">expand_more</i>
+								</label>
+
+								<div class="filter" id="sortblogs">
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Newest first
+										<input
+											type="radio"
+											name="sort"
+											data-tag="Newest first"
+											checked />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										Oldest first
+										<input type="radio" name="sort" data-tag="Oldest first" />
+									</label>
+									<label>
+										<i class="material-symbols-outlined">done</i>
+										A-Z
+										<input type="radio" name="sort" data-tag="A-Z" />
+									</label>
+								</div>
+							</div>
 						</section>
 					</section>
 

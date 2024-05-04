@@ -152,6 +152,12 @@ strong {
     font-size: clamp(.5rem, .5rem + .5vw, .75rem);
 }
 
+.featured > a {
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 .creativegrid {
     width: 100%;
     height: 100%;
@@ -171,19 +177,38 @@ strong {
         background-repeat: no-repeat;
         background-size: cover;
 
+        p {
+            margin: .5em 1em;
+            align-self: center;
+            color: var(--color-breadcrumbs);
+            line-height: 1;
+        }
+
         &:nth-of-type(1) {
             background-image: url("../images/gr-1.jpg");
             grid-area: 1 / 1 / 3 / 3;
         }
         
         &:nth-of-type(2) {
-            background-image: url("../images/gr-2.jpg");
+            background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, var(--color-lightest) 100%), var(--color-accents);
+            border: 1px solid var(--color-borders);
             grid-area: 1 / 3 / 2 / 6;
+            display: flex;
+
+            p {
+                align-self: center;
+            }
         }
 
         &:nth-of-type(3) {
-            background-image: url("../images/gr-3.jpg");
+            background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, var(--color-lightest) 100%), var(--color-accents);
+            border: 1px solid var(--color-borders);
             grid-area: 3 / 1 / 6 / 3;
+            display: flex;
+
+            p {
+                align-self: flex-end;
+            }
         }
 
         &:nth-of-type(4) {
@@ -546,7 +571,8 @@ blockquote:hover > h5 > span > i {
     width: 0;
 } */
 
-input[type=checkbox] {
+input[type=checkbox],
+input[type=radio] {
     visibility: hidden;
     height: 0;
     width: 0.1px;
@@ -647,32 +673,36 @@ input[type=checkbox] {
         align-items: center;
         margin-left: auto;
         gap: 10px;
+        position: relative;
 
-        > label {
-            display: flex;
-            align-items: center;
+        > div {
+            > label {
+                display: flex;
+                align-items: center;
 
-            font-family: "Work Sans", sans-serif;
-            font-weight: 300;
+                font-family: "Work Sans", sans-serif;
+                font-weight: 300;
 
-            padding: .5em 1em;
-            padding-right: .5em;
-            background-color: var(--color-lightest);
-            border: none;
-            border-radius: 16px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: all .3s ease-in-out;
+                padding: .5em 1em;
+                padding-right: .5em;
+                background-color: var(--color-lightest);
+                border: none;
+                border-radius: 16px;
+                font-size: 1em;
+                cursor: pointer;
+                transition: all .3s ease-in-out;
 
-            i {
-                color: var(--color-headings);
-                font-weight: 100;
-                padding: 0;
-                margin: 0;
-            }
+                i {
+                    color: var(--color-headings);
+                    font-weight: 100;
+                    padding: 0;
+                    margin: 0;
+                    transition: transform .3s ease-in-out;
+                }
 
-            &:hover {
-                background-color: var(--color-accents);
+                &:hover {
+                    background-color: var(--color-accents);
+                }
             }
         }
     }
@@ -723,7 +753,8 @@ input[type=checkbox] {
     }
 }
 
-.edit-view > .blog-filters > div > label:has(input[type=checkbox]:checked) {
+.edit-view > .blog-filters > div > label:has(input[type=checkbox]:checked),
+.edit-view > .sort > div > label:has(input[type=checkbox]:checked) {
     background-color: var(--color-accents);
 
     + div {
@@ -743,7 +774,8 @@ input[type=checkbox] {
     }
 }
 
-.edit-view > .blog-filters > div > div > label:has(input[type=checkbox]:checked) {
+.edit-view > .blog-filters > div > div > label:has(input[type=checkbox]:checked),
+.edit-view > .sort > div > div > label:has(input[type=radio]:checked) {
     background-color: var(--color-accents);
 
     i {
@@ -752,6 +784,9 @@ input[type=checkbox] {
     }
 }
 
+#sortblogs {
+    right: 0;
+}
 
 .selectedfilters {
     display: flex;
