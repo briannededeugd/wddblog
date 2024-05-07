@@ -1,0 +1,14 @@
+{
+    "name": "Vasilis van Gemert",
+    "lecturerUrl": "vasilisvangemert",
+    "week": "Week ten",
+    "date": "2024-04-18",
+    "tags": [ "Accessibility" ],
+    "description": "On accessibility tools.",
+    "image": "vasilisvangemert.jpg",
+    "howLikelyToUse": "Very likely",
+    "impactOnCurrentProjects": "Small impact",
+    "inspirationLevel": "Inspired",
+    "opinions": "Accessibility is one of those things that people view as an annoying afterthought too often, as it requires an additional amount of consideration and sometimes even means that your wildest ideas simply cannot become reality - at least not in the exact way you'd hope. I think this discourages a lot of people, but I appreciate that this talk intended to steer us in the opposite direction, telling us that there are plenty of tools to help us out while also reminding us to remember that these are human beings we're designing for, and that's what should carry the most weight.",
+    "integration": "I haven't integrated these tools yet, but I can definitely see myself implementing them in my routine and making them a step in my process, especially when I'm working on more 'official' projects for clients, my internship and my job later."
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Julia Miocene",
+    "lecturerUrl": "juliamiocene",
+    "week": "Week seven",
+    "date": "2024-03-18",
+    "tags": [ "CSS", "Code samples" ],
+    "description": "On animating and drawing with pure CSS.",
+    "image": "juliamiocene.jpg",
+    "howLikelyToUse": "Likely",
+    "impactOnCurrentProjects": "Small impact",
+    "inspirationLevel": "Very inspired",
+    "opinions": "Animating and drawing in itself is already quite a feat, so the fact that Julia casually does so with nothing but code knocked my socks off, to put it lightly. As she explained, everything made sense, but there still needs to be an incredible understanding and intuition present to logically be able to build visual things with nothing but text. A website and the placement of and seamless collaboration between each of your elements is one thing, let alone make something artistic like Julia does! I'm extremely impressed and was hooked throughout the entirety of her talk.",
+    "integration": "I believe that it will take me years to get to Julia's level, but I am very inspired to pursue my own creative visions. If there's anything her art has taught me, it's that nothing is impossible. It might just be hard, or require some serious time investment. I'm very curious to see what I can do myself after this talk and might try it out soon!"
+}

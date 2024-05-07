@@ -3,7 +3,7 @@
     "lecturerUrl": "nilsbinder",
     "week": "Week four",
     "date": "2024-03-06",
-    "tags": [ "CSS" ],
+    "tags": [ "CSS", "Code samples" ],
     "description": "On the wrapper element and the use (or lack of it) of available space.",
     "image": "nilsbinder.jpg",
     "howLikelyToUse": "Likely",

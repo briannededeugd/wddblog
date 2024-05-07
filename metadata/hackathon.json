@@ -3,12 +3,12 @@
     "lecturerUrl": "hackathon",
     "week": "Week seven",
     "date": "2024-03-25",
-    "tags": [ "Design", "Data", "JS" ],
+    "tags": [ "Design", "Data", "JavaScript" ],
     "description": "A week of applying lessons to a real project for a real client.",
     "image": "hackathon.jpg",
-    "howLikelyToUse": "Likely",
+    "howLikelyToUse": "Unlikely",
     "impactOnCurrentProjects": "Large impact",
     "inspirationLevel": "Inspired",
-    "opinions": "",
-    "integration": ""
+    "opinions": "Although this was a very short week for me, I very much enjoyed the assignment and the freedom we were given during it. I learned a lot more than I thought I could in such a short period of time!",
+    "integration": "Due to the specifity of this project and our choices, I haven't integrated any of the hackathon's methods anywhere else yet. However, I will take what I learned about collaboration and efficiency with me in the future."
 }
