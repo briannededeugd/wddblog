@@ -49,29 +49,6 @@ app.set("view engine", "ejs");
 /**----------------------
  *       Homepage
  *------------------------**/
-// app.get("/", (req, res) => {
-// 	const metadataDir = path.join(__dirname, "metadata");
-
-// 	fs.readdir(metadataDir, (err, files) => {
-// 		if (err) {
-// 			return res.status(500).send("Error reading metadata directory");
-// 		}
-
-// 		const blogMetadata = []; // Define blogMetadata array here
-
-// 		files.forEach((file) => {
-// 			const metadataPath = path.join(metadataDir, file);
-// 			const metadataJSON = fs.readFileSync(metadataPath, "utf8");
-// 			const metadata = JSON.parse(metadataJSON);
-// 			blogMetadata.push(metadata); // Populate blogMetadata array
-// 		});
-
-// 		// Sort blogMetadata array by date in descending order (most recent first)
-// 		blogMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-// 		res.render("index", { blogMetadata });
-// 	});
-// });
 
 let blogMetadata = [];
 
@@ -113,7 +90,7 @@ app.get("/posts/:postName", (req, res) => {
 
 	fs.readFile(filePath, "utf8", (err, data) => {
 		if (err) {
-			// If the Markdown file is not found, send a 404 response
+			// If the Markdown file is not found, send a 404 response;
 			return res.status(404).send("Post not found");
 		}
 
