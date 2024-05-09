@@ -183,6 +183,7 @@ app.get("/randomBlog", (req, res) => {
 		});
 	});
 });
+
 /**----------------------
  *    Weekly Nerd Page
  *------------------------**/
@@ -264,6 +265,14 @@ app.post("/applyFiltersAndSort", (req, res) => {
 	}
 
 	res.json(filteredMetadata);
+});
+
+/**----------------------
+ *    Goals and Plans
+ *------------------------**/
+
+app.get("/goalsplans", (req, res) => {
+	res.render("pages/goalsplans");
 });
 
 /**========================================================================
