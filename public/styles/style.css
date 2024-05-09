@@ -1826,15 +1826,25 @@ gap: 50px;
 }
 
 .banner {
-    writing-mode: vertical-lr;
+    writing-mode: vertical-rl;
     margin-left: auto;
     margin-right: 0;
     display: flex;
+    gap: 15px;
     align-items: center;
     background-image: linear-gradient(to top, #ffffff94 4%, rgba(255, 255, 255, 0)), url("../images/mariekedehoop.jpg");
     background-position: center left;
     border-radius: 16px;
     padding: 3.5vh .5vw 1em;
+
+    h2 {
+        font-weight: 400;
+        font-size: clamp(.85em, .5vw + .5rem, 1em);
+    }
+
+    p {
+        font-size: clamp(.5em, .25vw + .4rem, .8em);
+    }
 
     div {
         margin-top: auto;
@@ -2082,7 +2092,7 @@ gap: 50px;
             z-index: 2;
 
             p {
-                font-size: .85em;
+                font-size: clamp(.65em, .35rem + .4vw, .9em);
             }
         }
     }
