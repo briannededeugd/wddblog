@@ -75,7 +75,7 @@ body {
 }
 
 main {
-    margin: 5vh 5vw;
+    margin: 5vh 5vw 0;
 }
 
 body > main > section > h2,
@@ -1295,6 +1295,45 @@ footer button span {
     gap: 10vw;
   }
 
+    #classification {
+        background: linear-gradient(to top, var(--color-lightest), rgba(255, 255, 255, 0));
+        width: 110vw;
+        margin-top: 5vh;
+        margin-left: -5vw; /* Compensate for the left margin */
+        margin-right: -5vw; /* Compensate for the right margin */
+        margin-bottom: 0;
+        box-sizing: border-box;
+        padding: 5vh 5vw 15vh;
+    }
+
+
+  .class-grid {
+    max-width: 90%;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+
+    & > section {
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+            text-align: center;
+        }
+
+        p {
+            font-size: clamp(.75em, .75vw + .25rem, .9em);
+        }
+
+        span.material-symbols-outlined {
+            align-self: center;
+            font-size: 5em;
+            color: var(--color-breadcrumbs);
+        }
+    }
+  }
+
 /* ---- */
 /* BLOG */
 /* ---- */
@@ -1675,21 +1714,6 @@ footer button span {
    80% { transform: rotateX(240deg) rotateY(240deg); }
    100% { transform: rotateX(360deg) rotateY(360deg); }
 }
-
-/* ------------------------------------ */
-/* THE CLASSIFICATION SYSTEM, EXPLAINED */
-/* ------------------------------------ */
-
-#classification {
-    background-color: var(--color-lightest);
-    width: 110vw;
-    margin-left: -5vw; /* Compensate for the left margin */
-    margin-right: -5vw; /* Compensate for the right margin */
-    margin-bottom: 0;
-    box-sizing: border-box;
-    padding: 10vh 5vw;
-}
-
 
 
 /* -------------- */
