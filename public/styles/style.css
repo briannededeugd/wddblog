@@ -79,7 +79,7 @@ main {
     margin: 5vh 5vw 0;
 
     > section:last-of-type {
-        padding-bottom: 5vh;
+        padding-bottom: 10vh;
     }
 }
 
@@ -2375,20 +2375,24 @@ gap: 50px;
     background-color: var(--color-lightest);
     max-width: 110vw;
     margin: 15vh -5vw 0;
-    height: 70vh;
-    padding: 25px 5vw;
+    padding: 25px 5vw 0;
 
     h2 {
-        font-family: "Work Sans", sans-serif;
-        font-weight: 200;
+        font-family: "Playfair Display", serif;
+        font-style: normal;
+        font-weight: 100;
         font-size: clamp(4.5em, 3rem + .75vw, 7em);
         text-align: center;
+        margin-top: 15px;
+        margin-bottom: 20px;
 
         &::before {
-            content: "1";
             display: inline-block;
             font-family: "Playfair Display", serif;
+            font-style: italic;
+            font-weight: 800;
             margin-right: .5em;
+            color: var(--color-breadcrumbs);
         }
 
         span {
@@ -2399,7 +2403,8 @@ gap: 50px;
                 background-position: center;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
-                animation: rotateIcon 3s linear infinite;
+                font-style: normal;
+                animation: rotateIcon 8s linear infinite;
             }
 
             &:nth-of-type(2) {
@@ -2418,6 +2423,249 @@ gap: 50px;
             }
         }
     }
+
+    > section {
+        margin: 15vh 5vw;
+        scroll-snap-align: center;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: -15px !important;
+            margin: 5vh 0;
+
+            span {
+                height: 20px;
+                width: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 8px;
+                background-color: var(--color-headings);
+                color: var(--color-whites);
+                border-radius: 50%;
+
+                &:nth-of-type(2) {
+                    max-width: 10px;
+                    margin: -2px 0;
+                    height: 20px;
+                    padding: 0;
+                    border-radius: 0;
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: -2.5px;
+                        /* top: 0; */
+                        left: 72%;
+                        height: 25px;
+                        width: 25px;
+                        border-radius: 50%;
+                        background-color: #f2eff8;
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: -2.5px;
+                        /* top: 0; */
+                        right: 72%;
+                        height: 25px;
+                        width: 25px;
+                        border-radius: 50%;
+                        background-color: #f2eff8;
+                    }
+                }
+            }
+        }
+
+        .theplan {
+            max-width: 850px;
+            margin-right: auto;
+            margin-left: auto;
+
+            section {
+                &:first-of-type {
+                    padding: 0 10vw;
+
+                    p {
+                        max-width: 50%;
+                    }
+                }
+            }
+        }
+
+        .measurements {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 850px;
+            margin-right: auto;
+            margin-left: auto;
+
+            > section {
+                display: flex;
+                align-items: flex-start;
+                max-width: 400px;
+                gap: 20px;
+
+                span {
+                    color: var(--color-headings);
+                    padding: .5em;
+                    border-radius: 16px;
+                }
+
+                p {
+                    margin: 0 .5em;
+                    font-size: clamp(0.85em, .5rem + .65vw, .9em);
+                    font-style: italic;
+                }
+
+                &:first-of-type {
+                    span {
+                        background: linear-gradient(45deg, var(--color-accents), var(--color-blue));
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    span {
+                        background: linear-gradient(45deg, var(--color-blue), var(--color-green));
+                    }
+                }
+
+                &:nth-of-type(3) {
+                    span {
+                        background: linear-gradient(45deg, var(--color-green), var(--color-orange));
+                    }
+                }
+            }
+        }
+
+        &:first-of-type {
+            margin: 5vh 0;
+
+            h2 {
+                &::before {
+                    content: "1";
+                }
+            }
+
+            > section {
+                section {
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: space-evenly;
+                }
+            }
+        }
+
+        &:nth-of-type(2) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h2 {
+                max-width: 40%;
+                text-align: left;
+
+                &::before {
+                    content: "2";
+                }
+
+                span {
+                    &:nth-of-type(2) {
+                        &::after {
+                            background-image: url("../images/gr-2.jpg");
+                        }
+                    }
+                }
+            }
+
+            > section {
+                width: 50%;
+            }
+
+            .measurements {
+                margin-top: 5vh;
+                gap: 35px;
+
+                section {
+                    flex-direction: column;
+                    width: 100%;
+
+                    &:first-of-type {
+                        span {
+                            background-image: linear-gradient(45deg, var(--color-orange), var(--color-yellow));
+                        }
+                    }
+
+                    &:nth-of-type(2) {
+                        span {
+                            background-image: linear-gradient(45deg, var(--color-yellow), var(--color-accents));
+                        }
+                    }
+                }
+            }
+        }
+
+        &:nth-of-type(3) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h2 {
+                max-width: 40%;
+                text-align: left;
+                order: 2;
+
+                &::before {
+                    content: "3";
+                }
+
+                span {
+                    &:first-of-type {
+                        animation: tilt 1.5s linear infinite;
+                    }
+
+                    &:nth-of-type(2) {
+                        &::after {
+                            background-image: url("../images/gr-3.jpg");
+                        }
+                    }
+                }
+            }
+
+            > section {
+                width: 50%;
+                order: 1;
+            }
+
+            .measurements {
+                margin-top: 5vh;
+                gap: 35px;
+
+                section {
+                    flex-direction: column;
+                    width: 100%;
+
+                    &:first-of-type {
+                        span {
+                            background-image: linear-gradient(45deg, var(--color-accents), var(--color-blue));
+                        }
+                    }
+
+                    &:nth-of-type(2) {
+                        span {
+                            background-image: linear-gradient(45deg, var(--color-blue), var(--color-green));
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 
@@ -2431,6 +2679,27 @@ gap: 50px;
     }
 }
 
+@keyframes tilt {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
 
 
 
