@@ -126,7 +126,7 @@ app.get("/posts/:postName", (req, res) => {
 	});
 });
 
-app.get("/randomBlog", (req, res) => {
+app.get("/randomblog", (req, res) => {
 	let postName;
 	const allPosts = [
 		"fennadewilde",
