@@ -2377,7 +2377,7 @@ gap: 50px;
     background-color: var(--color-lightest);
     max-width: 110vw;
     margin: 15vh -5vw 0;
-    padding: 25px 5vw 0;
+    padding: 25px 5vw 5vh;
 
     h2 {
         font-family: "Playfair Display", serif;
@@ -2427,7 +2427,7 @@ gap: 50px;
     }
 
     > section {
-        margin: 15vh 5vw;
+        margin: 15vh 5vw 0;
         scroll-snap-align: center;
 
         div {
@@ -2669,8 +2669,29 @@ gap: 50px;
             }
         }
     }
-}
 
+    > button {
+        display: block;
+        width: 50px;
+        margin-left: auto;
+        height: 50px;
+        border-radius: 50px;
+        background-color: transparent;
+        text-align: center;
+        position: sticky;
+        bottom: 25px;
+        right: -10px;
+        border: 1px solid var(--color-headings);
+        transition: all .3s ease-in-out;
+        cursor: pointer !important;
+
+        &:hover {
+            transform: scale(1.2);
+            background-color: var(--color-headings);
+            color: var(--color-whites);
+        }
+    }
+}
 
 @keyframes rotateIcon {
     0% {
@@ -2704,8 +2725,108 @@ gap: 50px;
     }
 }
 
+/* "OUTRO" */
 
+.pre-footer {
+    padding: 70px 0 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+    ul {
+        list-style-type: none;
+        display: inline-block;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+
+        a {
+            display: block;
+            width: 90%;
+            padding: 1em 1em;
+            border-bottom: .5px solid var(--color-headings);
+            text-decoration: none;
+            color: var(--color-headings);
+            transition: all .3s ease-in-out;
+
+            
+            li {
+                display: flex;
+                align-items: center;
+
+                p {
+                    margin-right: auto;
+                }
+
+                span {
+                    width: 50px;
+                    height: 50px;
+                    text-align: center;
+                    border: .5px solid var(--color-headings);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: auto;
+                    transition: all .3s ease-in-out;                    
+                }
+
+                &::before {
+                    font-family: "Playfair Display", serif;
+                    font-style: italic;
+                    font-weight: 800;
+                    margin-right: .5em;
+                    display: inline;
+                }
+            }
+
+            &:first-of-type {
+                li {
+                    &::before {
+                        content: "01";
+                    }
+                }
+            }
+
+            &:nth-of-type(2) {
+                li {
+                    &::before {
+                        content: "02";
+                    }
+                }
+            }
+
+            &:nth-of-type(3) {
+                li {
+                    &::before {
+                        content: "03";
+                    }
+                }
+            }
+
+            &:nth-of-type(4) {
+                li {
+                    &::before {
+                        content: "04";
+                    }
+                }
+            }
+
+            &:hover {
+                background-color: var(--color-lightest);
+                font-family: "Playfair Display", serif;
+
+                li {
+                    span {
+                        background-color: var(--color-headings);
+                        color: var(--color-whites);
+                    }
+                }
+            }
+        }
+    }
+}
 
 /* -------------- */
 /* RESPONSIVENESS */
