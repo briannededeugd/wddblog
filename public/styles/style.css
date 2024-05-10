@@ -2103,25 +2103,27 @@ gap: 50px;
 
                 &::before {
                     content: "";
-                    width: 100%;
+                    width: 130%;
                     height: 100%;
-                    background-color: #f3ecf7;
+                    background-color: transparent;
                     border-radius: 16px;
                     position: absolute;
-                    top: -90%;
-                    left: 0;
+                    top: -105%;
+                    left: -3px;
                     box-shadow: 0px 10px 0px var(--color-headings);
                 }
 
                 &::after {
                     content: "";
-                    width: 100%;
+                    width: 130%;
                     height: 100%;
-                    background-color: #e0aa8e;
+                    background-color: transparent;
                     border-radius: 16px;
+                    border-top-left-radius: 20px;
                     position: absolute;
-                    top: 87%;
-                    left: 0;
+                    top: 100%;
+                    left: -3px;
+                    box-shadow: 0 -10px 0 var(--color-headings);
                 }
             }
 
