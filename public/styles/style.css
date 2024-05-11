@@ -2988,6 +2988,10 @@ gap: 50px;
     }
 }
 
+.regularcontent.aboutme {
+    align-items: center;
+}
+
 @keyframes orbit {
     0% {
         left: -10%;
