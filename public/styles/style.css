@@ -2857,6 +2857,41 @@ gap: 50px;
 /* ABOUT ME PAGE */
 
 .regularcontent {
+    > section {
+        p {
+            strong {
+                display: inline-flex;
+                align-items: center;
+                font-family: "Work Sans", sans-serif;
+                font-weight: 300;
+
+                &::after {
+                    font-family: "Material Symbols Outlined";
+                    margin-left: .5em;
+                    font-size: 1.5em;
+                }
+
+                &:first-of-type {
+                    background-color: var(--color-breadcrumbs);
+                    /* color: var(--color-whites); */
+
+                    &::after {
+                        content: "neurology";
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    background-color: var(--color-orange);
+                    /* color: var(--color-whites); */
+
+                    &::after {
+                        content: "favorite";
+                    }
+                }
+                
+            }
+        }
+    }
     .rotation {
             margin: 0;
             height: max-content;
@@ -2880,67 +2915,157 @@ gap: 50px;
             perspective-origin: center;
 
 
-            /* border: 1px solid var(--color-breadcrumbs); */
-            box-shadow: 0 2em 2em #ccbebe84;
+            border: 1px solid var(--color-headings);
+            box-shadow: 0 2em 2em #a29494a4;
             border-radius: 70% 30% 40% 65% / 30% 40% 65% 60%;
             animation: border 15s ease-in-out infinite;
 
             div {
-                /* background-image: url("../images/gr-1.jpg"); */
-                background-color: var(--color-accents);
-                background-repeat: repeat;
-                background-size: 200% 100%;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
 
-                /* box-shadow: inset -1.5em -1.5em 1.5em #00000091, -0.2em -0.2em 0.5em #ccc; */
-
-                border: .5px solid var(--color-whites);
-                height: 100px;
-                width: 100px;
-                border-radius: 50%;
+                /* box-shadow: inset -1.5em -1.5em 1.5em #000000, -0.2em -0.2em 0.5em #ccc; */
+                height: 120px;
+                width: 120px;
+                border-radius: 20px;
 
                 position: absolute;
-                top: 15%;
-                left: 0;
+                top: 45%;
+                left: -10%;
 
                 transition: all 1s ease-in-out;
                 transform: translateY(-50%) translateZ(200px);
 
-                animation: 
-                    rotate 5s linear infinite,
-                    orbit 7s infinite ease-in-out;
+                &:nth-of-type(1) {
+                    background-image: url("../images/thehead.png");
+                    /* background-color: var(--color-accents); */
+
+                    animation: 
+                        orbit 7s infinite ease-in-out;
+                }
+
+                &:nth-of-type(2) {
+                    background-image: url("../images/theheart.webp");
+                    /* background-color: var(--color-blue); */
+
+                    animation: 
+                        orbit2 7s infinite ease-in-out;
+                }
             }
         }
-    }
-}
 
-@keyframes rotate {
-    to {
-        background-position: -200% 0;
+        h3 {
+            position: absolute;
+            color: var(--color-whites);
+            font-size: 1.75em;
+
+            &:first-of-type {
+                top: 10%;
+                left: 0;
+                rotate: -4deg;
+                background-color: var(--color-breadcrumbs);
+            }
+
+            &:nth-of-type(2) {
+                bottom: 0;
+                right: 0;
+                rotate: 4deg;
+                background-color: var(--color-orange);
+            }
+        }
+
+        > div {
+            height: 40px;
+            width: 25px;
+            background-image: url("../images/cursor-animation.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+
+            animation: cursor 7s infinite ease-in-out;
+        }
     }
 }
 
 @keyframes orbit {
     0% {
-        left: 0;
+        left: -10%;
         transform: translateZ(0px);
+        top: 45%;
     }
 
     25% {
         transform: translateZ(200px);
+        top: 60%;
     }
 
     50% {
-        left: 24em;
+        left: 90%;
         transform: translateZ(-200px);
+        top: 45%;
     }
 
     75% {
         transform: translateZ(-400px);
+        top: 25%;
     }
 
     100% {
-        left: 0;
+        left: -10%;
         transform: translateZ(0px);
+        top: 45%;
+    }
+}
+
+@keyframes orbit2 {
+    0% {
+        left: 90%;
+        transform: translateZ(-200px);
+        top: 45%;
+    }
+
+    25% {
+        transform: translateZ(-400px);
+        top: 25%;
+    }
+
+    50% {
+        left: -10%;
+        transform: translateZ(0px);
+        top: 45%;
+    }
+
+    75% {
+        transform: translateZ(200px);
+        top: 60%;
+    }
+
+    100% {
+        left: 90%;
+        transform: translateZ(-200px);
+        top: 45%;
+    }
+}
+
+@keyframes cursor {
+    0% {
+        left: 0%;
+        top: 55%;
+    }  
+
+    25% {
+        top: 80%;
+    }
+    
+    50% {
+        left: 90%;
+        top: 55%;
+    }
+
+    100% {
+        left: 0%;
+        top: 55%;
     }
 }
 
