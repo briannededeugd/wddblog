@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include ('../partials/head.ejs'); %>
+	</head>
+
+	<body>
+		<header><%- include ('../partials/header.ejs'); %></header>
+		<main>
+			<div class="breadcrumbs">
+				<a href="/">Home</a>/ <a href="/aboutme">About Me</a>
+			</div>
+
+			<section class="regularcontent">
+				<section>
+					<h1>About Me</h1>
+					<p>
+						Are you looking at this blog and thinking, <em>okay, but who</em> is
+						<em>she?</em> All's good! This page answers that exact question,
+						offering you a glance into my head as a person, student and
+						developer, including the part of my brain that was very focused on
+						this site in particular.<br />
+						<br />
+						You might also want to get to know me on another level, in which
+						case you should check out my
+						<a href="https://brianne.nl">portfolio</a>!
+					</p>
+				</section>
+
+				<section class="rotation">
+					<section class="avatar">
+						<div class="bio"></div>
+					</section>
+				</section>
+			</section>
+
+			<section class="pre-footer">
+				<h2>Still can't get enough after all that?</h2>
+				<p>Ummmm, okay.</p>
+
+				<ul>
+					<a href="aboutme">
+						<li>
+							<p>Learn more about me</p>
+							<span class="material-symbols-outlined">north_east</span>
+						</li>
+					</a>
+					<a href="weeklynerd">
+						<li>
+							<p>Check out my blogs</p>
+							<span class="material-symbols-outlined">north_east</span>
+						</li>
+					</a>
+					<a href="randomblog">
+						<li>
+							<p>Visit a random blog</p>
+							<span class="material-symbols-outlined">north_east</span>
+						</li>
+					</a>
+					<a href="/">
+						<li>
+							<p>Go back home</p>
+							<span class="material-symbols-outlined">north_east</span>
+						</li>
+					</a>
+				</ul>
+			</section>
+		</main>
+		<footer><%- include ('../partials/footer.ejs'); %></footer>
+		<script src="/scripts/scrolltotop.js"></script>
+	</body>
+</html>
