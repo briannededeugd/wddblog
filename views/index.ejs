@@ -8,144 +8,87 @@
 		<header><%- include ('partials/header.ejs'); %></header>
 		<main>
 			<section class="introduction">
-				<section class="about-me">
-					<h1>
-						My name is <span class="name">Brianne</span>, and I have plans.
-					</h1>
-					<p class="bio">
-						For one, I plan to become a great creative frontend developer. I
-						want to unleash my creativity, and also be able to actually realise
-						what I dream up - no matter how big the dream or how crazy the idea.
-						On this blog, you'll accompany me on my journey by hearing all about
-						the Weekly Nerds I attend, the leaps I take and the lessons I learn!
-					</p>
+				<h1>
+					<span>I&#8217;m</span><br />
+					<span>Brianne</span>
+				</h1>
+				<h2>
+					<span>Blog / personal site</span>
+				</h2>
+				<h3>
+					I make stuff
+					<span aria-hidden="true">
+						<i class="material-symbols-outlined">arrow_forward</i>
+						<img src="../images/gr-4.jpg" alt="" />
+					</span>
+					(<em>happen</em>)
+				</h3>
 
-					<h2>More about</h2>
-					<div class="littlelinks">
-						<a href="/weeklynerd">Weekly Nerd</a>
-						<a href="#">Brianne</a>
-					</div>
-				</section>
+				<p>
+					And I have plans. For one, I plan to become a great creative frontend
+					developer. I want to unleash my creativity and be able to actually
+					realise what I dream up - no matter how big the dream or how crazy the
+					idea. Accompany me on my journey by hearing all about the
+					<em>Weekly Nerds</em> I attend, the leaps I take and the lessons I
+					learn.
+				</p>
 
-				<section class="recent-weeklynerds">
-					<ul class="accordion">
-						<li class="item">
-							<h3>Kilian Valkhof</h3>
-							<p>On the (near) future of code capabilities.</p>
-							<a href="/posts/kilianvalkhof" class="readblog">Read this blog</a>
-						</li>
-						<li class="item">
-							<h3>Fenna de Wilde</h3>
-							<p>On accessibility in code and creative web design.</p>
-							<a href="/posts/fennadewilde" class="readblog">Read this blog</a>
-						</li>
-					</ul>
-				</section>
+				<p>
+					<span>
+						<span id="currentdate">Hello</span> |
+						<span id="currenttime">Hi</span>
+					</span>
+				</p>
+
+				<button
+					aria-label="Scroll down to the content"
+					id="scrolldowntocontent">
+					Continue to content
+				</button>
 			</section>
 
-			<section class="goals">
-				<h2>Goals and plans</h2>
-				<p>
-					Everything I wish to learn and achieve by the end of the Web Design &
-					Development minor.
-				</p>
+			<section class="goals" id="goals"></section>
+
+			<section class="quotesection">
+				<blockquote></blockquote>
+			</section>
+
+			<section class="blogs"></section>
+
+			<section class="pre-footer">
+				<h2>Where do we go from here?</h2>
+				<p>You've got the entire world (this website) at your feet (cursor).</p>
+
 				<ul>
-					<a href="/goalsplans#runner">
+					<a href="/">
 						<li>
-							<h3>
-								<span class="lin-1">Intuitively write CSS</span>
-								<span class="lin-2">& become a master at</span>
-								<span class="lin-3">responsive coding</span>
-							</h3>
+							<p>Discover what drives me</p>
+							<span class="material-symbols-outlined">north_east</span>
 						</li>
-						<div class="notch"></div>
-						<div class="round-button">
-							<span class="material-symbols-outlined"> arrow_forward </span>
-						</div>
 					</a>
-
-					<a href="/goalsplans#animationstransitions">
+					<a href="aboutme">
 						<li>
-							<h3>
-								<span class="lin-1">(Know how to) utilize</span>
-								<span class="lin-2">transitions and</span>
-								<span class="lin-3">animations to enhance</span>
-								<span class="lin-4">the UX</span>
-							</h3>
+							<p>Learn who I am</p>
+							<span class="material-symbols-outlined">north_east</span>
 						</li>
-						<div class="notch"></div>
-						<div class="round-button">
-							<span class="material-symbols-outlined"> arrow_forward </span>
-						</div>
 					</a>
-
-					<a href="/goalsplans#setcriteria">
+					<a href="weeklynerd">
 						<li>
-							<h3>
-								<span class="lin-1">Set clear project</span>
-								<span class="lin-2">milestones and</span>
-								<span class="lin-3">success criteria</span>
-							</h3>
+							<p>Check out my blogs</p>
+							<span class="material-symbols-outlined">north_east</span>
 						</li>
-						<div class="notch"></div>
-						<div class="round-button">
-							<span class="material-symbols-outlined"> arrow_forward </span>
-						</div>
+					</a>
+					<a href="randomblog">
+						<li>
+							<p>Visit a random blog</p>
+							<span class="material-symbols-outlined">north_east</span>
+						</li>
 					</a>
 				</ul>
 			</section>
-
-			<section class="quotesection">
-				<blockquote cite="/jeremykeith">
-					<p>
-						Words can be like X-rays, if you use them properly—they’ll go
-						through anything. You read and you’re pierced.
-					</p>
-					<h5>
-						<cite>—Brave New World</cite>
-						<span>
-							<i class="material-symbols-outlined">arrow_outward</i>
-						</span>
-					</h5>
-				</blockquote>
-			</section>
-
-			<section class="blogs">
-				<h2>Recent Blogs</h2>
-				<p>The three most recently published blogs to keep you up to date!</p>
-
-				<section class="blog-grid" id="blogGrid">
-					<% blogMetadata.forEach(metadata => { %>
-					<article class="blog-item">
-						<a href="/posts/<%- metadata.lecturerUrl %>" class="readblog">
-							<div
-								style="
-									background-image: url('../images/<%- metadata.image %>');
-								">
-								<i class="material-symbols-outlined">arrow_outward</i>
-							</div>
-							<div class="card-info">
-								<h5>On <%- metadata.date %></h5>
-								<h3><%- metadata.name %></h3>
-								<p><%- metadata.description %></p>
-							</div>
-							<h4 id="tagcontainer">
-								<% metadata.tags.forEach(function(tag) { %>
-
-								<span> <%- tag %> </span>
-
-								<% }); %>
-							</h4>
-						</a>
-					</article>
-					<% }); -%>
-				</section>
-
-				<a href="/weeklynerd"> View all blogs </a>
-			</section>
 		</main>
 		<footer><%- include ('partials/footer.ejs'); %></footer>
-		<script src="/scripts/scripts.js"></script>
 		<script src="/scripts/scrolltotop.js"></script>
+		<script src="/scripts/section.js"></script>
 	</body>
 </html>

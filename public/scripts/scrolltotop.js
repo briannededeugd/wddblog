@@ -41,7 +41,11 @@ function toggleDarkMode() {
 }
 
 // Event listener for mode switch button
-document.getElementById("modeswitch").addEventListener("click", toggleDarkMode);
+var modeswitch = document.getElementById("modeswitch");
+
+if (modeswitch) {
+	modeswitch.addEventListener("click", toggleDarkMode);
+}
 
 /**============================================
  *               ACTIVE LINK ITEMS
@@ -61,3 +65,43 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 });
+
+/**============================================
+ *               CURRENT DATE + TIME
+ *=============================================**/
+
+// Function to update current time
+function updateTime() {
+	// Get current date
+	let currentDate = new Date();
+	let options = {
+		weekday: "long",
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	};
+	let dateInLongFormat = currentDate.toLocaleDateString("en-US", options);
+
+	let hours = currentDate.getHours().toString().padStart(2, "0");
+	let minutes = currentDate.getMinutes().toString().padStart(2, "0");
+	let seconds = currentDate.getSeconds().toString().padStart(2, "0");
+	let currentTime = `${hours}:${minutes}:${seconds}`;
+
+	// Display current date and time
+	let currentDateElement = document.getElementById("currentdate");
+	let currentTimeElement = document.getElementById("currenttime");
+
+	if (currentDateElement) {
+		currentDateElement.textContent = dateInLongFormat;
+	}
+
+	if (currentTimeElement) {
+		currentTimeElement.textContent = currentTime;
+	}
+}
+
+// Update time immediately
+updateTime();
+
+// Update time every second
+setInterval(updateTime, 1000);
