@@ -77,7 +77,8 @@ body {
 }
 
 main {
-    margin: 5vh 5vw 0;
+    padding: 0 5vw 0;
+    overflow-x: hidden;
 
     > section:last-of-type {
         padding-bottom: 10vh;
@@ -2330,6 +2331,7 @@ gap: 50px;
     margin: 10vh -5vw 5vh;
     box-sizing: border-box;
     white-space: nowrap;
+    /* overflow-x: hidden; */
 
     position: relative;
 
