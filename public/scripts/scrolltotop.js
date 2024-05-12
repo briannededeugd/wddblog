@@ -48,8 +48,6 @@ document.getElementById("modeswitch").addEventListener("click", toggleDarkMode);
  *=============================================**/
 
 document.addEventListener("DOMContentLoaded", function () {
-	// Initial setup
-	updateDarkModeUI();
 	var currentUrl = window.location.pathname;
 	var navLinks = document.querySelectorAll(".header ul li a");
 
