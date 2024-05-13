@@ -307,7 +307,12 @@
 						<a href="/posts/<%- metadata.lecturerUrl %>" class="readblog">
 							<div
 								style="
-									background-image: url('../images/<%- metadata.image %>');
+									background-image: linear-gradient(
+											to top,
+											rgba(var(--color-gradientrgb), 0.6),
+											rgba(var(--color-gradientrgb), 0)
+										),
+										url('../images/<%- metadata.image %>');
 								">
 								<i class="material-symbols-outlined">arrow_outward</i>
 							</div>
@@ -343,7 +348,8 @@
 								what features might assist the points being made. For example, a
 								lecture might've been about accessibility and the lecturer could
 								have brought several examples with them, of which I've added the
-								code to the blog.
+								code to the blog. That lecture's blog will probably be tagged
+								with "Code Samples" and "Accessibility".
 							</p>
 						</section>
 					</section>
@@ -371,8 +377,8 @@
 								All of the <em>Weekly Nerd</em>s take place during my minor Web
 								Design & Development, which means that I have classes and
 								assigments happening parallel to the lectures. The
-								<em>Impact on Current Projects</em> show how much impact the
-								lectures have on the assignments I'm working on at the time.
+								<em>Impact on Current Projects</em> filter shows how much impact
+								the lectures have on the assignments I'm working on at the time.
 							</p>
 						</section>
 					</section>

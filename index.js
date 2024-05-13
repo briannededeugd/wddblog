@@ -80,10 +80,6 @@ app.get("/", (req, res) => {
 	});
 });
 
-app.get("/hello", (req, res) => {
-	res.render("newindex");
-});
-
 /**----------------------
  *    Blogs
  *------------------------**/
@@ -134,11 +130,14 @@ app.get("/randomblog", (req, res) => {
 	let postName;
 	const allPosts = [
 		"fennadewilde",
-		// "hackathon",
+		"hackathon",
 		"jeremykeith",
 		"kilianvalkhof",
 		"nilsbinder",
 		"rosaschuurman",
+		"juliamiocene",
+		"vasilisvangemert",
+		"mariekedehoop",
 	];
 
 	function randomPost(allPosts) {

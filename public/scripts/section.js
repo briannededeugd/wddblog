@@ -16,7 +16,6 @@ var scrollToContent = document.getElementById("scrolldowntocontent");
 
 if (scrollToContent) {
 	scrollToContent.addEventListener("click", () => {
-		const intro = document.querySelector(".introduction");
-		window.scrollBy(0, intro.clientHeight);
+		window.scrollBy(0, window.innerHeight);
 	});
 }

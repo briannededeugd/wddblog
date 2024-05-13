@@ -47,13 +47,60 @@
 				</button>
 			</section>
 
-			<section class="goals" id="goals"></section>
-
 			<section class="quotesection">
-				<blockquote></blockquote>
+				<blockquote cite="posts/jeremykeith">
+					<p>
+						The more you tighten your grip, the more the world wide web slips through your fingers.
+					</p>
+					<h5>
+						<cite>— Jeremy Keith</cite>
+						<span>
+							<i class="material-symbols-outlined">arrow_outward</i>
+						</span>
+					</h5>
+				</blockquote>
 			</section>
 
-			<section class="blogs"></section>
+			<section class="blogs">
+				<h2>Recent Blogs</h2>
+				<p>The three most recently published blogs to keep you up to date!</p>
+
+				<section class="blog-display" id="blogGrid">
+					<% blogMetadata.forEach(metadata => { %>
+					<article class="blog-item">
+						<a href="/posts/<%- metadata.lecturerUrl %>" class="readblog">
+							<div
+								style="
+									background-image: linear-gradient(
+											to top,
+											rgba(var(--color-gradientrgb), 0.6),
+											rgba(var(--color-gradientrgb), 0)
+										),
+										url('../images/<%- metadata.image %>');
+								">
+								<i class="material-symbols-outlined">arrow_outward</i>
+							</div>
+							<div class="card-info">
+								<h5>On <%- metadata.date %></h5>
+								<h3><%- metadata.name %></h3>
+								<p><%- metadata.description %></p>
+							</div>
+							<h4 id="tagcontainer">
+								<% metadata.tags.forEach(function(tag) { %>
+
+								<span> <%- tag %> </span>
+
+								<% }); %>
+							</h4>
+						</a>
+					</article>
+					<% }); -%>
+				</section>
+
+				<a href="/weeklynerd"> View all blogs </a>
+			</section>
+
+			<section class="goals" id="goals"></section>
 
 			<section class="pre-footer">
 				<h2>Where do we go from here?</h2>
