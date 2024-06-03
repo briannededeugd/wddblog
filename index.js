@@ -73,10 +73,12 @@ app.get("/", (req, res) => {
 		// Sort blogMetadata array based on the "date" field
 		blogMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
 
+		let blogAmount = files.length;
+
 		// Slice the array to get the first three elements
 		const recentBlogs = blogMetadata.slice(0, 3);
 
-		res.render("index", { blogMetadata: recentBlogs });
+		res.render("index", { blogMetadata: recentBlogs, blogAmount });
 	});
 });
 
