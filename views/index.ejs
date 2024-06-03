@@ -7,45 +7,77 @@
 	<body>
 		<header><%- include ('partials/header.ejs'); %></header>
 		<main>
-			<section class="introduction">
-				<h1>
-					<span>I&#8217;m</span><br />
-					<span>Brianne</span>
-				</h1>
-				<h2>
-					<span>Blog / personal site</span>
-				</h2>
-				<h3>
-					I make stuff
-					<span aria-hidden="true">
-						<i class="material-symbols-outlined">arrow_forward</i>
-						<img src="../images/gr-4.jpg" alt="" />
-					</span>
-					(<em>happen</em>)
-				</h3>
+			<!-- <h2>Goals and plans</h2>
+			<p>
+				Everything I wish to learn and achieve by the end of the Web Design &
+				Development minor.
+			</p>
+			<section class="goals" id="goals">
+				<section class="slide slide-1">
+					<div>
+						<span class="material-symbols-outlined">responsive_layout</span>
+					</div>
+					<div>
+						<a href="/goalsplans#css">
+							<h3>
+								Intuitively write CSS <span>✴</span> become a
+								<span>master</span> at responsive coding
+							</h3>
+						</a>
+						<i class="material-symbols-outlined">north_east</i>
+					</div>
+					<div></div>
+					<div>
+						<span class="material-symbols-outlined scrollhorizontal"
+							>arrow_forward</span
+						>
+					</div>
+				</section>
 
-				<p>
-					And I have plans. For one, I plan to become a great creative frontend
-					developer. I want to unleash my creativity and be able to actually
-					realise what I dream up - no matter how big the dream or how crazy the
-					idea. Accompany me on my journey by hearing all about the
-					<em>Weekly Nerds</em> I attend, the leaps I take and the lessons I
-					learn.
-				</p>
+				<section class="slide slide-2">
+					<div>
+						<span class="material-symbols-outlined">animation</span>
+					</div>
+					<div>
+						<a href="/goalsplans#animationstransitions">
+							<h3>
+								Utilize transitions and <span>☻</span> animations to enhance the
+								<span>UX</span>
+							</h3>
+						</a>
+						<i class="material-symbols-outlined">north_east</i>
+					</div>
+					<div>
+						<span class="material-symbols-outlined scrollleft">arrow_back</span>
+					</div>
+					<div>
+						<span class="material-symbols-outlined scrollhorizontal"
+							>arrow_forward</span
+						>
+					</div>
+				</section>
 
-				<p>
-					<span>
-						<span id="currentdate">Hello</span> |
-						<span id="currenttime">Hi</span>
-					</span>
-				</p>
-
-				<button
-					aria-label="Scroll down to the content"
-					id="scrolldowntocontent">
-					Continue to content
-				</button>
-			</section>
+				<section class="slide slide-3">
+					<div>
+						<span class="material-symbols-outlined">mountain_flag</span>
+					</div>
+					<div>
+						<a href="/goalsplans#setcriteria">
+							<h3>
+								Set clear milestones <span>♥︎</span> and success
+								<span>criteria</span>
+							</h3>
+						</a>
+						<i class="material-symbols-outlined">north_east</i>
+					</div>
+					<div>
+						<span class="material-symbols-outlined scrollleft">arrow_back</span>
+					</div>
+					<div>
+						<span class="material-symbols-outlined scrollhome">home</span>
+					</div>
+				</section>
+			</section> -->
 
 			<!-- <section class="quotesection">
 				<blockquote cite="posts/jeremykeith">
@@ -138,6 +170,124 @@
 					</section>
 				</section>
 			</section> -->
+
+			<section class="intro">
+				<div>
+					<h1 class="nameintro">
+						I&#8217;m Brianne,<br />
+						and I have plans.
+					</h1>
+					<div>
+						<h2>Learning</h2>
+						<h2>Growing</h2>
+						<h2>Exploring</h2>
+					</div>
+				</div>
+
+				<section>
+					<div></div>
+					<div>
+						<p>
+							Creative frontend developer<br />
+							(to-be).
+						</p>
+					</div>
+
+					<a href="/aboutme">
+						<p>More about me</p>
+					</a>
+
+					<div>
+						<p>
+							<span><%- blogAmount %></span><br />
+							<span class="material-symbols-outlined"> menu_book </span><br />
+							blogs
+						</p>
+					</div>
+					<div>
+						<a href="/weeklynerd">
+							<p>
+								<span class="material-symbols-outlined">north_east</span>
+							</p>
+						</a>
+					</div>
+
+					<div></div>
+				</section>
+			</section>
+
+			<section class="quoted">
+				<p>
+					A blog to keep track, because, in the words of
+					<a href="/posts/jeremykeith"><span>Jeremy Keith</span></a>
+				</p>
+				<p>
+					The more you <em>tighten your grip</em>, the more the<br />
+					world wide web <em>slips through your fingers.</em>
+				</p>
+			</section>
+
+			<section class='plans'>
+				<section class="goalsplans">
+					<section>
+						<h5><em>Goal 1</em>: Styling</h5>
+						<div>
+							<h2>
+								<span>Intuitively write CSS &</span><br />
+								<span>become a master at</span><br />
+								<span>responsive coding</span>
+							</h2>
+
+							<p>
+								&#x201EThe amount of times I rely on search engines for questions like
+								<em>how do I vertically align an element in a section?</em> is
+								frankly embarrassing...&#x301E
+							</p>
+
+							<div class="iconcontainer">
+								<span class="material-symbols-outlined">responsive_layout</span>
+								<span class="material-symbols-outlined">family_history</span>
+								<span class="material-symbols-outlined">devices</span>
+							</div>
+
+							<div>
+								<a href="/goalsplans#css">
+									<span class="material-symbols-outlined">north_east</span>
+								</a>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h5><em>Goal 2</em>: User experience</h5>
+						<div>
+							<h2>Utilize transitions and animations to enhance the UX</h2>
+						</div>
+					</section>
+
+					<section>
+						<h5><em>Goal 3</em>: Personal</h5>
+						<div>
+							<img src="../images/gr-1.jpg" alt="">
+							<h2>Set clear milestones & and success criteria</h2>
+						</div>
+					</section>
+				</section>
+
+				<a href="/goalsplans">
+					<span>Discover my goals</span>
+				</a>
+			</section>
+
+			<section class="quoted">
+				<p>
+					Or perhaps, as 
+					<a href="/posts/jeremykeith"><span>Pim Schuurman and Marieke de Hoop</span></a> said,
+				</p>
+				<p>
+					Digital accessibility isn't just about<br/> <em>compliance</em>; it's about <em>empathy and inclusivity</em>.
+				</p>
+			</section>
 
 			<section class="blogs">
 				<h2>Recent Blogs</h2>
