@@ -10,6 +10,7 @@
 const helmet = require("helmet");
 const marked = require("marked");
 const fs = require("fs");
+const { format } = require("date-fns");
 
 const express = require("express");
 const app = express();
@@ -67,11 +68,18 @@ app.get("/", (req, res) => {
 			const metadataPath = path.join(metadataDir, file);
 			const metadataJSON = fs.readFileSync(metadataPath, "utf8");
 			const metadata = JSON.parse(metadataJSON);
+
+			// Keep original date for sorting
+			metadata.originalDate = new Date(metadata.date);
+
+			// Format the date for display
+			metadata.date = format(metadata.originalDate, "MMMM do, yyyy");
+
 			blogMetadata.push(metadata);
 		});
 
-		// Sort blogMetadata array based on the "date" field
-		blogMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
+		// Sort blogMetadata array based on the "originalDate" field
+		blogMetadata.sort((a, b) => b.originalDate - a.originalDate);
 
 		let blogAmount = files.length;
 
@@ -81,7 +89,6 @@ app.get("/", (req, res) => {
 		res.render("index", { blogMetadata: recentBlogs, blogAmount });
 	});
 });
-
 /**----------------------
  *    Blogs
  *------------------------**/
@@ -108,6 +115,10 @@ app.get("/posts/:postName", (req, res) => {
 
 			// Parse the JSON string into an object
 			const metadata = JSON.parse(metadataJSON);
+
+			// Format the date
+			const formattedDate = format(new Date(metadata.date), "MMMM do, yyyy");
+			metadata.date = formattedDate;
 
 			// Render the EJS template with the blog content and metadata
 			res.render("pages/blogpost", {
@@ -169,6 +180,9 @@ app.get("/randomblog", (req, res) => {
 
 			// Parse the JSON string into an object
 			const metadata = JSON.parse(metadataJSON);
+			// Format the date
+			const formattedDate = format(new Date(metadata.date), "MMMM do, yyyy");
+			metadata.date = formattedDate;
 
 			// Render the EJS template with the blog content and metadata
 			res.render("pages/blogpost", {
@@ -205,6 +219,14 @@ app.get("/weeklynerd", (req, res) => {
 			const metadataPath = path.join(metadataDir, file);
 			const metadataJSON = fs.readFileSync(metadataPath, "utf8");
 			const metadata = JSON.parse(metadataJSON);
+
+			// Keep original date for sorting
+			metadata.originalDate = new Date(metadata.date);
+
+			// Format the date
+			const formattedDate = format(new Date(metadata.date), "MMMM do, yyyy");
+			metadata.date = formattedDate;
+
 			blogMetadata.push(metadata);
 		});
 
@@ -234,7 +256,9 @@ app.get("/weeklynerd", (req, res) => {
 		});
 
 		// Sort filteredMetadata array by date in descending order (most recent first)
-		filteredMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
+		filteredMetadata.sort(
+			(a, b) => new Date(b.originalDate) - new Date(a.originalDate)
+		);
 
 		res.render("pages/weeklynerd", { blogMetadata: filteredMetadata });
 	});
@@ -256,17 +280,23 @@ app.post("/applyFiltersAndSort", (req, res) => {
 	// Apply sorting to filtered metadata
 	switch (sortType) {
 		case "Newest first":
-			filteredMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
+			filteredMetadata.sort(
+				(a, b) => new Date(b.originalDate) - new Date(a.originalDate)
+			);
 			break;
 		case "Oldest first":
-			filteredMetadata.sort((a, b) => new Date(a.date) - new Date(b.date));
+			filteredMetadata.sort(
+				(a, b) => new Date(a.originalDate) - new Date(b.originalDate)
+			);
 			break;
 		case "A-Z":
 			filteredMetadata.sort((a, b) => a.name.localeCompare(b.name));
 			break;
 		default:
 			// Default to sorting by newest first
-			filteredMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
+			filteredMetadata.sort(
+				(a, b) => new Date(b.originalDate) - new Date(a.originalDate)
+			);
 	}
 
 	res.json(filteredMetadata);

@@ -63,7 +63,10 @@ function scrollHorizontalReversed() {
  *    SCROLL HOME
  *========================**/
 var scrollHomeButton = document.querySelector(".scrollhome");
-scrollHomeButton.addEventListener("click", scrollHome);
+
+if (scrollHomeButton) {
+	scrollHomeButton.addEventListener("click", scrollHome);
+}
 
 function scrollHome() {
 	var goalsContainer = document.getElementById("goals");

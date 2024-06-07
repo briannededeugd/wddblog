@@ -5,172 +5,10 @@
 	</head>
 
 	<body>
+
+		<%- include ('partials/loader.ejs') %>
 		<header><%- include ('partials/header.ejs'); %></header>
 		<main>
-			<!-- <h2>Goals and plans</h2>
-			<p>
-				Everything I wish to learn and achieve by the end of the Web Design &
-				Development minor.
-			</p>
-			<section class="goals" id="goals">
-				<section class="slide slide-1">
-					<div>
-						<span class="material-symbols-outlined">responsive_layout</span>
-					</div>
-					<div>
-						<a href="/goalsplans#css">
-							<h3>
-								Intuitively write CSS <span>✴</span> become a
-								<span>master</span> at responsive coding
-							</h3>
-						</a>
-						<i class="material-symbols-outlined">north_east</i>
-					</div>
-					<div></div>
-					<div>
-						<span class="material-symbols-outlined scrollhorizontal"
-							>arrow_forward</span
-						>
-					</div>
-				</section>
-
-				<section class="slide slide-2">
-					<div>
-						<span class="material-symbols-outlined">animation</span>
-					</div>
-					<div>
-						<a href="/goalsplans#animationstransitions">
-							<h3>
-								Utilize transitions and <span>☻</span> animations to enhance the
-								<span>UX</span>
-							</h3>
-						</a>
-						<i class="material-symbols-outlined">north_east</i>
-					</div>
-					<div>
-						<span class="material-symbols-outlined scrollleft">arrow_back</span>
-					</div>
-					<div>
-						<span class="material-symbols-outlined scrollhorizontal"
-							>arrow_forward</span
-						>
-					</div>
-				</section>
-
-				<section class="slide slide-3">
-					<div>
-						<span class="material-symbols-outlined">mountain_flag</span>
-					</div>
-					<div>
-						<a href="/goalsplans#setcriteria">
-							<h3>
-								Set clear milestones <span>♥︎</span> and success
-								<span>criteria</span>
-							</h3>
-						</a>
-						<i class="material-symbols-outlined">north_east</i>
-					</div>
-					<div>
-						<span class="material-symbols-outlined scrollleft">arrow_back</span>
-					</div>
-					<div>
-						<span class="material-symbols-outlined scrollhome">home</span>
-					</div>
-				</section>
-			</section> -->
-
-			<!-- <section class="quotesection">
-				<blockquote cite="posts/jeremykeith">
-					<p>
-						The more you tighten your grip, the more the world wide web slips
-						through your fingers.
-					</p>
-					<h5>
-						<cite>— Jeremy Keith</cite>
-						<span>
-							<i class="material-symbols-outlined">arrow_outward</i>
-						</span>
-					</h5>
-				</blockquote>
-
-				<h2>Goals and plans</h2>
-				<p>
-					Everything I wish to learn and achieve by the end of the Web Design &
-					Development minor.
-				</p>
-				<section class="goals" id="goals">
-					<section class="slide slide-1">
-						<div>
-							<span class="material-symbols-outlined">responsive_layout</span>
-						</div>
-						<div>
-							<a href="/goalsplans#css">
-								<h3>
-									Intuitively write CSS <span>✴</span> become a
-									<span>master</span> at responsive coding
-								</h3>
-							</a>
-							<i class="material-symbols-outlined">north_east</i>
-						</div>
-						<div></div>
-						<div>
-							<span class="material-symbols-outlined scrollhorizontal"
-								>arrow_forward</span
-							>
-						</div>
-					</section>
-
-					<section class="slide slide-2">
-						<div>
-							<span class="material-symbols-outlined">animation</span>
-						</div>
-						<div>
-							<a href="/goalsplans#animationstransitions">
-								<h3>
-									Utilize transitions and <span>☻</span> animations to enhance
-									the
-									<span>UX</span>
-								</h3>
-							</a>
-							<i class="material-symbols-outlined">north_east</i>
-						</div>
-						<div>
-							<span class="material-symbols-outlined scrollleft"
-								>arrow_back</span
-							>
-						</div>
-						<div>
-							<span class="material-symbols-outlined scrollhorizontal"
-								>arrow_forward</span
-							>
-						</div>
-					</section>
-
-					<section class="slide slide-3">
-						<div>
-							<span class="material-symbols-outlined">mountain_flag</span>
-						</div>
-						<div>
-							<a href="/goalsplans#setcriteria">
-								<h3>
-									Set clear milestones <span>♥︎</span> and success
-									<span>criteria</span>
-								</h3>
-							</a>
-							<i class="material-symbols-outlined">north_east</i>
-						</div>
-						<div>
-							<span class="material-symbols-outlined scrollleft"
-								>arrow_back</span
-							>
-						</div>
-						<div>
-							<span class="material-symbols-outlined scrollhome">home</span>
-						</div>
-					</section>
-				</section>
-			</section> -->
-
 			<section class="intro">
 				<div>
 					<h1 class="nameintro">
@@ -228,6 +66,11 @@
 			</section>
 
 			<section class='plans'>
+				<h2>Goals and plans</h2>
+				<p>
+					Everything I wish to learn and achieve by the end of the Web Design &
+					Development minor.
+				</p>
 				<section class="goalsplans">
 					<section>
 						<h5><em>Goal 1</em>: Styling</h5>
@@ -281,8 +124,8 @@
 
 			<section class="quoted">
 				<p>
-					Or perhaps, as 
-					<a href="/posts/jeremykeith"><span>Pim Schuurman and Marieke de Hoop</span></a> said,
+					Or perhaps, as said by
+					<a href="/posts/mariekedehoop"><span>Pim Schuurman and Marieke de Hoop</span></a>
 				</p>
 				<p>
 					Digital accessibility isn't just about<br/> <em>compliance</em>; it's about <em>empathy and inclusivity</em>.
@@ -293,39 +136,50 @@
 				<h2>Recent Blogs</h2>
 				<p>The three most recently published blogs to keep you up to date!</p>
 
-				<section class="blog-display" id="blogGrid">
+				<section class="blog-display">
+					<% let counter = 0; %>
 					<% blogMetadata.forEach(metadata => { %>
-					<article class="blog-item">
-						<a href="/posts/<%- metadata.lecturerUrl %>" class="readblog">
-							<div
-								style="
-									background-image: linear-gradient(
-											to top,
-											rgba(var(--color-gradientrgb), 0.6),
-											rgba(var(--color-gradientrgb), 0)
-										),
-										url('../images/<%- metadata.image %>');
-								">
-								<i class="material-symbols-outlined">arrow_outward</i>
-							</div>
-							<div class="card-info">
-								<h5>On <%- metadata.date %></h5>
-								<h3><%- metadata.name %></h3>
-								<p><%- metadata.description %></p>
-							</div>
-							<h4 id="tagcontainer">
-								<% metadata.tags.forEach(function(tag) { %>
+						<div>
+							<div class="<%= counter === 0 ? 'activeblog' : ''%>" style="
+										background-image: linear-gradient(
+												to top,
+												rgba(var(--color-gradientrgb), 0.6),
+												rgba(var(--color-gradientrgb), 0)
+											),
+											url('../images/<%- metadata.image %>');
+									">
+								<div>
+									<h5 class='blog-date'><%- metadata.date %></h5>
+									<h3><%- metadata.name %></h3>
+									<section class="blog-details">
+										<p><%- metadata.description %></p>
+										<h4 id='tagcontainer'>
+											<% metadata.tags.forEach(function(tag) { %>
 
-								<span> <%- tag %> </span>
+											<span> <%- tag %> </span>
 
-								<% }); %>
-							</h4>
-						</a>
-					</article>
-					<% }); -%>
+											<% }); %>
+										</h4>
+									</section>
+								</div>
+
+								<a href="/posts/<%- metadata.lecturerUrl %>"><span class='material-symbols-outlined'>north_east</span></a>
+							</div>
+						</div>
+						<% counter++; %>
+					<% }); %>
 				</section>
-
 				<a href="/weeklynerd"> View all blogs </a>
+			</section>
+
+			<section class="quoted">
+				<p>
+					My journey continues, currently best described by
+					<a href="/posts/rosaschuurman"><span>Rosa Schuurman</span></a>
+				</p>
+				<p>
+					Surround yourself with <em>people who inspire you</em>, <br/> companies doing <em>cool things</em>, and <em>intern there</em>.
+				</p>
 			</section>
 
 			<section class="pre-footer">
@@ -363,5 +217,20 @@
 		<footer><%- include ('partials/footer.ejs'); %></footer>
 		<script src="/scripts/scrolltotop.js"></script>
 		<script src="/scripts/section.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.blog-display > div > div');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove .activeblog class from all buttons
+                    buttons.forEach(btn => btn.classList.remove('activeblog'));
+                    
+                    // Add .activeblog class to the clicked button
+                    this.classList.add('activeblog');
+                });
+            });
+        });
+		</script>
 	</body>
 </html>
