@@ -1,4 +1,4 @@
-We all know the world of technology and creativity to be big and growing in size in interest, but individuals like Nils Binder remain to stand out as both artisans of code and champions of design. Hailing from Germany, Nils is a frontend developer at his company 9elements, where his passion for CSS collaborates with his love for origami, he tells us.
+We all know the world of technology and creativity to be big and growing in size in interest, but individuals like Nils Binder remain to stand out. Originally from Germany, Nils is a frontend developer at his company 9elements, where his passion for CSS goes hand in hand with his love for origami, he tells us.
 
 At 9elements, a dynamic company with diverse units, Nils finds himself in a large team of creatives that dedicate themselves to innovative projects. The company's structure encompasses several units, each contributing distinctively to its identity.
 

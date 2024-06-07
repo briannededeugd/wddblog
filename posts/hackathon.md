@@ -11,7 +11,7 @@ I teamed together with my classmates Rose, Elaine and Sena Nur. We first discuss
 2. _The color codes assigned to each year_;
 3. _Where the attendees came from (their countries of origin)_.
 
-For the latter, Rose and I were reminded of the minor we followed prior to web design and development, information design. We both did the tech track of this minor, where we learned to use the framework Svelte to utilize components and the library D3 for data visualizations. But we also saw the same window of opportunity with the 'country' element of our last idea, as a classmates of ours during the information design minor had used the library **Mapbox GL** to generate a realistic, 3D and interactive globe.
+For the latter, Rose and I were reminded of the minor we followed prior to web design and development, information design. We both did the tech track of this minor, where we learned to use the framework Svelte to utilize components and the library D3 for data visualizations. But we also saw the same window of opportunity with the 'country' element of our last idea, as a classmate of ours during the information design minor had used the library **Mapbox GL** to generate a realistic, 3D and interactive globe.
 
 Together with Elaine and Sena Nur, we settled on the following idea,
 
