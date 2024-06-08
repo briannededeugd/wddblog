@@ -1784,6 +1784,29 @@ input[type=radio] {
         font-weight: 300;
     }
 
+    > button {
+        display: none;
+        align-items: center;
+
+        font-family: "Work Sans", sans-serif;
+        font-weight: 300;
+
+        padding: .5em 1em;
+        padding-right: 1.5em;
+        margin-bottom: 10px;
+        background-color: var(--color-bg);
+        color: var(--color-headings);
+        border: none;
+        border-radius: 16px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+
+        i {
+            color: var(--color-headings);
+        }
+    }
+
     .blog-filters {
         display: flex;
         align-items: center;
@@ -1839,6 +1862,7 @@ input[type=radio] {
             font-size: 1em;
             cursor: pointer;
             transition: all .3s ease-in-out;
+            display: none;
 
             i {
                 color: var(--color-headings);
@@ -1888,11 +1912,16 @@ input[type=radio] {
                     transition: transform .3s ease-in-out;
                 }
 
+                p {
+                    padding: 0;
+                    margin: 0;
+                }
+
                 &:hover {
                     background-color: var(--color-accents);
                     color: var(--color-standardblack);
 
-                    i {
+                    i, p {
                         color: var(--color-standardblack);
                     }
                 }
@@ -4755,16 +4784,112 @@ gap: 50px;
 
         .controls {
             .edit-view {
-                flex-direction: column;
-                align-items: flex-start;
+                justify-content: space-between;
+
+                > button {
+                    display: inline-flex;
+                }
 
                 .blog-filters {
                     flex-direction: column;
                     align-items: flex-start;
+                    margin: 0;
+                    width: 100vw;
+                    max-width: 100%;
+                    position: fixed;
+                    left: 0;
+                    bottom: 0;
+                    background-color: var(--color-bg);
+                    z-index: 9999;
+                    padding: 1em;
+                    box-sizing: border-box;
+                    transform: translateY(10000px);
+                    transition: transform 1s ease-in-out;
+
+                    > button {
+                        display: block;
+                        background-color: transparent;
+                        width: 100dvw;
+                        max-width: 100%;
+                        box-sizing: border-box;
+                        border: none;
+                        box-shadow: none;
+                        rotate: 90deg;
+                        margin-left: auto;
+                        margin-right: auto;
+
+                        span {
+                            color: var(--color-headings);
+                        }
+                    }
+
+                    h3 {
+                        display: none;
+                    }
+
+                    > div {
+                        max-width: 100%;
+                        position: relative;
+                        box-sizing: border-box;
+
+                        > label {
+                            max-width: 100%;
+
+                            i {
+                                display: none;
+                            }
+                        }
+
+                        .filter {
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            opacity: 1;
+                            height: max-content !important;
+                            position: relative;
+                            width: 100dvw;
+                            max-width: 100%;
+                            box-sizing: border-box;
+
+                            label {
+                                opacity: 1;
+                                pointer-events: all;
+
+                                border-radius: var(--border-radius);
+                            }
+                        }
+                    }
+                }
+
+                .blog-filters.open-filters {
+                    transform: translateY(0);
                 }
 
                 .sort {
                     margin-left: 0;
+                    /* margin-top: 10px; */
+                    /* min-width: 100%; */
+
+                    h3 {
+                        display: none;
+                    }
+
+                    > div {
+                        min-width: 100%;
+
+                        label {
+                            margin-bottom: 10px;
+                            font-size: 1em;
+                            padding: .5em 1em;
+                        }
+                    }
+                }
+            }
+
+            .selectedfilters {
+                margin: 0 5vw .5em;
+
+                button {
+                    font-size: .85em;
                 }
             }
         }
@@ -4778,8 +4903,8 @@ gap: 50px;
 
             .blog-item {
                 width: 100%;
-                border-radius: 0;
-                border-bottom: .5px solid var(--color-headings);
+                margin: 0;
+                margin-bottom: 1em;
 
                 a {
                     display: grid;
@@ -4790,17 +4915,20 @@ gap: 50px;
 
                     > div {
                         min-height: min-content;
+                        border-radius: 0 var(--border-radius) var(--border-radius) 0;
 
                         padding: 1em;
 
                         &:first-of-type {
                             grid-area: img;
-                            border-radius: 0;
+                            border-radius: var(--border-radius) 0 0 var(--border-radius);
                             aspect-ratio: auto;
                         }
 
                         &:nth-of-type(2) {
                             grid-area: details;
+                            background-color: var(--color-whites);
+                            box-shadow: -5px 0 0px #00000031;
 
                             h5 {
                                 font-size: .65em;
@@ -4837,6 +4965,13 @@ gap: 50px;
 
         .class-grid {
             flex-direction: column;
+
+            & > section {
+                p {
+                    font-size: .9em;
+                    text-align: center;
+                }
+            }
         }
     }
 }

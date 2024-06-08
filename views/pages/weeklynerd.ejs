@@ -95,10 +95,22 @@
 
 				<section class="controls">
 					<section class="edit-view">
+						<button class="toggle-filters" aria-label="Toggle the filters">
+							<i class="material-symbols-outlined">filter_alt</i>
+							Filter
+						</button>
+
 						<section class="blog-filters">
 							<h3>
 								<i class="material-symbols-outlined">filter_alt</i>
 							</h3>
+
+							<button class="close-filters" aria-label="Close filters">
+								<span class="material-symbols-outlined">
+									arrow_forward_ios
+								</span>
+							</button>
+
 							<div class="tags">
 								<label>
 									<input type="checkbox" name="filtercategory" id="tagbutton" />
@@ -262,6 +274,7 @@
 								</div>
 							</div>
 						</section>
+
 						<section class="sort">
 							<h3>
 								<i class="material-symbols-outlined">sort</i>
@@ -270,7 +283,7 @@
 							<div>
 								<label>
 									<input type="checkbox" name="filtercategory" id="sort" />
-									Sort
+									<p>Sort</p>
 									<i class="material-symbols-outlined">expand_more</i>
 								</label>
 

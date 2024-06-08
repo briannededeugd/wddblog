@@ -218,3 +218,17 @@ function showActiveBlogs() {
 if (blogButtons) {
 	window.onresize = showActiveBlogs;
 }
+
+/**============================================
+ *               TOGGLE FILTERS (PHONE)
+ *=============================================**/
+
+const filters = document.querySelector(".blog-filters");
+
+document.querySelector(".toggle-filters").addEventListener("click", () => {
+	filters.classList.add("open-filters");
+});
+
+document.querySelector(".close-filters").addEventListener("click", () => {
+	filters.classList.remove("open-filters");
+});
