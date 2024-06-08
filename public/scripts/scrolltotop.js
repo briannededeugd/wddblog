@@ -142,12 +142,10 @@ function noMovements() {
 	if (motionToggle.checked || isReduced) {
 		for (let i = 0; i < elements.length; i++) {
 			elements[i].classList.add("notransition");
-			console.log("no transition");
 		}
 	} else {
 		for (let i = 0; i < elements.length; i++) {
 			elements[i].classList.remove("notransition");
-			console.log("transition back on");
 		}
 	}
 }
@@ -225,10 +223,29 @@ if (blogButtons) {
 
 const filters = document.querySelector(".blog-filters");
 
-document.querySelector(".toggle-filters").addEventListener("click", () => {
-	filters.classList.add("open-filters");
-});
+if (filters) {
+	document.querySelector(".toggle-filters").addEventListener("click", () => {
+		filters.classList.add("open-filters");
+	});
+}
 
-document.querySelector(".close-filters").addEventListener("click", () => {
-	filters.classList.remove("open-filters");
-});
+if (filters) {
+	document.querySelector(".close-filters").addEventListener("click", () => {
+		filters.classList.remove("open-filters");
+	});
+}
+
+/**============================================
+ *           TOGGLE MY USE AND IDEAS
+ *=============================================**/
+
+const reflectionToggle = document.querySelector(".reflection h2");
+
+if (reflectionToggle) {
+	reflectionToggle.addEventListener("click", () => {
+		const allReflections = document.querySelectorAll(".reflection > section");
+		allReflections.forEach((reflectitem) => {
+			reflectitem.classList.toggle("active-reflection");
+		});
+	});
+}

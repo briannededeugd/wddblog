@@ -60,6 +60,83 @@
 					</section>
 				</article>
 			</section>
+
+			<section class="blogs">
+				<h2>Blogs you'll like</h2>
+				<p>
+					Did you like this blog about <%- lecturerName %>'s guest lecture? Then
+					you'll love these!
+				</p>
+
+				<section class="blog-display">
+					<% let counter = 0; %> <% relatedBlogs.forEach(metadata => { %>
+					<div>
+						<div
+							class="<%= counter === 0 ? 'activeblog' : ''%>"
+							style="
+								background-image: linear-gradient(
+										to top,
+										rgba(var(--color-gradientrgb), 0.6),
+										rgba(var(--color-gradientrgb), 0)
+									),
+									url('../images/<%- metadata.image %>');
+							">
+							<div>
+								<h5 class="blog-date"><%- metadata.date %></h5>
+								<h3><%- metadata.name %></h3>
+								<section class="blog-details">
+									<p><%- metadata.description %></p>
+									<h4 id="tagcontainer">
+										<% metadata.tags.forEach(function(tag) { %>
+
+										<span> <%- tag %> </span>
+
+										<% }); %>
+									</h4>
+								</section>
+							</div>
+
+							<a href="/posts/<%- metadata.lecturerUrl %>"
+								><span class="material-symbols-outlined">north_east</span></a
+							>
+						</div>
+					</div>
+					<% counter++; %> <% }); %>
+				</section>
+				<a href="/weeklynerd"> View all blogs </a>
+			</section>
+
+			<section class="pre-footer">
+				<h2>Not done reading?</h2>
+				<p>I got you; check this out:</p>
+
+				<ul>
+					<a href="aboutme">
+						<li>
+							<p>Learn more about me</p>
+							<span class="material-symbols-outlined">north_east</span>
+						</li>
+					</a>
+					<a href="goalsplans">
+						<li>
+							<p>Read about my goals</p>
+							<span class="material-symbols-outlined">north_east</span>
+						</li>
+					</a>
+					<a href="randomblog">
+						<li>
+							<p>Visit another random blog</p>
+							<span class="material-symbols-outlined">north_east</span>
+						</li>
+					</a>
+					<a href="/">
+						<li>
+							<p>Go back home</p>
+							<span class="material-symbols-outlined">north_east</span>
+						</li>
+					</a>
+				</ul>
+			</section>
 		</main>
 		<footer><%- include ('../partials/footer.ejs'); %></footer>
 		<script src="/scripts/scrolltotop.js"></script>

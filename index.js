@@ -92,6 +92,7 @@ app.get("/", (req, res) => {
 /**----------------------
  *    Blogs
  *------------------------**/
+
 app.get("/posts/:postName", (req, res) => {
 	const postName = req.params.postName;
 	const filePath = path.join(__dirname, "posts", `${postName}.md`);
@@ -120,20 +121,52 @@ app.get("/posts/:postName", (req, res) => {
 			const formattedDate = format(new Date(metadata.date), "MMMM do, yyyy");
 			metadata.date = formattedDate;
 
-			// Render the EJS template with the blog content and metadata
-			res.render("pages/blogpost", {
-				blogContent,
-				lecturerName: metadata.name,
-				blogDate: metadata.date,
-				week: metadata.week,
-				tags: metadata.tags,
-				lecturerUrl: metadata.lecturerUrl,
-				description: metadata.description,
-				futureUse: metadata.howLikelyToUse,
-				projectImpact: metadata.impactOnCurrentProjects,
-				inspirationLevel: metadata.inspirationLevel,
-				integration: metadata.integration,
-				opinions: metadata.opinions,
+			// Read all metadata files to find related posts
+			const metadataDir = path.join(__dirname, "metadata");
+			let blogMetadata = [];
+
+			fs.readdir(metadataDir, (err, files) => {
+				if (err) {
+					return res.status(500).send("Error reading metadata directory");
+				}
+
+				files.forEach((file) => {
+					const metadataPath = path.join(metadataDir, file);
+					const metadataJSON = fs.readFileSync(metadataPath, "utf8");
+					const fileMetadata = JSON.parse(metadataJSON);
+
+					if (file !== `${postName}.json`) {
+						blogMetadata.push(fileMetadata);
+					}
+				});
+
+				// Find blogs with matching tags
+				const matchingBlogs = blogMetadata.filter((fileMetadata) => {
+					if (metadata.tags && fileMetadata.tags) {
+						return metadata.tags.some((tag) => fileMetadata.tags.includes(tag));
+					}
+					return false;
+				});
+
+				// Select up to three matching blogs
+				const relatedBlogs = matchingBlogs.slice(0, 3);
+
+				// Render the EJS template with the blog content, metadata, and related blogs
+				res.render("pages/blogpost", {
+					blogContent,
+					lecturerName: metadata.name,
+					blogDate: metadata.date,
+					week: metadata.week,
+					tags: metadata.tags,
+					lecturerUrl: metadata.lecturerUrl,
+					description: metadata.description,
+					futureUse: metadata.howLikelyToUse,
+					projectImpact: metadata.impactOnCurrentProjects,
+					inspirationLevel: metadata.inspirationLevel,
+					integration: metadata.integration,
+					opinions: metadata.opinions,
+					relatedBlogs, // Pass the related blogs to the template
+				});
 			});
 		});
 	});
@@ -162,6 +195,10 @@ app.get("/randomblog", (req, res) => {
 	const filePath = path.join(__dirname, "posts", `${postName}.md`);
 	const metadataPath = path.join(__dirname, "metadata", `${postName}.json`);
 
+	// Read all metadata files to find related posts
+	const metadataDir = path.join(__dirname, "metadata");
+	let blogMetadata = [];
+
 	fs.readFile(filePath, "utf8", (err, data) => {
 		if (err) {
 			// If the Markdown file is not found, send a 404 response
@@ -184,20 +221,48 @@ app.get("/randomblog", (req, res) => {
 			const formattedDate = format(new Date(metadata.date), "MMMM do, yyyy");
 			metadata.date = formattedDate;
 
-			// Render the EJS template with the blog content and metadata
-			res.render("pages/blogpost", {
-				blogContent,
-				lecturerName: metadata.name,
-				blogDate: metadata.date,
-				week: metadata.week,
-				tags: metadata.tags,
-				lecturerUrl: metadata.lecturerUrl,
-				description: metadata.description,
-				futureUse: metadata.howLikelyToUse,
-				projectImpact: metadata.impactOnCurrentProjects,
-				inspirationLevel: metadata.inspirationLevel,
-				integration: metadata.integration,
-				opinions: metadata.opinions,
+			fs.readdir(metadataDir, (err, files) => {
+				if (err) {
+					return res.status(500).send("Error reading metadata directory");
+				}
+
+				files.forEach((file) => {
+					const metadataPath = path.join(metadataDir, file);
+					const metadataJSON = fs.readFileSync(metadataPath, "utf8");
+					const fileMetadata = JSON.parse(metadataJSON);
+
+					if (file !== `${postName}.json`) {
+						blogMetadata.push(fileMetadata);
+					}
+				});
+
+				// Find blogs with matching tags
+				const matchingBlogs = blogMetadata.filter((fileMetadata) => {
+					if (metadata.tags && fileMetadata.tags) {
+						return metadata.tags.some((tag) => fileMetadata.tags.includes(tag));
+					}
+					return false;
+				});
+
+				// Select up to three matching blogs
+				const relatedBlogs = matchingBlogs.slice(0, 3);
+
+				// Render the EJS template with the blog content, metadata, and related blogs
+				res.render("pages/blogpost", {
+					blogContent,
+					lecturerName: metadata.name,
+					blogDate: metadata.date,
+					week: metadata.week,
+					tags: metadata.tags,
+					lecturerUrl: metadata.lecturerUrl,
+					description: metadata.description,
+					futureUse: metadata.howLikelyToUse,
+					projectImpact: metadata.impactOnCurrentProjects,
+					inspirationLevel: metadata.inspirationLevel,
+					integration: metadata.integration,
+					opinions: metadata.opinions,
+					relatedBlogs, // Pass the related blogs to the template
+				});
 			});
 		});
 	});
