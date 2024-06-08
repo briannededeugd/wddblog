@@ -176,3 +176,12 @@ motionToggle.addEventListener("change", () => {
 	saveState();
 	noMovements();
 });
+
+/**============================================
+ *               HAMBURGER MENU
+ *=============================================**/
+
+const hamburgerToggle = document.getElementById("menu-toggle");
+hamburgerToggle.addEventListener("click", () => {
+	hamburgerToggle.classList.toggle("active");
+})

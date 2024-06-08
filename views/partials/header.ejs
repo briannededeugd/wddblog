@@ -1,4 +1,9 @@
 <nav class="header">
+	<button aria-label="Toggle menu" id="menu-toggle" class="hamburger">
+		<span class="bar"></span>
+		<span class="bar"></span>
+		<span class="bar"></span>
+	</button>
 	<section>
 		<img
 			src="/images/logo.png"
@@ -19,32 +24,34 @@
 			</li>
 		</ul>
 
-		<label id="reducedmotion">
-			<span class="material-symbols-outlined"> do_not_step </span>
-			<input
-				type="checkbox"
-				name="animationstransitions"
-				id="partypooper"
-				aria-label="Disable animations and transitions" />
-		</label>
+		<div class="sitecontrols">
+			<label id="reducedmotion">
+				<span class="material-symbols-outlined"> do_not_step </span>
+				<input
+					type="checkbox"
+					name="animationstransitions"
+					id="partypooper"
+					aria-label="Disable animations and transitions" />
+			</label>
 
-		<button aria-label="Switch between light and dark mode" id="modeswitch">
-			<div id="modeswitch-indicator"></div>
-			<span class="material-symbols-outlined">light_mode</span>
-			<span class="material-symbols-outlined">dark_mode</span>
-		</button>
+			<button aria-label="Switch between light and dark mode" id="modeswitch">
+				<div id="modeswitch-indicator"></div>
+				<span class="material-symbols-outlined lightmode">light_mode</span>
+				<span class="material-symbols-outlined darkmode">dark_mode</span>
+			</button>
 
-		<div class="quick-actions">
-			<a href="https://github.com/briannededeugd/wddblog">
-				<i
-					class="fa fa-brands fa-github fa-lg"
-					title="Visit this website's Github page"></i>
-			</a>
-			<a href="https://www.linkedin.com/in/brianne-de-deugd-060425296/">
-				<i
-					class="fa fa-brands fa-linkedin fa-lg"
-					title="Visit Brianne's LinkedIn"></i>
-			</a>
+			<div class="quick-actions">
+				<a href="https://github.com/briannededeugd/wddblog">
+					<i
+						class="fa fa-brands fa-github fa-lg"
+						title="Visit this website's Github page"></i>
+				</a>
+				<a href="https://www.linkedin.com/in/brianne-de-deugd-060425296/">
+					<i
+						class="fa fa-brands fa-linkedin fa-lg"
+						title="Visit Brianne's LinkedIn"></i>
+				</a>
+			</div>
 		</div>
 	</section>
 </nav>
