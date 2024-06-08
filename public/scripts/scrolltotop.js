@@ -184,4 +184,35 @@ motionToggle.addEventListener("change", () => {
 const hamburgerToggle = document.getElementById("menu-toggle");
 hamburgerToggle.addEventListener("click", () => {
 	hamburgerToggle.classList.toggle("active");
-})
+});
+
+/**============================================
+ *               RECENT BLOGS (HOMEPAGE)
+ *=============================================**/
+
+const blogButtons = document.querySelectorAll(".blog-display > div > div");
+document.addEventListener("DOMContentLoaded", function () {
+	showActiveBlogs();
+});
+
+function showActiveBlogs() {
+	if (window.innerWidth > 750) {
+		blogButtons.forEach((button) => {
+			button.classList.remove("activeblog");
+
+			button.addEventListener("click", function () {
+				// Remove .activeblog class from all buttons
+				blogButtons.forEach((btn) => btn.classList.remove("activeblog"));
+
+				// Add .activeblog class to the clicked button
+				this.classList.add("activeblog");
+			});
+		});
+
+		blogButtons[0].classList.add("activeblog");
+	} else if (window.innerWidth < 750) {
+		blogButtons.forEach((btn) => btn.classList.add("activeblog"));
+	}
+}
+
+window.onresize = showActiveBlogs;
