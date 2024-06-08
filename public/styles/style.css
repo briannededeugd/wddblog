@@ -5098,4 +5098,90 @@ p#metadata {
     #stats, #integration {
         background-color: var(--color-whites);
     }
+
+    /* --------------- */
+    /* GOALS AND PLANS */
+    /* --------------- */
+
+    .regularcontent:has(.banner) {
+        max-height: max-content;
+
+        .banner, .explanation {
+            display: none;
+        }
+
+        .herocontent {
+            max-width: 100%;
+
+            h1 {
+                max-width: 100%;
+            }
+
+            > section {
+                &:nth-of-type(2) {
+                    & a:first-of-type {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .runners {
+        margin: 5vh -5vw 0;
+    }
+
+    .goalsandplans {
+        margin-top: 10vh;
+
+        h2 {
+            font-size: 2.5em;
+        }
+
+        .measurements {
+            gap: 0;
+        }
+
+        & > section {
+            > section {
+                &:first-of-type {
+                    > section {
+                        margin: 0 2vw;
+                        flex-direction: column;
+                        gap: 0;
+                    }
+                }
+            }
+
+            &:nth-of-type(2), &:nth-of-type(3) {
+                flex-direction: column;
+
+                h2 {
+                    max-width: 100%;
+                    text-align: center;
+                }
+
+                & > section {
+                    width: 100%;
+
+                    .measurements {
+                        gap: 20px;
+                        > section {
+                            flex-direction: row;
+                        }
+                    }
+                }
+            }
+
+            &:nth-of-type(3) {
+                h2 {
+                    order: 1;
+                }
+
+                & > section {
+                    order: 2;
+                }
+            }
+        }
+    }
 }
