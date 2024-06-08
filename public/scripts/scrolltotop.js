@@ -215,4 +215,6 @@ function showActiveBlogs() {
 	}
 }
 
-window.onresize = showActiveBlogs;
+if (blogButtons) {
+	window.onresize = showActiveBlogs;
+}
