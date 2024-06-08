@@ -58,6 +58,13 @@
     --transition: all .3s ease-in-out;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition-duration: 0s !important;
+    }
+}
+
 body.darkmode #modeswitch-indicator {
     transform: translate(100%, -50%);
 }
@@ -542,6 +549,62 @@ strong {
                 transition: all .3s ease-in-out;
             }
         }
+
+        #reducedmotion {
+            color: var(--color-headings);
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+            margin-right: .5em;
+
+            &:has(input:checked) {
+                background-color: var(--color-accents);
+                color: var(--color-standardblack);
+            }
+
+            &::before {
+                content: "Reduce motion";
+                font-family: "Work Sans", sans-serif;
+                padding: .5em 1em;
+                font-size: .65em;
+                min-width: max-content;
+                background-color: transparent;
+                display: block;
+                position: absolute;
+                left: -250%;
+                opacity: 0;
+                transition: all .3s ease-in-out;
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.notransition {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+
+    animation-play-state: paused !important;
+
+    &::before, &::after {
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -o-transition: none !important;
+        transition: none !important;
+
+        animation-play-state: paused !important;
     }
 }
 
@@ -2310,13 +2373,13 @@ footer button span {
         &:nth-of-type(2) {
             div {
                 &:nth-of-type(2) {
-                    background-image: linear-gradient(to top, rgba(var(--color-gradientrgb), 0.6), rgba(var(--color-gradientrgb), 0)), url("../images/gr-2.jpg");
+                    background-image: linear-gradient(to top, rgba(var(--color-gradientrgb), 0.6), rgba(var(--color-gradientrgb), 0)), url("../images/gr-2.jpeg");
 
                     h3 {
                         span {
                             &:nth-of-type(2) {
                                 &::after {
-                                    background-image: url("../images/gr-2.jpg");
+                                    background-image: url("../images/gr-2.jpeg");
                                 }
                             }
                         }
@@ -2332,7 +2395,7 @@ footer button span {
         &:nth-of-type(3) {
             div {
                 &:nth-of-type(2) {
-                    background-image: linear-gradient(to top, rgba(var(--color-gradientrgb), 0.6), rgba(var(--color-gradientrgb), 0)), url("../images/gr-3.jpg");
+                    background-image: linear-gradient(to top, rgba(var(--color-gradientrgb), 0.6), rgba(var(--color-gradientrgb), 0)), url("../images/gr-3.jpeg");
 
                     h3 {
                         span {
@@ -2342,7 +2405,7 @@ footer button span {
 
                             &:nth-of-type(2) {
                                 &::after {
-                                    background-image: url("../images/gr-3.jpg");
+                                    background-image: url("../images/gr-3.jpeg");
                                 }
                             }
                         }
@@ -3493,7 +3556,7 @@ gap: 50px;
                 span {
                     &:nth-of-type(2) {
                         &::after {
-                            background-image: url("../images/gr-2.jpg");
+                            background-image: url("../images/gr-2.jpeg");
                         }
                     }
                 }
@@ -3547,7 +3610,7 @@ gap: 50px;
 
                     &:nth-of-type(2) {
                         &::after {
-                            background-image: url("../images/gr-3.jpg");
+                            background-image: url("../images/gr-3.jpeg");
                         }
                     }
                 }

@@ -128,3 +128,51 @@ setInterval(updateTime, 1000);
 window.addEventListener("load", (event) => {
 	document.querySelector(".loader-wrapper").classList.add("pageloaded");
 });
+
+/**============================================
+ *               PREFERS REDUCED MOTION
+ *=============================================**/
+
+var elements = document.getElementsByTagName("*");
+const motionToggle = document.getElementById("partypooper");
+
+const isReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function noMovements() {
+	if (motionToggle.checked || isReduced) {
+		for (let i = 0; i < elements.length; i++) {
+			elements[i].classList.add("notransition");
+			console.log("no transition");
+		}
+	} else {
+		for (let i = 0; i < elements.length; i++) {
+			elements[i].classList.remove("notransition");
+			console.log("transition back on");
+		}
+	}
+}
+
+// Function to save the state to localStorage
+function saveState() {
+	localStorage.setItem("motionToggleState", motionToggle.checked);
+}
+
+// Function to load the state from localStorage
+function loadState() {
+	const savedState = localStorage.getItem("motionToggleState");
+	if (savedState !== null) {
+		motionToggle.checked = JSON.parse(savedState);
+	}
+}
+
+// Load the saved state on page load
+loadState();
+
+// Apply the noMovements function on page load
+noMovements();
+
+// Add event listener to save state when the toggle changes
+motionToggle.addEventListener("change", () => {
+	saveState();
+	noMovements();
+});
