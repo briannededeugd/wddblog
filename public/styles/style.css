@@ -1939,6 +1939,12 @@ input[type=radio] {
                     }
                 }
             }
+
+            > div {
+                label {
+                    padding: 1em;
+                }
+            }
         }
     }
 }
@@ -1961,7 +1967,7 @@ input[type=radio] {
 
     label {
         border: none;
-        padding: .5em 1em;
+        padding: 1em;
         border-radius: 0px;
         cursor: pointer;
         text-align: left;
@@ -2584,7 +2590,7 @@ gap: 50px;
 #opinions {
     border: .5px solid var(--color-accents);
     color: var(--color-standardblack) !important;
-    background-color: var(--color-darkaccents);
+    background-color: var(--color-accents);
 }
 
 #integration {
@@ -4473,6 +4479,58 @@ p#metadata {
 /* RESPONSIVENESS */
 /* -------------- */
 
+@media (max-width: 1400px) {
+    /* --------- */
+    /* BLOG PAGE */
+    /* --------- */
+
+    .maincontent {
+        flex-direction: column;
+        margin: 5vh 5vw;
+        gap: 0;
+
+        .blog {
+            p, li {
+                font-size: 1em;
+            }
+
+            blockquote {
+                p {
+                    font-size: 1.5em;
+                }
+            }
+        }
+
+        & + .blogs {
+            margin: 2vh -5vw 0;
+            padding-bottom: 5vh;
+            width: 100vw;
+
+            .blog-display {
+                max-width: 90%;
+                margin-left: 5%;
+
+                > div {
+                    height: 30vh;
+                }
+
+                .activeblog {
+                    height: 30vh;
+                }
+            }
+        }
+    }
+
+    #integration p,
+    #opinions p {
+        font-size: 1em;
+    }
+
+    #stats, #integration {
+        background-color: var(--color-whites);
+    }
+}
+
 @media (max-width: 750px) {
 
     body:not(.darkmode) {
@@ -4955,8 +5013,6 @@ p#metadata {
 
                 .sort {
                     margin-left: 0;
-                    /* margin-top: 10px; */
-                    /* min-width: 100%; */
 
                     h3 {
                         display: none;
@@ -4965,7 +5021,7 @@ p#metadata {
                     > div {
                         min-width: 100%;
 
-                        label {
+                        > label {
                             margin-bottom: 10px;
                             font-size: 1em;
                             padding: .5em 1em;
@@ -5062,116 +5118,6 @@ p#metadata {
                 }
             }
         }
-    }
-
-    /* --------- */
-    /* BLOG PAGE */
-    /* --------- */
-
-    .maincontent {
-        flex-direction: column;
-        margin: 5vh 5vw;
-        gap: 0;
-
-        .blog {
-            p, li {
-                font-size: 1em;
-            }
-
-            blockquote {
-                p {
-                    font-size: 1.5em;
-                }
-            }
-        }
-
-        & .reflection {
-            max-height: 70px;
-
-            h2 {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-
-                &::after {
-                    content: "arrow_forward_ios";
-                    font-family: "Material Symbols Outlined";
-                    font-style: normal;
-                    transform: rotate(90deg);
-                    margin-left: 5px;
-                }
-            }
-
-            > section {
-                opacity: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: all 1s ease-in-out;
-
-                &:nth-of-type(2) {
-                    transition-delay: 1s;
-                }
-
-                &:nth-of-type(3) {
-                    transition-delay: 2s;
-                }
-
-                * {
-                    opacity: 0;
-                    max-height: 0;
-                    overflow: hidden;
-                }
-            }
-
-            & section.active-reflection {
-                opacity: 1;
-                max-height: max-content;
-
-                * {
-                    opacity: 1;
-                    max-height: max-content;
-                    overflow: visible;
-                }
-            }
-
-            &:has(section.active-reflection) {
-                max-height: max-content;
-
-                h2 {
-                    &::after {
-                        transform: rotate(-90deg);
-                    }
-                }
-            }
-        }
-
-        & + .blogs {
-            margin: 2vh -5vw 0;
-            padding-bottom: 5vh;
-            width: 100vw;
-
-            .blog-display {
-                max-width: 90%;
-                margin-left: 5%;
-
-                > div {
-                    height: 30vh;
-                }
-
-                .activeblog {
-                    height: 30vh;
-                }
-            }
-        }
-    }
-
-    #integration p,
-    #opinions p {
-        font-size: 1em;
-    }
-
-    #stats, #integration {
-        background-color: var(--color-whites);
     }
 
     /* --------------- */
