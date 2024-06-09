@@ -184,6 +184,11 @@ app.get("/randomblog", (req, res) => {
 		"juliamiocene",
 		"vasilisvangemert",
 		"mariekedehoop",
+		"robertspier",
+		"bramus",
+		"dewaag",
+		"q42",
+		"miriamsuzanne"
 	];
 
 	function randomPost(allPosts) {
