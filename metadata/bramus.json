@@ -1,0 +1,14 @@
+{
+    "name": "Bramus",
+    "lecturerUrl": "bramus",
+    "week": "Week thirteen",
+    "date": "2024-06-05",
+    "tags": [ "CSS", "JavaScript" ],
+    "description": "On view transitions for single-page applications.",
+    "image": "bramus.jpeg",
+    "howLikelyToUse": "Likely",
+    "impactOnCurrentProjects": "Small impact",
+    "inspirationLevel": "Inspired",
+    "opinions": "This talk was dynamic, in the sense that just when I thought I knew what Bramus was talking about, I lost the plot. Then I caught it again. Just to lose it. And now, as I work to rebuild my scattered notes and make them represent more of a blog, I'm carefully starting to entertain the idea that I might have caught it again. In any case, I know when to be impressed, and this is such a 'when'. I'm amazed with Bramus for his work and what he has dreamed up in the first place, let alone him actually realizing it!",
+    "integration": "I can most definitely see myself using view transitions in the future. In fact, I think it will probably be just as valuable and vital someday as CSS animations are today. At this point in time, it's still a little bit confusing; hence why I'm not yet delving into it. But once it's more of a standard practice (and compatible with more browsers), I definitely see myself getting into it."
+}
