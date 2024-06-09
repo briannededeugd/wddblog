@@ -1329,12 +1329,13 @@ svg {
     margin-bottom: 3em;
 
     > div {
-        /* height: 70vh; */
         position: relative;
         width: 33.3%;
         height: 50vh;
         border: 1px dotted var(--color-headings);
         border-radius: var(--border-radius);
+        background-repeat: no-repeat;
+        background-size: cover;
     
         > div {
             background-color: transparent;
@@ -1655,8 +1656,8 @@ blockquote {
     .blog-item {
         width: 25vw;
         color: var(--color-headings);
-        background-color: var(--color-whites);
         border-radius: 25px;
+        transition: all .3s ease-in-out;
 
         a {
             div {
@@ -1707,7 +1708,7 @@ blockquote {
 
             h4 {
                 width: 100%;
-                color: var(--color-breadcrumbs);
+                color: var(--color-darkaccents);
                 font-family: 'Playfair Display', serif;
                 font-size: small;
                 font-weight: 100;
@@ -1721,6 +1722,18 @@ blockquote {
 
                 span {
                     padding-left: .5rem;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    &:first-of-type {
+                        &::before {
+                            content: "sell";
+                            font-family: "Material Symbols Outlined";
+                            font-size: inherit;
+                            color: var(--color-headings);
+                        }
+                    }
 
                     &:not(:last-of-type) {
                         padding-right: .5rem;
@@ -1755,7 +1768,7 @@ blockquote {
         }
 
         &:hover {
-            box-shadow: 0px 0px 25px rgba(var(--color-shadowrgb), 1);
+            transform: scale(1.1);
         }
     }
 }
@@ -2123,7 +2136,7 @@ footer {
 
         position: absolute;
         top: 5vh;
-        right: 9vw;
+        right: 0;
         display: block;
 
         height: 20px;
@@ -2613,7 +2626,7 @@ p#metadata {
     margin-top: 0px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    background-color: var(--color-whites);
+    background-color: transparent;
 
     .tag {
         position: relative;
@@ -3693,12 +3706,12 @@ p#metadata {
         list-style-type: none;
         display: inline-block;
         width: 100%;
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 0;
+        padding-left: 0;
 
         a {
             display: block;
-            width: 90%;
+            min-width: 100%;
             padding: 1em 1em;
             border-bottom: .5px solid var(--color-headings);
             text-decoration: none;
