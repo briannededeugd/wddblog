@@ -1,0 +1,14 @@
+{
+    "name": "Miriam Suzanne",
+    "lecturerUrl": "miriamsuzanne",
+    "week": "Week thirteen",
+    "date": "2024-06-05",
+    "tags": [ "CSS" ],
+    "description": "On container queries.",
+    "image": "miriamsuzanne.jpeg",
+    "howLikelyToUse": "Likely",
+    "impactOnCurrentProjects": "Large impact",
+    "inspirationLevel": "Inspired",
+    "opinions": "I very much liked and appreciated Miriam's approach on this talk. She integrated humor and easy-to-understand comparisons, as well as a lot of CodePen demos to illustrate her points. I wasn't unfamiliar with container queries, but it has always been something I've done my own research on, so getting a detailed explanation on its tech and the history behind it was really interesting. I can see why Miriam is so admired in this field.",
+    "integration": "Container queries are one of those things that I think will only be more and more relevant as time goes on. I do however find it hard to remember that they're an option, because I usually already make elements relative to their parents and then if I want to make them, say, forty percent as wide as their parent, I literally give the width a value of 40%. Maybe my habits are just outdated. Scratch that. I'm actually certain they are. I've got to get with the times!"
+}
