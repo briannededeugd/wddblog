@@ -122,6 +122,12 @@ body.darkmode {
             fill: var(--color-headings);
         }
     }
+
+    button {
+        &:active {
+            color: var(--color-standardblack);
+        }
+    }
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -4493,6 +4499,11 @@ p#metadata {
         display: none;
     }
 
+    .breadcrumbs {
+        font-size: .85em;
+        margin: 5vh 2.5vw 0;
+    }
+
     /* ------ */
     /* HEADER */
     /* ------ */
@@ -4541,18 +4552,28 @@ p#metadata {
 
         .small-logo {
             display: block;
+
+            * {
+                transition: none;
+                transition-delay: 0s;
+            }
         }
 
         > section {
             transform: translateX(-2000px);
-            transition: transform .5s ease-out;
-            min-height: 100dvh;
-            max-height: 100dvh;
-            max-width: 100dvw;
-            min-width: 100dvw;
+            /* transition: transform .5s ease-out; */
+            height: 100dvh;
+            max-height: 100%;
+            max-width: 100%;
+            width: 100dvw;
             flex-direction: column;
             position: fixed;
             background-color: var(--color-standardblack);
+            border-top-right-radius: 80%;
+            border-bottom-right-radius: 80%;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            transition: transform .5s ease-out, border-radius 1s ease-out;
 
             * {
                 color: var(--color-standardwhite);
@@ -4570,8 +4591,11 @@ p#metadata {
                 text-align: center;
                 margin-left: auto;
                 color: var(--color-standardwhite);
-                transform: scale(1.5) translateY(25%);
+                transform: scale(1.5);
                 position: relative;
+                height: 100dvh;
+                max-height: 100%;
+                overflow: hidden;
 
                 li {
                     margin: 1em 0;
@@ -4600,6 +4624,14 @@ p#metadata {
                     min-width: max-content;
                 }
             }
+
+            #reducedmotion {
+                &::before {
+                    left: 50%;
+                    bottom: 100%;
+                    transform: translateX(-50%);
+                }
+            }
         }
     }
 
@@ -4607,6 +4639,19 @@ p#metadata {
         > section {
             transform: translateX(0);
             border-radius: 0px;
+        }
+
+        > .small-logo {
+            z-index: 9999;
+
+            > path {
+                transition-delay: .5s;
+            }
+
+            * {
+                transition: all .5s ease-in-out;
+                fill: var(--color-standardwhite);
+            }
         }
     }
 
@@ -4635,6 +4680,8 @@ p#metadata {
     }
 
     .quoted {
+        margin-top: 70px;
+
         & p {
             &:nth-of-type(2) {
                 font-size: clamp(1em, 1em + 2.5vw, 1.25em);
@@ -4644,6 +4691,12 @@ p#metadata {
     }
 
     .plans {
+        margin-bottom: 120px;
+
+        > p {
+            margin-bottom: 0;
+        }
+
         .goalsplans {
             flex-direction: column;
 
@@ -4663,6 +4716,10 @@ p#metadata {
                 }
             }
         }
+
+        > a {
+            margin-top: 25px;
+        }
     }
 
     .blogs {
@@ -4676,6 +4733,10 @@ p#metadata {
         }
     }
 
+    .blogs:has(.blog-display) {
+        margin-top: 25px;
+    }
+
     /* ------- */
     /* FOOTERS */
     /* ------- */
@@ -4684,6 +4745,16 @@ p#metadata {
         ul {
             margin-left: 0;
             padding-left: 0;
+
+            a {
+                min-width: 100%;
+
+                li {
+                    p {
+                        line-height: 1.1;
+                    }
+                }
+            }
         }
     }
 
@@ -4694,6 +4765,10 @@ p#metadata {
                     width: 100%;
                     margin-left: 20px;
 
+                    & li {
+                        font-size: .9em;
+                    }
+
                     & li:not(:first-of-type:nth-of-type(5)) {
                         padding-top: 35px;
                     }
@@ -4702,7 +4777,7 @@ p#metadata {
         }
 
         button {
-            right: 75px;
+            right: 10px;
             top: 10px;
         }
     }
