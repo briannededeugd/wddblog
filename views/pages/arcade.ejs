@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include ('../partials/head.ejs'); %>
+		<link rel="stylesheet" href="/styles/arcade.css" />
+	</head>
+
+	<body>
+		<%- include ('../partials/loader.ejs') %>
+		<header><%- include ('../partials/header.ejs'); %></header>
+
+		<main>
+			<div class="breadcrumbs">
+				<a href="/">Home</a>/ <a href="/arcade">Arcade</a>
+			</div>
+
+			<section class="regularcontent">
+				<section class="herocontent">
+					<h1>Arcade</h1>
+					<p>Play some games to get to know this blog, me or you!</p>
+				</section>
+			</section>
+
+			<section class="gamesgrid">
+				<section class="game memory">
+					<div></div>
+					<div>
+						<h2>Memory</h2>
+						<p>
+							Can you find all matches and find something to read in the
+							meantime?
+						</p>
+						<a href="/memory" aria-label="Play this game">Play!</a>
+					</div>
+				</section>
+			</section>
+		</main>
+
+		<footer><%- include ('../partials/footer.ejs'); %></footer>
+		<script src="/scripts/scrolltotop.js"></script>
+	</body>
+</html>

@@ -188,7 +188,7 @@ app.get("/randomblog", (req, res) => {
 		"bramus",
 		"dewaag",
 		"q42",
-		"miriamsuzanne"
+		"miriamsuzanne",
 	];
 
 	function randomPost(allPosts) {
@@ -386,6 +386,73 @@ app.get("/goalsplans", (req, res) => {
 app.get("/aboutme", (req, res) => {
 	res.render("pages/aboutme");
 });
+
+/**-----------------------
+ *        Arcade
+ *---------------------**/
+app.get("/arcade", (req, res) => {
+	res.render("pages/arcade");
+});
+
+/**-----------------------
+ *        Memory
+ *---------------------**/
+app.get("/memory", (req, res) => {
+	const metadataDir = path.join(__dirname, "metadata");
+	let blogMetadata = [];
+
+	fs.readdir(metadataDir, (err, files) => {
+		if (err) {
+			return res.status(500).send("Error reading metadata directory");
+		}
+
+		files.forEach((file) => {
+			const metadataPath = path.join(metadataDir, file);
+			const metadataJSON = fs.readFileSync(metadataPath, "utf8");
+			const metadata = JSON.parse(metadataJSON);
+
+			blogMetadata.push(metadata);
+		});
+
+		// Select 8 random blogs
+		const randomBlogs = getRandomBlogs(blogMetadata, 8);
+		// Duplicate each selected blog to ensure it appears twice
+		const memoryCards = [...randomBlogs, ...randomBlogs];
+		// Shuffle the memory cards
+		shuffleArray(memoryCards);
+
+		res.render("pages/memory", { memoryCards: JSON.stringify(memoryCards) });
+	});
+});
+
+// Function to select random blogs
+function getRandomBlogs(blogMetadata, num) {
+	const randomIndexes = [];
+	const randomBlogs = [];
+
+	// Generate unique random indexes
+	while (randomIndexes.length < num) {
+		const randomIndex = Math.floor(Math.random() * blogMetadata.length);
+		if (!randomIndexes.includes(randomIndex)) {
+			randomIndexes.push(randomIndex);
+		}
+	}
+
+	// Select blogs based on random indexes
+	randomIndexes.forEach((index) => {
+		randomBlogs.push(blogMetadata[index]);
+	});
+
+	return randomBlogs;
+}
+
+// Function to shuffle an array
+function shuffleArray(array) {
+	for (let i = array.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[array[i], array[j]] = [array[j], array[i]];
+	}
+}
 
 /**========================================================================
  *                           404 Error Handler
