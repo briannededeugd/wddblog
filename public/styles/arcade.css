@@ -27,18 +27,20 @@
 
                 a {
                     display: inline-block;
-                    width: 100%;
+                    width: max-content;
                     border-radius: var(--border-radius);
                     background-color: var(--color-accents);
                     color: var(--color-standardblack);
+                    font-weight: 300;
                     border: none;
-                    padding: .75em;
+                    padding: .75em 2em;
                     text-align: center;
                     cursor: pointer;
                     transition: all .3s ease-in-out;
+                    margin-left: 70%;
 
                     &:hover {
-                        background-color: var(--color-darkaccents);
+                        background-color: var(--color-breadcrumbs);
                         text-decoration: none;
                     }
                 }

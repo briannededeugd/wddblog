@@ -1,5 +1,5 @@
 body:has(main.memory) {
-    background: #f7f7f7;
+    background: var(--color-bg);
 }
 
 main.memory {
@@ -52,6 +52,7 @@ main.memory {
             &:hover {
                 a {
                     background-color: var(--color-accents);
+                    color: var(--color-standardblack);
                 }
             }
         }
@@ -64,7 +65,7 @@ main.memory {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f7f7f7;
+    background-color: var(--color-bg);
 
     .game-container {
         position: relative;
@@ -101,7 +102,6 @@ main.memory {
                     background-image: url("../images/playingcard.jpeg");
                     background-size: cover;
                     background-repeat: no-repeat;
-                    color: white;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -124,6 +124,7 @@ main.memory {
                         line-height: 1;
                         max-width: 90%;
                         position: relative;
+                        color: var(--color-standardblack);
                     }
                 }
             }
