@@ -4547,7 +4547,7 @@ p#metadata {
     }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1270px) {
     svg {
         max-width: 90px;
     }
@@ -4642,8 +4642,9 @@ p#metadata {
                 align-items: center;
                 text-align: center;
                 margin-left: auto;
+                margin-top: 60px;
                 color: var(--color-standardwhite);
-                transform: scale(1.5);
+                transform: scale(1.1);
                 position: relative;
                 height: 100dvh;
                 max-height: 100%;
@@ -4659,6 +4660,7 @@ p#metadata {
 
                 li.activenavitem {
                     color: var(--color-standardwhite) !important;
+                    transform: scale(1.1);
 
                     a {
                         color: var(--color-standardwhite) !important;
@@ -4706,7 +4708,6 @@ p#metadata {
             }
         }
     }
-
 }
 
 @media (max-width: 750px) {

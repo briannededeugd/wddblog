@@ -190,10 +190,15 @@ hamburgerToggle.addEventListener("click", () => {
 
 const blogButtons = document.querySelectorAll(".blog-display > div > div");
 document.addEventListener("DOMContentLoaded", function () {
-	showActiveBlogs();
+	if (blogButtons) {
+		showActiveBlogs();
+		window.onresize = showActiveBlogs;
+	}
 });
 
 function showActiveBlogs() {
+	if (blogButtons.length === 0) return;
+
 	if (window.innerWidth > 750) {
 		blogButtons.forEach((button) => {
 			button.classList.remove("activeblog");
@@ -211,10 +216,6 @@ function showActiveBlogs() {
 	} else if (window.innerWidth < 750) {
 		blogButtons.forEach((btn) => btn.classList.add("activeblog"));
 	}
-}
-
-if (blogButtons) {
-	window.onresize = showActiveBlogs;
 }
 
 /**============================================
