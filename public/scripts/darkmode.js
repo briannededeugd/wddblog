@@ -29,13 +29,24 @@ function updateDarkModeUI() {
 	// Check the user's system preference
 	const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
-	// Determine the initial mode based on user preference and darkmode state
-	if (darkmode === undefined) {
+	// Get stored preferences
+	const storedPreference = localStorage.getItem("darkmode");
+	const sessionPreference = sessionStorage.getItem("darkmode");
+
+	// Determine the initial mode based on stored preferences and system preference
+	if (sessionPreference !== null) {
+		darkmode = JSON.parse(sessionPreference);
+	} else if (storedPreference !== null) {
+		darkmode = JSON.parse(storedPreference);
+	} else {
 		darkmode = prefersDarkScheme.matches;
 	}
 
 	// Apply the initial mode
 	applyDarkMode(darkmode);
+
+	// Store the preference in session storage
+	sessionStorage.setItem("darkmode", darkmode);
 
 	// Add an event listener to the toggle (assuming there's a toggle button)
 	const modeswitch = document.getElementById("modeswitch");
@@ -47,20 +58,27 @@ function updateDarkModeUI() {
 
 			// Update the UI based on the new darkmode state
 			applyDarkMode(darkmode);
+
+			// Store the new preference in local and session storage
+			localStorage.setItem("darkmode", darkmode);
+			sessionStorage.setItem("darkmode", darkmode);
 		});
 	}
 
 	// Add an event listener to system preference changes
 	prefersDarkScheme.addEventListener("change", (e) => {
-		if (darkmode === undefined) {
-			// If darkmode is undefined, follow the system preference
+		if (sessionStorage.getItem("darkmode") === null) {
+			// If darkmode is undefined in session, follow the system preference
 			applyDarkMode(e.matches);
 		}
 	});
-}
 
-// Assuming darkmode is initially undefined (first visit)
-let darkmode;
+	// Add an event listener to clear session storage when the user leaves the site
+	window.addEventListener("beforeunload", () => {
+		sessionStorage.removeItem("darkmode");
+		// localStorage.removeItem("darkmode");
+	});
+}
 
 // Call the function on page load
 window.onload = updateDarkModeUI;
