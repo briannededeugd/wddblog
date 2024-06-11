@@ -3298,6 +3298,7 @@ p#metadata {
                 font-size: clamp(.4em, .8em, 1rem);
                 padding: 0 2em;
                 white-space: nowrap;
+                color: var(--color-whites);
             }
         }
 
@@ -3637,29 +3638,6 @@ p#metadata {
                     }
                 }
             }
-        }
-    }
-
-    > button {
-        display: block;
-        width: 50px;
-        margin-left: auto;
-        height: 50px;
-        border-radius: 50px;
-        background-color: transparent;
-        text-align: center;
-        position: sticky;
-        bottom: 25px;
-        right: -10px;
-        border: 1px solid var(--color-headings);
-        color: var(--color-headings);
-        transition: all .3s ease-in-out;
-        cursor: pointer !important;
-
-        &:hover {
-            transform: scale(1.2);
-            background-color: var(--color-headings);
-            color: var(--color-whites);
         }
     }
 }

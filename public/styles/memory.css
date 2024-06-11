@@ -290,7 +290,7 @@ main.memory {
 @media (max-width: 900px) {
     main.memory {
         grid-template-columns: 1fr;
-        grid-template-rows: 5fr 1fr;
+        grid-template-rows: 1fr 2fr;
 
         > div {
             &:nth-of-type(1) {
@@ -323,5 +323,9 @@ main.memory {
             height: 50px;
             width: 50px;
         }
+    }
+
+    .memory-matches {
+        max-height: max-content;
     }
 }
