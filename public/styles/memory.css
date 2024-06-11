@@ -186,6 +186,10 @@ main.memory {
             padding: 1em 2em;
             border: .5px solid var(--color-headings);
             box-shadow: 0 0 15px rgba(var(--color-shadowrgb), 0.4);
+            
+            h2 {
+                margin-bottom: 0;
+            }
 
             button {
                 background-color: var(--color-bg);
@@ -322,6 +326,14 @@ main.memory {
             left: auto;
             height: 50px;
             width: 50px;
+        }
+
+        .howtoplay {
+
+            > div {
+                height: max-content;
+                width: 90vw;
+            }
         }
     }
 
