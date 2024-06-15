@@ -29,10 +29,18 @@ main.lofidriver {
     padding: 2vh 5vw;
 }
 
+h2 {
+    font-size: clamp(.85em, .75em + 2vw, 1.25em);
+}
+
+h3 {
+    font-size: clamp(.65em, .5em + 2.5vw, 1em);
+}
+
 /* GEPOSITIONEERDE ELEMENTEN */
 
 #playspace {
-    height: 90%;
+    height: 95%;
     width: 70%;
     border-radius: var(--border-radius) 0 0 var(--border-radius);
     background-image: url('../images/lofidriver/sunsethills.png');
@@ -82,7 +90,7 @@ main.lofidriver {
 }
 
 #playmenu {
-    height: 90%;
+    height: 95%;
     flex-grow: 1;
     padding: 1em;
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
@@ -239,6 +247,7 @@ main.lofidriver {
             display: flex;
             align-items: center;
             gap: 10px;
+            padding: .5em;
 
             img {
                 height: 45px;
@@ -330,7 +339,7 @@ main > div:first-of-type {
     display: flex;
     align-items: center;
     gap: 20px;
-    z-index: 9999;
+    z-index: 7000;
     background-color: var(--color-bg);
     padding: 0 2em 0 0;
     border-bottom-right-radius: var(--border-radius);
@@ -358,31 +367,34 @@ main > div:first-of-type {
             text-decoration: none !important;
         }
     }
+}
 
-    &::before {
-        display: block;
-        content: "";
-        position: absolute;
-        width: 50px;
-        height: 40px;
-        left: 8.75%;
-        top: 100%;
-        background-color: transparent;
-        border-top-left-radius: 8px;
-        box-shadow: -5px -5px 0 var(--color-bg);
+.warning {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: var(--color-accents);
+    color: var(--color-standardwhite);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 9999;
+
+    h2 {
+        max-width: 200px;
     }
 
-    &::after {
-        display: block;
-        content: "";
-        position: absolute;
-        width: 100px;
-        height: 40px;
-        left: 100%;
-        top: 40%;
-        background-color: transparent;
-        border-top-left-radius: 8px;
-        box-shadow: -5px -5px 0 var(--color-bg);
+    a {
+        padding: .5em 1em;
+        border-radius: var(--border-radius);
+        background-color: var(--color-standardblack);
+        color: var(--color-standardwhite);
+        font-weight: 300;
+        text-decoration: none;
     }
 }
 
@@ -424,26 +436,6 @@ main > div:first-of-type {
     }
 }
 
-/* De bewegende radio */
-@keyframes muziekAan {
-    0% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: rotate(5deg);
-    }
-    50% {
-        transform: rotate(0deg);
-    }
-    75% {
-        transform: rotate(-5deg);
-    }
-    100% {
-        transform: rotate(0deg);
-    }
-} 
-
-/* De vallende regen */
 @keyframes rain { 
     0% { 
         background-position: 0 0;
@@ -459,4 +451,10 @@ main > div:first-of-type {
     -webkit-animation-play-state: paused;
     -moz-animation-play-state: paused;
     -o-animation-play-state: paused;
+}
+
+@media (max-width: 970px) {
+    .warning {
+        display: flex;
+    }
 }
