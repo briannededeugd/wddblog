@@ -397,7 +397,7 @@ app.get("/arcade", (req, res) => {
 /**-----------------------
  *        Memory
  *---------------------**/
-app.get("/memory", (req, res) => {
+app.get("/arcade/memory", (req, res) => {
 	const metadataDir = path.join(__dirname, "metadata");
 	let blogMetadata = [];
 
@@ -421,8 +421,14 @@ app.get("/memory", (req, res) => {
 		// Shuffle the memory cards
 		shuffleArray(memoryCards);
 
-		res.render("pages/memory", { memoryCards: JSON.stringify(memoryCards) });
+		res.render("pages/arcade/memory", {
+			memoryCards: JSON.stringify(memoryCards),
+		});
 	});
+});
+
+app.get("/arcade/lofidriver", (req, res) => {
+	res.render("pages/arcade/lofidriver");
 });
 
 // Function to select random blogs

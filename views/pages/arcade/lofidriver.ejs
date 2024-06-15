@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include ('../../partials/head.ejs'); %>
+		<link rel="stylesheet" href="/styles/lofidriver.css" />
+	</head>
+
+	<body>
+		<main class="lofidriver">
+			<section id="playspace">
+				<div id="road"></div>
+				<div id="car">
+					<img
+						src="../../images/lofidriver/yellowcar.png"
+						alt="auto"
+						id="carimg" />
+				</div>
+				<div id="rain"></div>
+			</section>
+
+			<section id="playmenu">
+				<h2>Environment</h2>
+				<div class="environments">
+					<label>
+						<input
+							type="radio"
+							aria-label="Pick Sunset Cove"
+							name="environment"
+							value="sunset"
+							checked />
+						<img src="../images/lofidriver/sunsethills.png" alt="" />
+						<div>
+							<h3>Sunset Cove</h3>
+							<p>Home to the nature- and community enthusiasts.</p>
+						</div>
+						<span class="material-symbols-outlined">check</span>
+					</label>
+					<label>
+						<input
+							type="radio"
+							aria-label="Pick Snow Hills"
+							name="environment"
+							value="snowy" />
+						<img src="../images/lofidriver/snowyhills.png" alt="" />
+						<div>
+							<h3>Snow Hills</h3>
+							<p>Home to winter fanatics and hot chocolate artisans.</p>
+						</div>
+						<span class="material-symbols-outlined">check</span>
+					</label>
+					<label>
+						<input
+							type="radio"
+							aria-label="Pick Star Valley"
+							name="environment"
+							value="starry" />
+						<img src="../images/lofidriver/starryhills.png" alt="" />
+						<div>
+							<h3>Star Valley</h3>
+							<p>Home to the stargazers and astronomy geeks.</p>
+						</div>
+						<span class="material-symbols-outlined">check</span>
+					</label>
+				</div>
+
+				<h2>Vehicle</h2>
+				<div class="cars">
+					<label>
+						<input
+							type="radio"
+							aria-label="Pick the yellow car"
+							name="car"
+							value="yellow"
+							checked />
+						<img src="../images/lofidriver/yellowcar.png" alt="" />
+						<div>
+							<h3>Yellow</h3>
+						</div>
+						<span class="material-symbols-outlined">check</span>
+					</label>
+					<label>
+						<input
+							type="radio"
+							aria-label="Pick the red car"
+							name="car"
+							value="red" />
+						<img src="../images/lofidriver/redcar.png" alt="" />
+						<div>
+							<h3>Red</h3>
+						</div>
+						<span class="material-symbols-outlined">check</span>
+					</label>
+					<label>
+						<input
+							type="radio"
+							aria-label="Pick the blue car"
+							name="car"
+							value="blue" />
+						<img src="../images/lofidriver/bluecar.png" alt="" />
+						<div>
+							<h3>Blue</h3>
+						</div>
+						<span class="material-symbols-outlined">check</span>
+					</label>
+				</div>
+
+				<h2>Nature</h2>
+				<div class="enhancers">
+					<label>
+						<input
+							type="checkbox"
+							aria-label="Pick the yellow car"
+							name="rain"
+							value="yellow" />
+						<img src="../images/lofidriver/rain.jpg" alt="" />
+						<div>
+							<h3>Rain</h3>
+							<p>Endulge in heaven's shower.</p>
+						</div>
+						<span class="material-symbols-outlined">check</span>
+					</label>
+					<label>
+						<input
+							type="checkbox"
+							aria-label="Pick the red car"
+							name="birds"
+							value="red" />
+						<img src="../images/lofidriver/birds.png" alt="" />
+						<div>
+							<h3>Birds</h3>
+							<p>Listen to the peaceful birdsong.</p>
+						</div>
+						<span class="material-symbols-outlined">check</span>
+					</label>
+				</div>
+
+				<h2>Radio</h2>
+				<section class="music">
+					<div>
+						<img src="../images/lofidriver/radio.png" alt="" />
+					</div>
+					<div>
+						<h2 class="songtitle">No song playing</h2>
+						<h3>Artist</h3>
+						<div class="music-controls">
+							<button aria-label="Shuffle all songs">
+								<span class="material-symbols-outlined">shuffle</span>
+							</button>
+							<button aria-label="Go back one song" id="prevsong">
+								<span class="material-symbols-outlined">skip_previous</span>
+							</button>
+							<button aria-label="Play or pause song" id="playsong">
+								<span class="material-symbols-outlined">play_arrow</span>
+							</button>
+							<button aria-label="Skip this song" id="nextsong">
+								<span class="material-symbols-outlined">skip_next</span>
+							</button>
+						</div>
+					</div>
+				</section>
+			</section>
+		</main>
+
+		<script src="/scripts/darkmode.js"></script>
+		<script>
+			const background = document.querySelector("#playspace");
+			const road = document.querySelector("#road");
+			const car = document.querySelector("#car");
+			const carImg = document.querySelector("#carimg");
+			const birdBtn = document.querySelector("input[name=birds]");
+			const rainBtn = document.querySelector("input[name=rain]");
+
+			const prevSongBtn = document.querySelector("#prevsong");
+			const playMusicBtn = document.querySelector("#playsong");
+			const playIcon = document.querySelector("#playsong span");
+			const nextSongBtn = document.querySelector("#nextsong");
+
+			const drivingAudio = new Audio("../sounds/rijdendeauto.mp3");
+			const rainAudio = new Audio("../sounds/regenonweer.mp3");
+			const birdAudio = new Audio("../sounds/vogeltjes.mp3");
+
+			let allEnvironments = document.querySelectorAll(
+				".environments > label > input"
+			);
+			let allCars = document.querySelectorAll(".cars > label > input");
+			const environments = {
+				snowy: "snowyhills.png",
+				starry: "starryhills.png",
+				sunset: "sunsethills.png",
+			};
+			const roads = {
+				snowy: "snowytrees.png",
+				starry: "starrytrees.png",
+				sunset: "sunsettrees.png",
+			};
+			const cars = {
+				yellow: "yellowcar.png",
+				red: "redcar.png",
+				blue: "bluecar.png",
+			};
+
+			// Define driving variable
+			let index = 0;
+			let driving = false;
+			let currentcar;
+
+			var liedjes = [
+				"tired.mp3",
+				"weather.mp3",
+				"railways.mp3",
+				"itmightwork.mp3",
+				"forever.mp3",
+				"alrighttofeelafraid.mp3",
+				"ghosts.mp3",
+				"tumbleslullaby.mp3",
+				"procrastinating.mp3",
+				"nexttoyou.mp3",
+			];
+			var kiesLied = Math.floor(Math.random() * liedjes.length);
+			var audio = new Audio("../sounds/" + liedjes[kiesLied]);
+			playIndex = 0;
+			var muziek = false;
+
+			/**============================================
+			 *               Driving
+			 *=============================================**/
+			// Function to toggle driving state
+			function toggleDriving(e) {
+				if (e.keyCode == 32) {
+					// Spacebar key
+					if (driving) {
+						road.style.animationPlayState = "paused";
+						car.style.animationPlayState = "paused";
+						driving = false;
+						drivingAudio.pause();
+					} else {
+						if (road.style.animationPlayState == "paused") {
+							road.style.animationPlayState = "running";
+							car.style.animationPlayState = "running";
+						} else {
+							road.classList.add("drivingroad");
+							car.classList.add("drivingcar");
+						}
+						drivingAudio.play();
+						driving = true;
+					}
+				}
+			}
+
+			/**============================================
+			 *               Environments
+			 *=============================================**/
+
+			allEnvironments.forEach((env) => {
+				env.addEventListener("change", () => {
+					console.log(env.value);
+					let backgroundEnv = environments[env.value];
+					let roadEnv = roads[env.value];
+
+					background.style.backgroundImage = `url("../images/lofidriver/${backgroundEnv}")`;
+					road.style.backgroundImage = `url("../images/lofidriver/${roadEnv}")`;
+				});
+			});
+
+			rainBtn.addEventListener("change", () => {
+				const rainContainer = document.querySelector("#rain");
+
+				if (rainBtn.checked) {
+					// When the checkbox is checked, start raining
+					rain = true;
+					rainContainer.classList.add("rain");
+					rainAudio.play();
+				} else {
+					// When the checkbox is unchecked, stop raining
+					rain = false;
+					rainContainer.classList.remove("rain");
+					rainAudio.pause();
+				}
+			});
+
+			birdBtn.addEventListener("change", () => {
+				if (birdBtn.checked) {
+					// When the checkbox is checked, start raining
+					birds = true;
+					birdAudio.play();
+				} else {
+					// When the checkbox is unchecked, stop raining
+					birds = false;
+					birdAudio.pause();
+				}
+			});
+
+			/**============================================
+			 *               MUSIC
+			 *=============================================**/
+
+			function radioOn() {
+				// muziek speelt en pauzeert en gebruiker ontvangt feedback hierover door de animatie van de radio
+				if (muziek == false) {
+					audio.play();
+					playIcon.textContent = "pause";
+					muziek = true;
+				} else {
+					audio.pause();
+					playIcon.textContent = "play_arrow";
+					muziek = false;
+				}
+			}
+
+			function nextSong() {
+				audio.currentTime = 0;
+				if (playIndex < liedjes.length) {
+					playIndex++;
+					audio.src = "../sounds/" + liedjes[playIndex];
+					audio.load();
+				}
+				if (playIndex > 9) {
+					playIndex = 0;
+					audio.src = "../sounds/" + liedjes[playIndex];
+					audio.load();
+				}
+				audio.play().catch((e) => {
+					// error-handling, zorgt dat er geen problemen ontstaan door de opeenvolgende 'audio.load' actions
+					if (e.code === DOMException.ABORT_ERR) {
+						return;
+					}
+					throw e;
+				});
+			}
+
+			/**============================================
+			 *               Cars
+			 *=============================================**/
+
+			allCars.forEach((car) => {
+				car.addEventListener("change", () => {
+					console.log(car.value);
+					let carSrc = cars[car.value];
+
+					carImg.src = `../images/lofidriver/${carSrc}`;
+				});
+			});
+
+			/**============================================
+			 *               Event listeners
+			 *=============================================**/
+
+			// on keydown
+			document.addEventListener("keydown", toggleDriving);
+			playMusicBtn.addEventListener("click", radioOn);
+			nextSongBtn.addEventListener("click", nextSong);
+		</script>
+	</body>
+</html>

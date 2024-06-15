@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include ('../partials/head.ejs'); %>
+		<link rel="stylesheet" href="/styles/memory.css" />
+	</head>
+
+	<body>
+		<%- include ('../partials/loader.ejs') %>
+
+		<main class="memory">
+			<div>
+				<a href="/arcade"
+					><span class="material-symbols-outlined">arrow_back_ios</span></a
+				>
+				<h1>Memory</h1>
+			</div>
+			<section class="memory-content">
+				<div class="game-container">
+					<div class="memory-game"></div>
+				</div>
+
+				<button class="howtotrigger" aria-label="Open how-to window">
+					<span class="material-symbols-outlined">question_mark</span>
+				</button>
+
+				<section class="howtoplay">
+					<div>
+						<h2>How to Play</h2>
+						<p>
+							Pick two cards to turn. If they have a matching name, the name in
+							question will be added to 'Your Matches', along with their
+							description and a link! If not, the cards turn back and you get to
+							try again. Can you get all 8 matches?
+						</p>
+						<button class="closetutorial" aria-label="Close how-to window">
+							Got it!
+						</button>
+					</div>
+				</section>
+			</section>
+
+			<div class="memory-matches">
+				<h2>Your matches:</h2>
+				<ul></ul>
+			</div>
+		</main>
+
+		<script>
+			const howToButton = document.querySelector(".howtotrigger");
+			const howToWindow = document.querySelector(".howtoplay");
+			const closeHowTo = document.querySelector(".closetutorial");
+
+			if (howToButton) {
+				howToButton.addEventListener("click", () => {
+					howToWindow.classList.add("activeHowTo");
+				});
+
+				closeHowTo.addEventListener("click", () => {
+					howToWindow.classList.remove("activeHowTo");
+				})
+			};
+
+			document.addEventListener("DOMContentLoaded", () => {
+			    const blogData = <%- memoryCards %>;
+				const cardsArray = blogData.map((data) => ({
+					name: data.name,
+					img: `../images/${data.image}`,
+					link: `/posts/${data.lecturerUrl}`,
+			        descr: data.description
+				}));
+
+				const game = document.querySelector(".memory-game");
+				let hasFlippedCard = false;
+				let lockBoard = false;
+				let firstCard, secondCard;
+
+				// Shuffle cards
+				cardsArray.sort(() => 0.5 - Math.random());
+
+				// Create card elements
+				cardsArray.forEach((card) => {
+					const memoryCard = document.createElement("div");
+					memoryCard.classList.add("memory-card");
+					memoryCard.dataset.name = card.name;
+					memoryCard.dataset.link = card.link;
+			        memoryCard.dataset.img = card.img;
+			        memoryCard.dataset.descr = card.descr;
+
+					const frontFace = document.createElement("div");
+					frontFace.classList.add("front");
+
+					const backFace = document.createElement("div");
+					backFace.classList.add("back");
+					backFace.style.backgroundImage = `url(${card.img})`;
+
+					const blogTitle = document.createElement("h3");
+					blogTitle.textContent = card.name;
+
+					backFace.appendChild(blogTitle);
+
+					memoryCard.appendChild(frontFace);
+					memoryCard.appendChild(backFace);
+
+					memoryCard.addEventListener("click", flipCard);
+
+					game.appendChild(memoryCard);
+				});
+
+				function flipCard() {
+					if (lockBoard) return;
+					if (this === firstCard) return;
+
+					this.classList.add("flip");
+
+					if (!hasFlippedCard) {
+						hasFlippedCard = true;
+						firstCard = this;
+						return;
+					}
+
+					secondCard = this;
+					checkForMatch();
+				}
+
+				function checkForMatch() {
+					if (firstCard.dataset.name === secondCard.dataset.name) {
+						disableCards();
+					} else {
+						unflipCards();
+					}
+				}
+
+				function disableCards() {
+					firstCard.removeEventListener("click", flipCard);
+					secondCard.removeEventListener("click", flipCard);
+
+					// Show popup
+					addToList(firstCard.dataset.name, firstCard.dataset.img, firstCard.dataset.link, firstCard.dataset.descr);
+
+					resetBoard();
+				}
+
+				function unflipCards() {
+					lockBoard = true;
+
+					setTimeout(() => {
+						firstCard.classList.remove("flip");
+						secondCard.classList.remove("flip");
+
+						resetBoard();
+					}, 1500);
+				}
+
+				function resetBoard() {
+					[hasFlippedCard, lockBoard] = [false, false];
+					[firstCard, secondCard] = [null, null];
+				}
+
+				function addToList(name, img, link, descr) {
+					const memoryList = document.querySelector(".memory-matches ul")
+					const blogMatch = document.createElement("a");
+			                 const blogMatchContent = document.createElement("li");
+			                 const blogMatchImage = document.createElement("div");
+			                 const blogMatchTitle = document.createElement("h3");
+			                 const blogMatchDescription = document.createElement("p");
+			                 const container = document.createElement("div");
+
+			                 blogMatch.classList.add("new-match");
+							 blogMatch.href = link;
+
+			                 blogMatchImage.style.backgroundImage = `url("${img}")`;
+			                 blogMatchTitle.textContent = name;
+			                 blogMatchDescription.textContent = descr;
+
+
+
+			                 container.appendChild(blogMatchTitle);
+			                 container.appendChild(blogMatchDescription);
+
+			                 blogMatchContent.appendChild(blogMatchImage);
+			                 blogMatchContent.appendChild(container);
+
+			                 blogMatch.appendChild(blogMatchContent);
+			                 memoryList.appendChild(blogMatch);
+				}
+			});
+		</script>
+		<script src="/scripts/darkmode.js"></script>
+	</body>
+</html>

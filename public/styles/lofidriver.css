@@ -1,0 +1,393 @@
+@font-face {
+    font-family: CustomFont;
+    src: url("../../fonts/DrukWideBold.ttf");
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: var(--color-bg);
+    overflow-y: hidden;
+}
+
+p {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: small;
+    text-shadow: 1px 2px rgba(255, 255, 255, 0.145);
+}
+
+main.lofidriver {
+    display: flex;
+    align-items: center;
+    gap: 0;
+
+    height: 100%;
+    width: 100%;
+    padding: 2vh 5vw;
+}
+
+/* GEPOSITIONEERDE ELEMENTEN */
+
+#playspace {
+    height: 90%;
+    width: 70%;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    background-image: url('../images/lofidriver/sunsethills.png');
+    background-size: cover;
+    position: relative;
+    box-shadow: 1px 2px 6px rgba(var(--color-shadowrgb), 0.8);
+    overflow: hidden;
+
+    #road {
+        height: 741px;
+        min-width: calc(3 * 70vw);
+        background-image: url('../images/lofidriver/sunsettrees.png');
+        background-repeat: repeat-x;
+        background-size: 70vw;
+        background-position: bottom right;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    #car {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translate(-50%, -1px);
+
+        img {
+            height: 140px;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    
+    #rain {
+        width: 100%; 
+        height: 100%;
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        background-image: url("../images/lofidriver/rain.png"); 
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+#playmenu {
+    height: 90%;
+    flex-grow: 1;
+    padding: 1em;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    box-shadow: 1px 0px 6px rgba(var(--color-shadowrgb), 0.8);
+    background-color: rgba(var(--color-shadowrgb), 0.6);
+    position: relative;
+
+    h2 {
+        text-align: left;
+        font-style: normal;
+        font-weight: 200;
+        font-size: 1.25em;
+        color: var(--color-headings);
+        margin-bottom: .5em;
+
+        &:not(:first-of-type) {
+            margin-top: 1em;
+        }
+
+        &:has(+ .cars) {
+            margin-bottom: 35px;
+        }
+
+        &:last-of-type {
+            margin-top: .5em;
+        }
+    }
+
+    > div {
+        display: flex;
+        gap: 10px;
+
+        label {
+            display: block;
+            max-width: max-content;
+            border: none;
+            background-color: transparent;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+
+            input[type=radio] {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+            }
+
+            img {
+                max-height: 60px;
+                width: 100%;
+                border-radius: 16px;
+                margin-bottom: -10px;
+                box-shadow: 0 2px 2px rgba(var(--color-shadowrgb), 0.6);
+            }
+
+            > div {
+                background-color: var(--color-whites);
+                border-radius: 16px;
+                padding: 1em;
+                
+                h3 {
+                    margin: 0;
+                    margin-top: 5px;
+                    font-weight: 200;
+                    font-size: 1em;
+                    font-style: normal;
+                    color: var(--color-headings);
+                }
+
+                p {
+                    max-width: 100px;
+                    font-size: .8em;
+                    font-family: "Work Sans", sans-serif;
+                    font-weight: 200;
+                    color: var(--color-headings);
+                    margin: 0;
+                    margin-top: 10px;
+                    text-align: left;
+                }
+            }
+
+            span {
+                position: absolute;
+                display: flex;
+                height: 35px;
+                width: 35px;
+                border-radius: 50%;
+                border: 1px solid var(--color-accents);
+                color: var(--color-headings);
+                background-color: var(--color-bg);
+                box-shadow: 0 2px 2px rgba(var(--color-shadowrgb), 0.6);
+                align-items: center;
+                justify-content: center;
+                right: 5px;
+                top: 40px;
+            }
+
+            &:has(input:checked) {
+                h3 {
+                    font-weight: 800;
+                    font-style: italic;
+                }
+
+                span {
+                    background-color: var(--color-darkaccents);
+                    color: var(--color-standardblack);
+                }
+            }
+        }
+    }
+
+    .cars {
+        gap: 30px;
+
+        label {
+            background-color: var(--color-whites);
+            border-radius: 16px;
+
+            img {
+                min-height: 60px;
+                max-height: 80px;
+                box-shadow: none;
+                margin-top: -40px;
+                margin-right: -30px;
+            }
+
+            > div {
+                h3 {
+                    margin-top: 0;
+                    text-align: left;
+                }
+            }
+
+            span {
+                top: 35px;
+            }
+        }
+    }
+
+    .enhancers {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        
+        label {
+            background-color: var(--color-whites);
+            border-radius: 16px;
+            max-width: 200px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            img {
+                height: 45px;
+                width: 45px;
+                border-radius: 8px;
+                box-shadow: none;
+                margin-bottom: 0;
+            }
+
+            > div {
+                width: 100%;
+                padding: .5em;
+
+                h3 {
+                    text-align: left;
+                }
+
+                p {
+                    max-width: 100%;
+                    margin-top: 0;
+                    line-height: 1.2;
+                }
+            }
+
+            span {
+                position: relative;
+                top: 0;
+                min-width: 35px;
+            }
+        }
+    }
+
+    .music {
+        display: flex;
+        height: 100px;
+        max-width: 100%;
+
+        > div {
+            max-width: max-content;
+
+            img {
+                height: 100%;
+            }
+
+            h2, h3 {
+                margin: 0;
+                font-size: 1em;
+            }
+
+            h3 {
+                margin: .5em 0;
+            }
+
+            .music-controls {
+                max-height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+
+                button {
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    border-radius: 16px;
+
+                    span {
+                        font-size: 2em;
+                    }
+
+                    &:hover {
+                        background-color: var(--color-darkaccents);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* TOEGESCHREVEN ANIMATIES */
+
+.drivingroad {
+    animation: slide 4s linear infinite;
+}
+
+.drivingcar {
+    animation: rijden 1s linear infinite;
+}
+
+.rain {
+    animation: rain .2s linear infinite; 
+    opacity: .8 !important;
+}
+
+/* De animatie van de weg */
+@keyframes slide {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(calc(-70vw), 0, 0);
+    }
+} 
+
+/* De animatie van de auto */
+@keyframes rijden {
+    100% {
+        transform: translate(-50%, -1px);
+    }
+    50% {
+        transform: translate(-50%, 2px);
+    }
+    0% {
+        transform: translate(-50%, -1px);
+    }
+}
+
+/* De bewegende radio */
+@keyframes muziekAan {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+} 
+
+/* De vallende regen */
+@keyframes rain { 
+    0% { 
+        background-position: 0 0;
+    } 
+
+    100% { 
+        background-position: 10% 100%;
+    } 
+}
+
+.pauzeerauto, .pauzeerweg {
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+}
