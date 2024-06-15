@@ -7,7 +7,7 @@ body {
     margin: 0;
     width: 100vw;
     height: 100vh;
-    background-image: var(--color-bg);
+    background-color: var(--color-bg);
     overflow-y: hidden;
 }
 
@@ -199,6 +199,7 @@ main.lofidriver {
 
     .cars {
         gap: 30px;
+        cursor: pointer;
 
         label {
             background-color: var(--color-whites);
@@ -276,27 +277,31 @@ main.lofidriver {
         max-width: 100%;
 
         > div {
-            max-width: max-content;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
 
             img {
                 height: 100%;
             }
 
-            h2, h3 {
+            h2 {
                 margin: 0;
                 font-size: 1em;
             }
 
             h3 {
                 margin: .5em 0;
+                font-size: .8em;
+                margin-bottom: auto;
             }
 
             .music-controls {
                 max-height: 100%;
                 width: 100%;
                 display: flex;
-                justify-content: space-evenly;
                 align-items: center;
+                margin-top: auto;
 
                 button {
                     background-color: transparent;
@@ -306,6 +311,7 @@ main.lofidriver {
 
                     span {
                         font-size: 2em;
+                        color: var(--color-headings);
                     }
 
                     &:hover {
@@ -314,6 +320,69 @@ main.lofidriver {
                 }
             }
         }
+    }
+}
+
+main > div:first-of-type {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 9999;
+    background-color: var(--color-bg);
+    padding: 0 2em 0 0;
+    border-bottom-right-radius: var(--border-radius);
+    width: max-content;
+
+    h1 {
+        min-width: max-content;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--color-headings);
+        font-size: 3em;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        transition: all .3s ease-in-out;
+
+        &::hover {
+            background-color: var(--color-accents);
+            color: var(--color-standardblack);
+            text-decoration: none !important;
+        }
+    }
+
+    &::before {
+        display: block;
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 40px;
+        left: 8.75%;
+        top: 100%;
+        background-color: transparent;
+        border-top-left-radius: 8px;
+        box-shadow: -5px -5px 0 var(--color-bg);
+    }
+
+    &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 40px;
+        left: 100%;
+        top: 40%;
+        background-color: transparent;
+        border-top-left-radius: 8px;
+        box-shadow: -5px -5px 0 var(--color-bg);
     }
 }
 
