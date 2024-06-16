@@ -6,6 +6,7 @@
 	</head>
 
 	<body>
+		<%- include ('../../partials/loader.ejs') %>
 		<main class="lofidriver">
 			<div>
 				<a href="/arcade"
@@ -163,9 +164,39 @@
 				<h2>Sorry, Lofi Driver is currently only available on desktop!</h2>
 				<a href="/arcade">Go back to the arcade</a>
 			</div>
+
+			<button class="howtotrigger" aria-label="Open how-to window">
+				<span class="material-symbols-outlined">question_mark</span>
+			</button>
+
+			<section class="howtoplay">
+				<div>
+					<h2>How to Play</h2>
+					<p>Welcome to the drive of your life. Click on the car to start driving and modify your journey via the menu on the side. All functionalities were built by Brianne with vanilla JS and CSS.</p>
+					<button class="closetutorial" aria-label="Close how-to window">
+						Got it!
+					</button>
+				</div>
+			</section>
 		</main>
 
 		<script src="/scripts/darkmode.js"></script>
+		<script src="/scripts/loader.js" type="module"></script>
 		<script src="/scripts/lofidriver.js"></script>
+		<script>
+			const howToButton = document.querySelector(".howtotrigger");
+			const howToWindow = document.querySelector(".howtoplay");
+			const closeHowTo = document.querySelector(".closetutorial");
+
+			if (howToButton) {
+				howToButton.addEventListener("click", () => {
+					howToWindow.classList.add("activeHowTo");
+				});
+
+				closeHowTo.addEventListener("click", () => {
+					howToWindow.classList.remove("activeHowTo");
+				});
+			}
+		</script>
 	</body>
 </html>
