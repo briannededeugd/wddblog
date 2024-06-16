@@ -1,8 +1,3 @@
-@font-face {
-    font-family: CustomFont;
-    src: url("../../fonts/DrukWideBold.ttf");
-}
-
 body {
     margin: 0;
     width: 100vw;
@@ -27,6 +22,10 @@ main.lofidriver {
     height: 100%;
     width: 100%;
     padding: 2vh 5vw;
+}
+
+h1 {
+    margin: 0;
 }
 
 h2 {
@@ -342,7 +341,7 @@ main > div:first-of-type {
     gap: 20px;
     z-index: 7000;
     background-color: var(--color-bg);
-    padding: 0 2em 0 0;
+    padding: 0 2em 1em 0;
     border-bottom-right-radius: var(--border-radius);
     width: max-content;
 
@@ -350,7 +349,7 @@ main > div:first-of-type {
         min-width: max-content;
     }
 
-    a {
+    > a {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -361,8 +360,10 @@ main > div:first-of-type {
         width: 50px;
         border-radius: 50%;
         transition: all .3s ease-in-out;
+    }
 
-        &::hover {
+    &:hover {
+        > a {
             background-color: var(--color-accents);
             color: var(--color-standardblack);
             text-decoration: none !important;

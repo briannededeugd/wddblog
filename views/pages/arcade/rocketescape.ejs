@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include ('../../partials/head.ejs'); %>
+		<link rel="stylesheet" href="/styles/rocketescape.css" />
+	</head>
+
+	<body>
+		<%- include ('../../partials/loader.ejs') %>
+		<main class="rocketescape">
+			<div>
+				<a href="/arcade"
+					><span class="material-symbols-outlined">arrow_back_ios</span></a
+				>
+				<h1>Rocket Escape</h1>
+			</div>
+
+			<section id="playwindow">
+				<div class="clouds">
+					<span class="cloud"></span>
+					<span class="cloud"></span>
+					<span class="cloud"></span>
+					<span class="cloud"></span>
+					<span class="cloud"></span>
+					<span class="cloud"></span>
+					<span class="cloud"></span>
+					<span class="cloud"></span>
+				</div>
+			</section>
+
+			<button class="howtotrigger" aria-label="Open how-to window">
+				<span class="material-symbols-outlined">question_mark</span>
+			</button>
+
+			<section class="howtoplay">
+				<div>
+					<h2>How to Play</h2>
+					<p>
+						Welcome to the drive of your life. Click on the car to start driving
+						and modify your journey via the menu on the side. All
+						functionalities were built by Brianne with vanilla JS and CSS.
+					</p>
+					<button class="closetutorial" aria-label="Close how-to window">
+						Got it!
+					</button>
+				</div>
+			</section>
+		</main>
+
+		<script src="/scripts/darkmode.js"></script>
+		<script src="/scripts/loader.js" type="module"></script>
+		<script>
+			const howToButton = document.querySelector(".howtotrigger");
+			const howToWindow = document.querySelector(".howtoplay");
+			const closeHowTo = document.querySelector(".closetutorial");
+
+			if (howToButton) {
+				howToButton.addEventListener("click", () => {
+					howToWindow.classList.add("activeHowTo");
+				});
+
+				closeHowTo.addEventListener("click", () => {
+					howToWindow.classList.remove("activeHowTo");
+				});
+			}
+
+			document.addEventListener("DOMContentLoaded", function () {
+				const playwindow = document.getElementById("playwindow");
+				let bulletSpeed = 6; // Starting speed in seconds
+				let bulletInterval = 2000; // Starting interval in milliseconds
+				let bulletsPerInterval = 1; // Starting with one bullet per interval
+				const maxBulletsPerInterval = 5; // Maximum bullets per interval
+
+				function createBullet() {
+					for (let i = 0; i < bulletsPerInterval; i++) {
+						const bullet = document.createElement("div");
+						bullet.classList.add("bullet");
+
+						// Randomize the starting position
+						const randomTop = Math.random() * (playwindow.clientHeight - 130); // Ensure it stays within the playwindow height
+
+						bullet.style.top = `${randomTop}px`;
+						bullet.style.left = `${playwindow.clientWidth}px`; // Start off screen to the right
+
+						// Set animation duration and delay based on bulletSpeed
+						bullet.style.animation = `bulletMove ${bulletSpeed}s linear`;
+						bullet.style.animationDelay = `${Math.random() * 2}s`; // Random delay up to 2 seconds
+
+						playwindow.appendChild(bullet);
+
+						// Remove bullet after it goes off screen
+						bullet.addEventListener("animationend", () => {
+							bullet.remove();
+						});
+					}
+				}
+
+				function increaseDifficulty() {
+					bulletSpeed = Math.max(1, bulletSpeed - 0.1); // Increase speed up to a minimum of 1s
+					bulletInterval = Math.max(200, bulletInterval - 100); // Increase bullet frequency up to a minimum of 200ms
+					bulletsPerInterval = Math.min(
+						maxBulletsPerInterval,
+						bulletsPerInterval + 1
+					); // Increase bullets per interval up to a maximum
+				}
+
+				// Create bullets at intervals
+				setInterval(() => {
+					createBullet();
+					increaseDifficulty();
+				}, bulletInterval);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,201 @@
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-bg);
+    overflow-y: hidden;
+
+    /* cursor: url('../images/rocketescape/littlebri32x32.png'), auto; */
+}
+
+main.rocketescape {
+    height: 100%;
+    width: 100%;
+    padding: 2vh 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > div:first-of-type {
+        position: absolute;
+        top: 20px;
+        left: 40px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        z-index: 7000;
+        background-color: var(--color-bg);
+        padding: 0 2em 1em 0;
+        border-bottom-right-radius: var(--border-radius);
+        width: max-content;
+
+        h1 {
+            min-width: max-content;
+        }
+
+        > a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-headings);
+            font-size: 3em;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            transition: all .3s ease-in-out;
+        }
+
+        &:hover {
+            > a {
+                background-color: var(--color-accents);
+                color: var(--color-standardblack);
+                text-decoration: none !important;
+            }
+        }
+    }
+}
+
+h1 {
+    margin: 0;
+}
+
+#playwindow {
+    height: 70vh;
+    width: 80vw;
+    background-image: linear-gradient(to top, #f7f7f7, #d1e4f5, #79b3e8, #1a7bbc, #0b5aa4);
+    box-shadow: 5px 5px 5px rgba(var(--color-shadowrgb), 0.4);
+    border-radius: var(--border-radius);
+    position: relative;
+    overflow: hidden;
+    cursor: url('../images/rocketescape/littlebri128x128.png') 64 64, auto;
+
+    &::before {
+        content: "";
+        height: 100%;
+        width: 100%;
+        border-radius: var(--border-radius);
+        z-index: 9990;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #ff0000;
+        cursor: default;
+        display: none;
+    }
+}
+
+.bullet {
+    display: block;
+    height: 130px;
+    width: 130px;
+    position: absolute;
+    top: -50%;
+    right: -150px;
+    background: url('../images/rocketescape/cloud1.png') no-repeat center center / cover;
+}
+
+/* #playwindow:has(.bullet:hover)::before {
+    display: block;
+    
+} */
+ /* MOVE TO JS */
+
+@keyframes bulletMove {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100vw);
+    }
+}
+
+
+
+.howtotrigger {
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        text-align: center;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        border: .5px solid var(--color-headings);
+        background-color: var(--color-bg);
+        color: var(--color-headings);
+        cursor: pointer;
+
+        &:active {
+            background-color: var(--color-darkaccents);
+            color: var(--color-standardblack);
+        }
+
+        &:hover {
+            background-color: var(--color-accents);
+            color: var(--color-standardblack);
+        }
+    }
+
+.howtoplay {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    div {
+        background-color: var(--color-bg);
+        border-radius: var(--border-radius);
+        height: 300px;
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 1em 2em;
+        border: .5px solid var(--color-headings);
+        box-shadow: 0 0 15px rgba(var(--color-shadowrgb), 0.4);
+        
+        h2 {
+            margin-bottom: 0;
+        }
+
+        p {
+            color: var(--color-standardblack);
+            font-family: "Work Sans", sans-serif;
+            font-weight: 300;
+            max-width: 80%;
+            margin: 1em 0;
+        }
+
+        button {
+            background-color: var(--color-bg);
+            color: var(--color-headings);
+            font-family: "Work Sans", sans-serif;
+            font-weight: 300;
+            font-size: 1em;
+            padding: .5em 1em;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-headings);
+            transition: all .3s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--color-standardblack);
+                background-color: var(--color-accents);
+            }
+        }
+    }
+}
+
+.howtoplay.activeHowTo {
+    display: block;
+}

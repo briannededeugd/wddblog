@@ -395,7 +395,7 @@ app.get("/arcade", (req, res) => {
 });
 
 /**-----------------------
- *        Memory
+ *        Games
  *---------------------**/
 app.get("/arcade/memory", (req, res) => {
 	const metadataDir = path.join(__dirname, "metadata");
@@ -431,6 +431,14 @@ app.get("/arcade/lofidriver", (req, res) => {
 	res.render("pages/arcade/lofidriver");
 });
 
+app.get("/arcade/rocketescape", (req, res) => {
+	res.render("pages/arcade/rocketescape");
+});
+
+
+/**----------------------
+ *    Functions
+ *------------------------**/
 // Function to select random blogs
 function getRandomBlogs(blogMetadata, num) {
 	const randomIndexes = [];
