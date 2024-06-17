@@ -26,6 +26,17 @@
 					<span class="cloud"></span>
 					<span class="cloud"></span>
 				</div>
+				<div class="gameover">
+					<h2>Game Over!</h2>
+					<div>
+						<img src="../images/rocketescape/littlebri128x128.png" alt="" />
+						<p>
+							Oof, I was hit by a bird... or was it a plane? It all went too
+							fast. Either way, I'm now dead. Thanks.
+						</p>
+					</div>
+					<button id="playagain">Play again</button>
+				</div>
 			</section>
 
 			<button class="howtotrigger" aria-label="Open how-to window">
@@ -92,6 +103,17 @@
 						bullet.addEventListener("animationend", () => {
 							bullet.remove();
 						});
+
+						// Add event listener for game over
+						bullet.addEventListener("mouseover", () => {
+							bullet.classList.remove("bullet"); // Remove class from individual bullet
+							const gameoverWindow = document.querySelector(".gameover");
+							gameoverWindow.classList.add("gameisover");
+							console.log("dead");
+
+							// Optionally stop the game logic
+							clearInterval(bulletCreationInterval);
+						});
 					}
 				}
 
@@ -104,11 +126,27 @@
 					); // Increase bullets per interval up to a maximum
 				}
 
-				// Create bullets at intervals
-				setInterval(() => {
+				// Create bullets at intervals and store interval ID
+				const bulletCreationInterval = setInterval(() => {
 					createBullet();
 					increaseDifficulty();
 				}, bulletInterval);
+
+				function gameOver() {
+					const bullets = document.querySelectorAll(".bullet");
+					const gameoverWindow = document.querySelector(".gameover");
+
+					bullets.forEach((bullet) => {
+						bullet.addEventListener("mouseover", () => {
+							bullets.classList.remove("bullet");
+							gameoverWindow.classList.add("gameisover");
+
+							console.log("dead");
+						});
+					});
+				}
+
+				gameOver();
 			});
 		</script>
 	</body>

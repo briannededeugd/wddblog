@@ -95,10 +95,45 @@ h1 {
     background: url('../images/rocketescape/cloud1.png') no-repeat center center / cover;
 }
 
-/* #playwindow:has(.bullet:hover)::before {
-    display: block;
-    
-} */
+.gameover {
+    visibility: hidden;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: var(--border-radius);
+    background-color: var(--color-bg);
+    color: var(--color-headings);
+    cursor: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    h2 {
+        margin: 0;
+        font-style: normal;
+        font-size: 2em;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        p {
+            max-width: 300px;
+            padding: 1em;
+            border: 1px solid var(--color-headings);
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+    }
+}
+
+.gameover.gameisover {
+    visibility: visible;
+}
  /* MOVE TO JS */
 
 @keyframes bulletMove {
