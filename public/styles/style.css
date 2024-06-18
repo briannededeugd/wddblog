@@ -1342,6 +1342,7 @@ svg {
     
         > div {
             background-color: transparent;
+            background-size: cover;
             border: none;
             cursor: pointer;
             border-radius: var(--border-radius);
@@ -3758,6 +3759,14 @@ p#metadata {
                 li {
                     &::before {
                         content: "04";
+                    }
+                }
+            }
+
+            &:nth-of-type(5) {
+                li {
+                    &::before {
+                        content: "05";
                     }
                 }
             }
