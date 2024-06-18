@@ -8,7 +8,7 @@ An example of declarative programming is _SQL_. Behind the scenes, the computer 
 
 ## Declarative vs imperative
 
-Translating this analogy to the world wide web, we'll how various web technologies embody these contrasting philosophies. HTML and CSS are examples of declarative languages, defining the structure and style of web documents. In HTML, elements such as **div** and **button** provide semantic meaning, while CSS rules specify visual presentation. CSS can feel imperative because you're customizing elements yourself, but all of these customizations are mere suggestions. The web has its own styles and rules.
+Translating this analogy to the world wide web, we'll see how various web technologies embody these contrasting philosophies. HTML and CSS are examples of declarative languages, defining the structure and style of web documents. In HTML, elements such as **div** and **button** provide semantic meaning, while CSS rules specify visual presentation. CSS can feel imperative because you're customizing elements yourself, but all of these customizations are mere suggestions. The web has its own styles and rules.
 
 JavaScript (JS), however, adopts an imperative approach, which allows developers to dictate precise sequences of actions for the browser to execute. Unlike HTML and CSS, which delegate some control to the browser, JS commands offer more precise manipulation of web elements and behavior. Which brings Jeremy to a very important characteristic of declarative languages: its error-handling is top-tier, because it just skips over mistakes you make. In JS, if you make a mistake, the browser stops parsing. This means that yes, there's more restrain to what you can do, but it's easy to learn and more forgiving.
 
@@ -18,9 +18,11 @@ In imperative programming, developers wield significant control over the executi
 
 In web development, JavaScript's imperative nature grants developers unparalleled power but also imposes strict constraints. Mistakes can disrupt the browsing experience, leading to abrupt termination or unexpected behavior.
 
-Adopting a declarative mindset challenges traditional notions of control and precision. Consider the humble button component: in an imperative workflow, developers might create a **div** element and attach functionality through JS. However, embracing HTML's native **button** element aligns with the ethos of declarative design, leveraging built-in browser features and error handling. In this case, it's a *good* thing to not use JavaScript. Jeremy says, "JavaScript should only do what JavaScript can do."
+Adopting a declarative mindset challenges traditional notions of control and precision. Consider the humble button component: in an imperative workflow, developers might create a **div** element and attach functionality through JS. However, embracing HTML's native **button** element aligns with the ethos of declarative design, leveraging built-in browser features and error handling. In this case, it's a *good* thing to not use JavaScript. Jeremy says,
 
-CSS further reinforces this shift, especially with units like rem and vw. By relinquishing pixel-perfect control in favor of responsive, user-centric design principles, developers engage in a dialogue with the browser rather than dictating every aspect. rem for example is dependent on the user-set font-size.
+>JavaScript should only do what JavaScript can do.
+
+CSS further reinforces this shift, especially with units like rem and vw. By relinquishing pixel-perfect control in favor of responsive, user-centric design principles, developers engage in a dialogue with the browser rather than dictating every aspect. **rem**, for example, is dependent on the user-set font-size.
 
 ```css
 .example {
