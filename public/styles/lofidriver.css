@@ -457,7 +457,7 @@ main > div:first-of-type {
         }
 
         p {
-            color: var(--color-standardblack);
+            color: var(--color-headings);
             font-family: "Work Sans", sans-serif;
             font-weight: 300;
             max-width: 80%;

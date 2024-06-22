@@ -12,22 +12,13 @@
 				<a href="/arcade"
 					><span class="material-symbols-outlined">arrow_back_ios</span></a
 				>
-				<h1>Rocket Escape</h1>
+				<h1>Bri&#8217s Flight Frenzy</h1>
 			</div>
 
 			<section id="playwindow">
-				<div class="clouds">
-					<span class="cloud"></span>
-					<span class="cloud"></span>
-					<span class="cloud"></span>
-					<span class="cloud"></span>
-					<span class="cloud"></span>
-					<span class="cloud"></span>
-					<span class="cloud"></span>
-					<span class="cloud"></span>
-				</div>
+				<div class="clouds"></div>
 				<div class="gameover">
-					<h2>Game Over!</h2>
+					<h2>Game Over! <span aria-hidden="true">:(</span></h2>
 					<div>
 						<img src="../images/rocketescape/littlebri128x128.png" alt="" />
 						<p>
@@ -47,9 +38,10 @@
 				<div>
 					<h2>How to Play</h2>
 					<p>
-						Welcome to the drive of your life. Click on the car to start driving
-						and modify your journey via the menu on the side. All
-						functionalities were built by Brianne with vanilla JS and CSS.
+						Something amazing has happened: Bri has grown wings and is now
+						learning how to fly! But she keeps getting knocked down by dense
+						clouds, stray airplanes and flocks of birds. How long can you keep
+						her in the air? Move your cursor to move her around the sky.
 					</p>
 					<button class="closetutorial" aria-label="Close how-to window">
 						Got it!
@@ -77,14 +69,29 @@
 
 			document.addEventListener("DOMContentLoaded", function () {
 				const playwindow = document.getElementById("playwindow");
-				let bulletSpeed = 6; // Starting speed in seconds
+				const gameoverWindow = document.querySelector(".gameover");
+				let bullets = document.querySelectorAll(".bullet");
+				let bulletSpeed = 7; // Starting speed in seconds
 				let bulletInterval = 2000; // Starting interval in milliseconds
 				let bulletsPerInterval = 1; // Starting with one bullet per interval
-				const maxBulletsPerInterval = 5; // Maximum bullets per interval
+				const maxBulletsPerInterval = 4; // Maximum bullets per interval
+				let bulletCreationInterval;
+				let isGamePaused = false;
 
 				function createBullet() {
 					for (let i = 0; i < bulletsPerInterval; i++) {
 						const bullet = document.createElement("div");
+						const typeOfBullet = [
+							"cloud",
+							"cloud",
+							"cloud",
+							"plane",
+							"bird",
+							"bird",
+						];
+						let randomBullet = Math.floor(Math.random() * typeOfBullet.length);
+						let randomBulletType = typeOfBullet[randomBullet];
+						bullet.classList.add(`${randomBulletType}`);
 						bullet.classList.add("bullet");
 
 						// Randomize the starting position
@@ -106,15 +113,11 @@
 
 						// Add event listener for game over
 						bullet.addEventListener("mouseover", () => {
-							bullet.classList.remove("bullet"); // Remove class from individual bullet
-							const gameoverWindow = document.querySelector(".gameover");
-							gameoverWindow.classList.add("gameisover");
-							console.log("dead");
-
-							// Optionally stop the game logic
-							clearInterval(bulletCreationInterval);
+							gameOver();
 						});
 					}
+					// Update bullets NodeList
+					bullets = document.querySelectorAll(".bullet");
 				}
 
 				function increaseDifficulty() {
@@ -126,27 +129,74 @@
 					); // Increase bullets per interval up to a maximum
 				}
 
-				// Create bullets at intervals and store interval ID
-				const bulletCreationInterval = setInterval(() => {
-					createBullet();
-					increaseDifficulty();
-				}, bulletInterval);
+				function startGame() {
+					bulletCreationInterval = setInterval(() => {
+						createBullet();
+						increaseDifficulty();
+					}, bulletInterval);
+				}
 
-				function gameOver() {
-					const bullets = document.querySelectorAll(".bullet");
-					const gameoverWindow = document.querySelector(".gameover");
-
+				function pauseGame() {
+					isGamePaused = true;
+					clearInterval(bulletCreationInterval);
 					bullets.forEach((bullet) => {
-						bullet.addEventListener("mouseover", () => {
-							bullets.classList.remove("bullet");
-							gameoverWindow.classList.add("gameisover");
-
-							console.log("dead");
-						});
+						bullet.style.animationPlayState = "paused";
 					});
 				}
 
-				gameOver();
+				function resumeGame() {
+					isGamePaused = false;
+					bullets.forEach((bullet) => {
+						bullet.style.animationPlayState = "running";
+					});
+					startGame();
+				}
+
+				function gameOver() {
+					// Remove all bullets
+					Array.from(bullets).forEach((indvBullet) => {
+						indvBullet.remove();
+					});
+					gameoverWindow.classList.add("gameisover");
+					clearInterval(bulletCreationInterval); // Stop bullet creation
+				}
+
+				const playAgainBtn = document.querySelector("#playagain");
+				playAgainBtn.addEventListener("click", () => {
+					// Reset game variables
+					bulletSpeed = 7; // Starting speed in seconds
+					bulletInterval = 2000; // Starting interval in milliseconds
+					bulletsPerInterval = 1; // Starting with one bullet per interval
+
+					// Remove game over class
+					gameoverWindow.classList.remove("gameisover");
+
+					// Clear any remaining bullets
+					Array.from(document.querySelectorAll(".bullet")).forEach(
+						(indvBullet) => {
+							indvBullet.remove();
+						}
+					);
+
+					// Start game again
+					startGame();
+				});
+
+				// Handle window blur and focus events
+				window.addEventListener("blur", () => {
+					if (!gameoverWindow.classList.contains("gameisover")) {
+						pauseGame();
+					}
+				});
+
+				window.addEventListener("focus", () => {
+					if (isGamePaused) {
+						resumeGame();
+					}
+				});
+
+				// Start the game initially
+				startGame();
 			});
 		</script>
 	</body>

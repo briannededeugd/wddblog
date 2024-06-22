@@ -1,8 +1,41 @@
+.regularcontent {
+    & section {
+        &:nth-of-type(2) {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+
+            & p {
+                border-radius: var(--border-radius);
+                border: .5px solid var(--color-headings);
+                padding: 1em 2em;
+                text-align: center;
+                width: 100%;
+                height: 20%;
+            }
+            & blockquote {
+                width: 100%;
+                height: 80%;
+                border-radius: var(--border-radius);
+                background-image: url("../images/gr-3.jpeg");
+                flex-grow: 1;
+
+                font-size: 4em;
+                margin: 0;
+            }
+        }
+    }
+}
+
 .gamesgrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, 350px);
     grid-column-gap: 25px;
     margin-top: 5vh;
+    padding-top: 3em;
+    border-top: 1px solid var(--color-borders);
 
     .game {
         border-radius: var(--border-radius);
@@ -27,7 +60,7 @@
 
                 h2 {
                     margin: 0;
-                    margin-top: 1em;
+                    margin-top: .5em;
                 }
 
                 p {
@@ -69,6 +102,14 @@
         > div {
             &:first-of-type {
                 background-image: url("../images/lofidriver.png");
+            }
+        }
+    }
+
+    .game.rocketescape {
+        > div {
+            &:first-of-type {
+                background-image: url("../images/flightfrenzy.png");
             }
         }
     }
