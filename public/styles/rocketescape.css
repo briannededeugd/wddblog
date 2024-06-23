@@ -307,6 +307,40 @@ h1 {
     }
 }
 
+.warning {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: var(--color-accents);
+    color: var(--color-standardwhite);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 9999;
+
+    h2 {
+        max-width: 200px;
+    }
+
+    a {
+        padding: .5em 1em;
+        border-radius: var(--border-radius);
+        background-color: var(--color-standardblack);
+        color: var(--color-standardwhite);
+        font-weight: 300;
+        text-decoration: none;
+    }
+}
+
+@media (max-width: 970px) {
+    .warning {
+        display: flex;
+    }
+}
 
 
 .howtotrigger {
