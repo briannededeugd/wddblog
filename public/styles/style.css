@@ -1927,7 +1927,7 @@ input[type=radio] {
                 padding: .5em 1em;
                 padding-right: .5em;
                 background-color: var(--color-bg);
-                color: var(--color-headings);
+                color: var(--color-standardblack) !important;
                 border: none;
                 border-radius: 16px;
                 font-size: 1em;
@@ -2015,7 +2015,11 @@ input[type=radio] {
 .edit-view > .blog-filters > div > label:has(input[type=checkbox]:checked),
 .edit-view > .sort > div > label:has(input[type=checkbox]:checked) {
     background-color: var(--color-accents);
-    color: var(--color-standardblack);
+    color: var(--color-standardblack) !important;
+
+    p {
+        color: var(--color-standardblack) !important;
+    }
 
     + div {
         height: max-content;
@@ -2078,7 +2082,12 @@ input[type=radio] {
 
         &:hover {
             background-color: var(--color-accents);
+            color: var(--color-standardblack);
             border: .5px solid var(--color-accents);
+
+            i {
+                color: var(--color-standardblack);
+            }
         }
     }
 }
