@@ -3284,6 +3284,10 @@ p#metadata {
         font-size: 3em;
     }
 
+    h3 {
+        margin-top: 0;
+    }
+
     h4 {
         font-family: "Playfair Display", serif;
         font-weight: 100;
@@ -3298,7 +3302,7 @@ p#metadata {
         grid-row-gap: 35px;
 
         img {
-            max-width: 150px;
+            max-width: 200px;
             aspect-ratio: 1;
             border-radius: 0 0 var(--border-radius) 0;
 
@@ -5472,7 +5476,7 @@ p#metadata {
 
     .goalsreflect {
         margin-top: 25px;
-        
+
         .reflectionitems {
             display: block;
             margin: 0 15px;
