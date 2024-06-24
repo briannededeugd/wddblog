@@ -3289,6 +3289,7 @@ p#metadata {
     }
 
     h4 {
+        color: var(--color-headings);
         font-family: "Playfair Display", serif;
         font-weight: 100;
         font-style: normal;
